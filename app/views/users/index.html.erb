@@ -1,0 +1,7 @@
+<div id="users" class="container">
+  <% @users.each do |user| %>
+    <div class="col-md-12">
+      <%= link_to "#{user.first_name} #{user.last_name}", user_items_path(user_id: user.id) %>
+    </div>
+  <% end %>
+</div>

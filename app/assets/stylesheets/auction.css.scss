@@ -1,0 +1,33 @@
+[class*="col-"] {
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.item-container {
+  padding: 5px !important;
+  height: 200px;
+  position: relative;
+}
+
+.item-image {
+  overflow: hidden;
+	padding: 0px !important;
+  height: 100%;
+}
+
+.item-content {
+  height: 100%;
+  padding: 0px !important;
+}
+
+.item-bid {
+  height: 70px;
+  position: absolute !important;
+  bottom: 0;
+}
+
+.bid-price {
+  text-align: center;
+}
