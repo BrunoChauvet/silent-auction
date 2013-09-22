@@ -7,7 +7,12 @@ auctionModule.factory('Items', function($resource) {
 auctionModule.controller('AuctionCtrl', function($scope, Items) {
 
   $scope.init = function() {
-    $scope.items = Items.query();
+    var source = new EventSource('/auction');
+    source.onmessage = function(event) {
+      $scope.$apply(function () {
+        $scope.items = JSON.parse(event.data)
+      });
+    };
   };
 
 });
