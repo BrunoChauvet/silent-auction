@@ -25,21 +25,20 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'activerecord'
-gem 'mysql2'
 gem 'foreigner'
 gem 'carrierwave'
 gem 'cloudinary'
 
-group :test, :development, :local do
+group :test, :development do
   gem 'puma'
 
   gem 'rspec'
   gem 'rspec-rails'
 end
 
-group :test do
-  gem 'sqlite3'
-end
+gem 'sqlite3', group: [:test]
+gem 'mysql2', group: [:development]
+gem 'pg', group: [:production]
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
