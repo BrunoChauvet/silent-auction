@@ -36,11 +36,8 @@ group :test, :development do
   gem 'rspec-rails'
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'sqlite3', group: [:test]
 gem 'mysql2', group: [:development]
 gem 'pg', group: [:production]
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
