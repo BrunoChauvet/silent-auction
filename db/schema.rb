@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130921000221) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bids", force: true do |t|
     t.integer  "user_id"
     t.integer  "item_id"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.datetime "updated_at"
   end
 
-  add_index "bids", ["item_id"], name: "index_bids_on_item_id"
-  add_index "bids", ["user_id"], name: "index_bids_on_user_id"
+  add_index "bids", ["item_id"], name: "index_bids_on_item_id", using: :btree
+  add_index "bids", ["user_id"], name: "index_bids_on_user_id", using: :btree
 
   create_table "items", force: true do |t|
     t.string "name"
@@ -41,5 +44,8 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "last_name"
     t.string  "title"
   end
+
+  add_foreign_key "bids", "items", name: "bids_item_id_fk"
+  add_foreign_key "bids", "users", name: "bids_user_id_fk"
 
 end

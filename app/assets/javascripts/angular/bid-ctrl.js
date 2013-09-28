@@ -1,13 +1,13 @@
 var auctionModule = angular.module('auction');
 
-auctionModule.factory('Bids', function($resource) {
+auctionModule.factory('Bids', ['$resource', function($resource) {
   return $resource('/users/:user_id/items/:item_id',{},{
   	show: {method: 'GET'},
   	place_bid: {method: 'POST'}
   });
-});
+}]);
 
-auctionModule.controller('BidsCtrl', function($scope, Bids) {
+auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
 
   $scope.init = function(user_id, item_id) {
   	$scope.user_id = user_id;
@@ -22,7 +22,7 @@ auctionModule.controller('BidsCtrl', function($scope, Bids) {
 
   $scope.add = function(amount) {
     $scope.message = '';
-  	$scope.price = $scope.price + parseInt(amount);
+  	$scope.price = parseInt($scope.price) + parseInt(amount);
   };
 
   $scope.placeBid = function() {
@@ -38,4 +38,4 @@ auctionModule.controller('BidsCtrl', function($scope, Bids) {
     });
   };
 
-});
+}]);
