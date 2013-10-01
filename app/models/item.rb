@@ -8,7 +8,8 @@ class Item < ActiveRecord::Base
       id: id,
       name: name,
       description: description,
-      image: image.url
+      image: image.url,
+      start_price: start_price
     }
   end
 end

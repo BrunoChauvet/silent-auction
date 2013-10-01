@@ -21,7 +21,9 @@ class ItemsController < ApplicationController
   def place_bid
     item = Item.find(params[:id])
     bid = Bid.where(item: item).order('timestamp desc').first
-    if bid.price >= params[:price]
+    if item.start_price >= params[:price]
+      render json: {success: false, message: 'Asked price is to low', price: item.start_price}
+    elsif item.start_price >= params[:price] || bid.price >= params[:price]
       render json: {success: false, message: 'Asked price is to low', price: bid.price}
     else
       user = User.find(params[:user_id])

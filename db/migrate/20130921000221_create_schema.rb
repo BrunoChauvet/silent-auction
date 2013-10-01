@@ -10,12 +10,14 @@ class CreateSchema < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :title
+      t.string :pin
     end
 
     create_table :items do |t|
       t.string :name
       t.string :description
       t.string :image
+      t.decimal :start_price
     end
 
     create_table :bids do |t|
@@ -31,6 +33,7 @@ class CreateSchema < ActiveRecord::Migration
     add_foreign_key(:bids, :items)
     add_index(:bids, :user_id)
     add_index(:bids, :item_id)
+    add_index(:bids, :timestamp)
 
   end
 
@@ -41,5 +44,6 @@ class CreateSchema < ActiveRecord::Migration
     drop_table :bids
     drop_table :users
     drop_table :items
+    drop_table :user_groups
   end
 end
