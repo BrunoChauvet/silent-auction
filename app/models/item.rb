@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
-	has_many :bids
+	belongs_to :category
+  has_many :bids
 
 	mount_uploader :image, ImageUploader
 
@@ -8,6 +9,7 @@ class Item < ActiveRecord::Base
       id: id,
       name: name,
       description: description,
+      code: code,
       image: image.url,
       start_price: start_price
     }

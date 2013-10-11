@@ -13,9 +13,15 @@ class CreateSchema < ActiveRecord::Migration
       t.string :pin
     end
 
+    create_table :categories do |t|
+      t.string :name
+    end
+
     create_table :items do |t|
+      t.belongs_to :category
       t.string :name
       t.string :description
+      t.string :code
       t.string :image
       t.decimal :start_price
     end

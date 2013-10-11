@@ -1,23 +1,13 @@
-# development:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: auction
-#   username: auction
-#   password: auction
-#   host: 192.168.1.6
-#   port: 3306
-#   pool: 100
-#   timeout: 5000
-
 development:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: d6lnf58c4k3i12
-  username: rkbdtatvehyppb
-  password: AAQ1guojZmdjiRrcUEXK-584-M
-  host: ec2-54-221-236-207.compute-1.amazonaws.com
-  port: 5432
+  adapter: mysql2
+  encoding: utf8
+  database: auction
+  username: auction
+  password: auction
+  host: localhost
+  port: 3306
+  pool: 100
+  timeout: 5000
 
 test:
   adapter: sqlite3

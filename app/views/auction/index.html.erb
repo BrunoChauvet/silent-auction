@@ -1,12 +1,13 @@
 <div id="auction" class="container auction" ng-controller="AuctionCtrl" ng-init="init()">
   
-  <div ng-repeat="item in items" class="col-md-6 item-container">
+  <div ng-repeat="item in pageItems" class="col-md-6 item-container">
   	<div class="col-md-3 item-image">
   		<!-- img src="http://placekitten.com/150/150"/ -->
   	</div>
     
   	<div class="col-md-9 item-content">
-	  	<div class="item-name">{{item.item.name}}</div>
+	  	<span class="item-code">{{item.item.code}}</span>
+      <span class="item-name">{{item.item.name}}</span>
 	  	<div class="col-md-12 item-bid">
 		  	<div class="col-md-4 item-price">
           <span ng-show="item.bid.price">${{item.bid.price}}</span>
