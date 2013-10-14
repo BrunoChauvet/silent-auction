@@ -16,15 +16,15 @@ ActiveRecord::Schema.define(version: 20130921000221) do
   create_table "bids", force: true do |t|
     t.integer  "user_id"
     t.integer  "item_id"
-    t.decimal  "price",      precision: 10, scale: 0
+    t.decimal  "price"
     t.datetime "timestamp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "bids", ["item_id"], name: "index_bids_on_item_id", using: :btree
-  add_index "bids", ["timestamp"], name: "index_bids_on_timestamp", using: :btree
-  add_index "bids", ["user_id"], name: "index_bids_on_user_id", using: :btree
+  add_index "bids", ["item_id"], name: "index_bids_on_item_id"
+  add_index "bids", ["timestamp"], name: "index_bids_on_timestamp"
+  add_index "bids", ["user_id"], name: "index_bids_on_user_id"
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "description"
     t.string  "code"
     t.string  "image"
-    t.decimal "start_price", precision: 10, scale: 0
+    t.decimal "start_price"
   end
 
   create_table "user_groups", force: true do |t|
@@ -50,8 +50,5 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "title"
     t.string  "pin"
   end
-
-  add_foreign_key "bids", "items", name: "bids_item_id_fk"
-  add_foreign_key "bids", "users", name: "bids_user_id_fk"
 
 end

@@ -16,7 +16,11 @@ auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
     var last_bid = Bids.show({user_id: user_id, item_id: item_id}, function success(){
     	$scope.user = last_bid.user;
     	$scope.item = last_bid.item;
-    	$scope.price = last_bid.bid.price;
+    	if(last_bid.bid) {
+        $scope.price = last_bid.bid.price;
+      } else {
+        $scope.price = last_bid.item.start_price;
+      }
     });
   };
 

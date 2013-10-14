@@ -1,5 +1,8 @@
 <div id="auction" class="container auction" ng-controller="AuctionCtrl" ng-init="init()">
-  
+  <div class="col-md-12 item-container">
+    <span class="amount-raised">${{amountRaised}}</span>
+  </div>
+
   <div ng-repeat="item in pageItems" class="col-md-6 item-container">
   	<div class="col-md-3 item-image">
   		<!-- img src="http://placekitten.com/150/150"/ -->

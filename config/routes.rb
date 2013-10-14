@@ -3,6 +3,7 @@ SilentAuction::Application.routes.draw do
 
   root 'auction#index'
   get 'auction', to: 'auction#index'
+  get 'amount_raised', to: 'auction#amount_raised'
 
   resources :user_groups, only: [:index] do
     resources :users, only: [:index]

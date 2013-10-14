@@ -16,18 +16,38 @@ describe AuctionController do
     @bid3 = Bid.create(user: @lmoore, item: @item2, price: 220, timestamp: Time.now)
   end
 
-  it "returns the auction page on HTML requests" do
-    get :index, format: :html
+  describe "#index" do
+    it "returns the auction page on HTML requests" do
+      get :index, format: :html
 
-    response.should render_template('auction/index')
+      response.should render_template('auction/index')
+    end
+
+    it "returns the current bids in json format" do
+      get :index, format: :json
+
+      response.body.should eql([
+          {item: @item1, bid: @bid1, user: @jsmith},
+          {item: @item2, bid: @bid3, user: @lmoore},
+          {item: @item3, bid: nil, user: nil}].to_json)
+    end
+
+    it "returns the current bids in json format" do
+      get :index, format: :json
+
+      response.body.should eql([
+          {item: @item1, bid: @bid1, user: @jsmith},
+          {item: @item2, bid: @bid3, user: @lmoore},
+          {item: @item3, bid: nil, user: nil}].to_json)
+    end
   end
 
-  it "returns the current bids in json format" do
-    get :index, format: :json
+  describe "#amount_raised" do
+    it "returns the auction page on HTML requests" do
+      get :amount_raised, format: :json
 
-    response.body.should eql([
-        {item: @item1, bid: @bid1, user: @jsmith},
-        {item: @item2, bid: @bid3, user: @lmoore},
-        {item: @item3, bid: nil, user: nil}].to_json)
+      response.body.should eql({amount_raised: (@bid1.price + @bid3.price)}.to_json)
+    end
   end
+
 end
