@@ -1,8 +1,8 @@
 var auctionModule = angular.module('auction');
 
 auctionModule.factory('Items', ['$resource', function($resource) {
-  return $resource('/auction',{}, {
-    query: {method: 'GET', isArray: true, timeout: 1000}
+  return $resource('/auction.json',{}, {
+    query: {method: 'GET', isArray: true}
   });
 }]);
 
