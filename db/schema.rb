@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string "name"
   end
 
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
   create_table "items", force: true do |t|
     t.integer "category_id"
     t.string  "name"
@@ -39,9 +41,20 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.decimal "start_price", precision: 10, scale: 0
   end
 
+  add_index "items", ["code"], name: "index_items_on_code", unique: true, using: :btree
+
+  create_table "preferences", force: true do |t|
+    t.string "name"
+    t.string "value"
+  end
+
+  add_index "preferences", ["name"], name: "index_preferences_on_name", unique: true, using: :btree
+
   create_table "user_groups", force: true do |t|
     t.string "name"
   end
+
+  add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.integer "user_group_id"

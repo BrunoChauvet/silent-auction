@@ -25,4 +25,11 @@ class AuctionController < ApplicationController
     render json: {amount_raised: amount_raised}
   end
 
+  def time_left
+    end_time_preference = Preference.where(name: 'END_TIME').first
+    end_time = DateTime.strptime(end_time_preference.value, '%Y-%m-%d %H:%M:%S')
+    time_left = ((end_time - DateTime.now) * 24 * 60 * 60).to_i
+    render json: {time_left: time_left}
+  end
+
 end

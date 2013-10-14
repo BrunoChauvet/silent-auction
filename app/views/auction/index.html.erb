@@ -1,6 +1,7 @@
 <div id="auction" class="container auction" ng-controller="AuctionCtrl" ng-init="init()">
   <div class="col-md-12 item-container">
-    <span class="amount-raised">${{amountRaised}}</span>
+    <span id="amount-raised">${{amountRaised}}</span>
+    <span id="time-left">{{timer}}</span>
   </div>
 
   <div ng-repeat="item in pageItems" class="col-md-6 item-container">

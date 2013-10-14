@@ -1,9 +1,17 @@
 class CreateSchema < ActiveRecord::Migration
   def self.up
-    
+    create_table :preferences do |t|
+      t.string :name
+      t.string :value
+    end
+
+    add_index(:preferences, :name, :unique => true)
+
     create_table :user_groups do |t|
       t.string :name
     end
+
+    add_index(:user_groups, :name, :unique => true)
 
     create_table :users do |t|
       t.belongs_to :user_group
@@ -17,6 +25,8 @@ class CreateSchema < ActiveRecord::Migration
       t.string :name
     end
 
+    add_index(:categories, :name, :unique => true)
+
     create_table :items do |t|
       t.belongs_to :category
       t.string :name
@@ -25,6 +35,8 @@ class CreateSchema < ActiveRecord::Migration
       t.string :image
       t.decimal :start_price
     end
+
+    add_index(:items, :code, :unique => true)
 
     create_table :bids do |t|
       t.belongs_to :user
@@ -40,16 +52,5 @@ class CreateSchema < ActiveRecord::Migration
     add_index(:bids, :user_id)
     add_index(:bids, :item_id)
     add_index(:bids, :timestamp)
-
-  end
-
-  def self.down
-    remove_foreign_key(:bids, :users)
-    remove_foreign_key(:bids, :items)
-
-    drop_table :bids
-    drop_table :users
-    drop_table :items
-    drop_table :user_groups
   end
 end

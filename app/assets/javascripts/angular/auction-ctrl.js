@@ -43,6 +43,23 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
       $timeout(refreshAmountRaised, 1000);
     })();
 
+    (function refreshTimer() {
+      $http({method: 'GET', url: '/time_left'}).
+      success(function(data, status, headers, config) {
+        $scope.timeLeft = data.time_left;
+      });
+
+      $timeout(refreshTimer, 60000);
+    })();
+
+    (function tickTimeLeft() {
+      $scope.timeLeft = $scope.timeLeft - 1;
+      duration = moment.duration($scope.timeLeft, 'seconds');
+      $scope.timer = moment(duration.asMilliseconds()).format('hh:mm:ss');
+
+      $timeout(tickTimeLeft, 1000);
+    })();
+
     (function nextPage() {
       $scope.pageNumber = $scope.pageNumber + 1;
       if($scope.pageNumber > ($scope.totalItems / $scope.itemsPerPage)) {

@@ -1,3 +1,7 @@
+# Configuration
+Preference.create(name: 'END_TIME', value: '2013-11-30 22:00:00')
+
+# Data
 table1 = UserGroup.create(name: 'Table 1')
 table2 = UserGroup.create(name: 'Table 2')
 table3 = UserGroup.create(name: 'Table 3')
