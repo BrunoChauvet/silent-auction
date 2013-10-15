@@ -1,0 +1,12 @@
+<div id="public-header" class="container">
+  <div class="row">
+    <div class="col-md-12" style="text-align: center;">
+      <% if user_signed_in? %>
+        <%= link_to(destroy_user_session_path, :class => 'back') do %>
+          <span class="glyphicon glyphicon-remove">Logout</span>
+        <% end %>
+      <% end %>
+      <span class="public-header-title">Gala UFE 2013</span>
+    </div>
+  </div>
+</div>

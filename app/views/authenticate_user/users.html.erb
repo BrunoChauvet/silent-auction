@@ -1,7 +1,13 @@
+<%= render partial: 'common/public_header' %>
+
 <div id="users" class="container">
+  <div class="col-md-12">
+    <a href="<%= select_table_path %>"><span class="glyphicon glyphicon-chevron-left">Back</span></a>
+  </div>
+
   <% @users.each do |user| %>
     <div class="col-md-12">
-      <%= "#{user.title} #{user.first_name} #{user.last_name}" %>
+      <%= link_to "#{user.title} #{user.first_name} #{user.last_name}", user_pin_path(user.id) %>
     </div>
   <% end %>
 </div>

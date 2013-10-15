@@ -1,14 +1,14 @@
 Warden::Strategies.add(:pin_strategy) do 
-  def valid? 
-    # code here to check whether to try and authenticate using this strategy; 
-    return true
-  end 
+  def valid?
+    return params[:pin].present?
+  end
 
-  def authenticate! 
-    # code here for doing authentication; 
-    # if successful, call  
-    success!(resource) # where resource is the whatever you've authenticated, e.g. user;
-    # if fail, call 
-    fail!(message) # where message is the failure message 
-  end 
-end 
+  def authenticate!
+    user = User.find(params[:id])
+    if user.pin == params[:pin]
+      success!(user)
+    else
+      fail!('Invalid Pin')
+    end
+  end
+end

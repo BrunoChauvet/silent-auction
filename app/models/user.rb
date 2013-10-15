@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable
 
   belongs_to :user_group
   has_many :bids
+
+  def encrypted_password
+    return pin
+  end
 
   def as_json(options={})
     {

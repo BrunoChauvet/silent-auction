@@ -226,7 +226,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -238,7 +238,8 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   config.warden do |manager| 
-    manager.default_strategies.unshift :pin_strategy 
+    strategies = manager.default_strategies(:scope => :user)
+    strategies[strategies.index(:database_authenticatable)] = :pin_strategy
   end
 
   # ==> Mountable engine configurations

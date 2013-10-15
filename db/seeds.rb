@@ -6,8 +6,8 @@ table1 = UserGroup.create(name: 'Table 1')
 table2 = UserGroup.create(name: 'Table 2')
 table3 = UserGroup.create(name: 'Table 3')
 
-jsmith = User.create(user_group: table1, title: 'Mr', first_name: 'John', last_name: 'Smith')
-lmoore = User.create(user_group: table1, title: 'Mrs', first_name: 'Lisa', last_name: 'Moore')
+jsmith = User.create(user_group: table1, title: 'Mr', first_name: 'John', last_name: 'Smith', pin: 1234)
+lmoore = User.create(user_group: table1, title: 'Mrs', first_name: 'Lisa', last_name: 'Moore', pin: 1234)
 
 exp = Category.create(name: 'Experiences')
 electronics = Category.create(name: 'Electronics')

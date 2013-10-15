@@ -1,6 +1,4 @@
 SilentAuction::Application.routes.draw do
-  
-  devise_for :users
 
   root 'auction#index'
 
@@ -25,6 +23,11 @@ SilentAuction::Application.routes.draw do
   # Users interface
   get 'authenticate', to: 'authenticate_user#tables', as: 'select_table'
   get 'authenticate/:id', to: 'authenticate_user#users', as: 'select_user'
-  post 'authenticate/:id', to: 'authenticate_user#authenticate', as: 'authenticate'
+  get 'authenticate/:id/pin', to: 'authenticate_user#authenticate', as: 'user_pin'
+  post 'authenticate/:id/pin', to: 'authenticate_user#authenticate'
+
+  resources :bids, only: [:new, :create]
+
+  devise_for :user, :path => '', :path_names => { :sign_in => "authenticate/:id/pin" }
 
 end

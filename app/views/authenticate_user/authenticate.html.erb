@@ -1,0 +1,13 @@
+<%= render partial: 'common/public_header' %>
+
+<div id="authenticate" class="container">
+  <div class="col-md-12 error"><%= flash[:error] %></div>
+  <div class="col-md-12 error"><%= "#{@user.title} #{@user.first_name} #{@user.last_name}" %></div>
+  <div class="col-md-12">
+    <%= form_tag do %>
+      <input type="number" name="pin"></input>
+      <input type="submit" value="Submit"></input>
+    <% end %>
+    
+  </div>
+</div>

@@ -14,7 +14,6 @@
 //= require bootstrap.min
 //= require moment.min
 //= require angular.min
-//= require angular-bootstrap.min
 //= require angular-resource.min
 //= require ui-bootstrap-tpls.min
 //= require angular-initialise

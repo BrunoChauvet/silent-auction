@@ -86,3 +86,18 @@ span.header-title {
   display: block;
   text-align: center;
 }
+
+/* Mobile interface */
+
+span.public-header-title {
+  font-size: 1.2em;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#public-header a.back {
+  display: inline-block;
+  margin-right: 10px;
+  float: left;
+}
