@@ -4,6 +4,7 @@ class AuctionController < ApplicationController
     respond_to do |format|
       format.html {
         redirect_to user_groups_path if browser.ipad?
+        redirect_to select_table_path if browser.mobile?
       }
       format.json {
         auction = []

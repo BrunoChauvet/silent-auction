@@ -28,6 +28,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     aws_cf_signer (0.1.2)
+    bcrypt-ruby (3.1.2)
     browser (0.2.1)
     builder (3.1.4)
     carrierwave (0.9.0)
@@ -44,6 +45,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    devise (3.1.1)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
@@ -65,6 +72,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     mysql2 (0.3.13)
+    orm_adapter (0.4.0)
     pg (0.17.0)
     polyglot (0.3.3)
     puma (2.6.0)
@@ -136,6 +144,8 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -146,6 +156,7 @@ DEPENDENCIES
   carrierwave
   cloudinary
   coffee-rails (~> 4.0.0)
+  devise
   foreigner
   jbuilder (~> 1.2)
   jquery-rails

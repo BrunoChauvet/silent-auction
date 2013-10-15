@@ -1,0 +1,7 @@
+<div id="users" class="container">
+  <% @users.each do |user| %>
+    <div class="col-md-12">
+      <%= "#{user.title} #{user.first_name} #{user.last_name}" %>
+    </div>
+  <% end %>
+</div>

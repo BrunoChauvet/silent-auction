@@ -31,6 +31,7 @@ gem 'foreigner'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'browser'
+gem 'devise'
 
 group :test, :development do
   gem 'puma'
