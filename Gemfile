@@ -30,6 +30,7 @@ gem 'activerecord'
 gem 'foreigner'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'browser'
 
 group :test, :development do
   gem 'puma'

@@ -1,7 +1,7 @@
 SilentAuction::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-
+  
   root 'auction#index'
+
   get 'auction', to: 'auction#index'
   get 'amount_raised', to: 'auction#amount_raised'
   get 'time_left', to: 'auction#time_left'

@@ -2,7 +2,9 @@ class AuctionController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html
+      format.html {
+        redirect_to user_groups_path if browser.ipad?
+      }
       format.json {
         auction = []
         items = Item.all(order: :id)

@@ -28,6 +28,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.14)
     aws_cf_signer (0.1.2)
+    browser (0.2.1)
     builder (3.1.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -141,6 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  browser
   carrierwave
   cloudinary
   coffee-rails (~> 4.0.0)
