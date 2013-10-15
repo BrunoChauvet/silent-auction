@@ -1,49 +1,51 @@
+<%= render partial: 'common/bidding_header', locals: {back_link: user_items_path(user_id: @user.id)} %>
+
 <div id="bid" class="container" ng-controller="BidsCtrl" ng-init="init(<%= @user.id =%>, <%= @item.id =%>)">
 
-    <div class="row">
-      <div class="col-md-12 bid-user">{{user.first_name}} {{user.last_name}}</div>
-    </div>
+  <div class="row">
+    <div class="col-md-12 bid-user">{{user.title}} {{user.first_name}} {{user.last_name}}</div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-12 bid-item">{{item.name}}</div>
-    </div>
+  <div class="row">
+    <div class="col-md-12 bid-item">{{item.code}} {{item.name}}</div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-12 bid-price">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-2">
-            <button id="minus-50" type="submit" class="btn btn-primary" ng-click="add(-50)"><b>-</b>$50</button>
-          </div>
-          <div class="col-md-2">
-            <button id="minus-10" type="submit" class="btn btn-primary" ng-click="add(-10)"><b>-</b>$10</button>
-          </div>
-          <div class="col-md-2">${{price}}</div>
-          <div class="col-md-2">
-            <button id="plus-10" type="submit" class="btn btn-primary" ng-click="add(10)"><b>+</b>$10</button>
-          </div>
-          <div class="col-md-2">
-            <button id="plus-50" type="submit" class="btn btn-primary" ng-click="add(50)"><b>+</b>$50</button>
-          </div>
-          <div class="col-md-1"></div>
+  <div class="row">
+    <div class="col-md-12 bid-price">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+          <button id="minus-50" type="submit" class="btn btn-primary" ng-click="add(-50)"><b>-</b>$50</button>
         </div>
-
-        <div class="row">
-          <div class="col-md-12 bid-message">{{message}}</div>
+        <div class="col-md-2">
+          <button id="minus-10" type="submit" class="btn btn-primary" ng-click="add(-10)"><b>-</b>$10</button>
         </div>
+        <div class="col-md-2">${{price}}</div>
+        <div class="col-md-2">
+          <button id="plus-10" type="submit" class="btn btn-primary" ng-click="add(10)"><b>+</b>$10</button>
+        </div>
+        <div class="col-md-2">
+          <button id="plus-50" type="submit" class="btn btn-primary" ng-click="add(50)"><b>+</b>$50</button>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 bid-message">{{message}}</div>
       </div>
     </div>
+  </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-5"></div>
-          <div class="col-md-2">
-            <button id="place-bid" type="submit" class="btn btn-primary" ng-click="placeBid()">Place Bid</button>
-          </div>
-          <div class="col-md-5"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+          <button id="place-bid" type="submit" class="btn btn-primary" ng-click="placeBid()">Place Bid</button>
         </div>
+        <div class="col-md-5"></div>
       </div>
     </div>
+  </div>
 
 </div>

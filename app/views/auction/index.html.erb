@@ -1,6 +1,6 @@
 <div id="auction" class="container auction" ng-controller="AuctionCtrl" ng-init="init()">
   <div class="col-md-12 item-container">
-    <span id="amount-raised">${{amountRaised}}</span>
+    <span id="amount-raised">{{amountRaised | currency}}</span>
     <span id="time-left">{{timer}}</span>
   </div>
 
@@ -14,10 +14,11 @@
       <span class="item-name">{{item.item.name}}</span>
 	  	<div class="col-md-12 item-bid">
 		  	<div class="col-md-4 item-price">
-          <span ng-show="item.bid.price">${{item.bid.price}}</span>
-          <span ng-hide="item.bid.price">${{item.item.start_price}}</span>
+          <span ng-show="item.bid.price">{{item.bid.price | currency}}</span>
+          <span ng-hide="item.bid.price">{{item.item.start_price | currency}}</span>
         </div>
-		  	<div class="col-md-8 item-user">{{item.user.first_name}} {{item.user.last_name}}</div>
+		  	<div ng-show="item.bid.price" class="col-md-8 item-user">{{item.user.title}} {{item.user.first_name}} {{item.user.last_name}}</div>
+        <div ng-hide="item.bid.price" class="col-md-8 item-user">Start price</div>
 		  </div>
   	</div>
   </div>

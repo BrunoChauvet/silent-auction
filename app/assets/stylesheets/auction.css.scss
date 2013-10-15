@@ -43,6 +43,18 @@
   text-align: center;
 }
 
+span#amount-raised {
+  display: inline-block;
+  width: 200px;
+  font-size: 1.2em;
+}
+
+span#time-left {
+  display: inline-block;
+  width: 200px;
+  font-size: 1.2em;
+}
+
 /* iPad interface */
 
 #tables div {
@@ -54,14 +66,23 @@
   padding: 10px;
 }
 
-span#amount-raised {
-  display: inline-block;
-  width: 200px;
-  font-size: 1.2em;
+div#bidding-header {
+  width: 100%;
+  padding: 4px;
 }
 
-span#time-left {
-  display: inline-block;
-  width: 200px;
-  font-size: 1.2em;
+div#bidding-header div {
+  padding: 10px;
+}
+
+a.start, a.back {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+span.header-title {
+  display: block;
+  text-align: center;
 }

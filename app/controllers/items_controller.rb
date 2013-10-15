@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 	def index
     @items = Item.find(:all, order: :id)
+    @user = User.find(params[:user_id])
   end
 
   def show
