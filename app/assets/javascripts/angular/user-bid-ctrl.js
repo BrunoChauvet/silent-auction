@@ -5,6 +5,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', function($scope, $h
   $scope.init = function() {
   	$scope.message = '';
   	$scope.bidding = false;
+  	$scope.items = [];
     refreshItems();
   };
 
@@ -28,7 +29,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', function($scope, $h
 
   $scope.placeBid = function() {
   	$scope.message = '';
-  	$http({method: 'POST', url: '/bids', data: {'item': $scope.biddingItem, 'price': $scope.biddingPrice}}).
+  	$http({method: 'POST', url: '/bids.json', data: {'item': $scope.biddingItem, 'price': $scope.biddingPrice}}).
     success(function(data, status, headers, config) {
       if(data.success == true) {
       	console.log('Valid bid');
@@ -42,7 +43,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', function($scope, $h
   };
 
   function refreshItems() {
-    $http({method: 'GET', url: '/bids'}).
+    $http({method: 'GET', url: '/bids.json'}).
     success(function(data, status, headers, config) {
       $scope.items = data;
     });
