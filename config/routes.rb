@@ -7,10 +7,11 @@ SilentAuction::Application.routes.draw do
   get 'amount_raised', to: 'auction#amount_raised'
   get 'time_left', to: 'auction#time_left'
 
+  # Administration
   resources :preferences, only: [:index, :show, :update]
 
   # iPad bidding
-  resources :user_groups, only: [:index] do
+  resources :user_groups, only: [:index], as: 'tables' do
     resources :users, only: [:index]
   end
 
@@ -26,7 +27,7 @@ SilentAuction::Application.routes.draw do
   get 'authenticate/:id/pin', to: 'authenticate_user#authenticate', as: 'user_pin'
   post 'authenticate/:id/pin', to: 'authenticate_user#authenticate'
 
-  resources :bids, only: [:new, :create]
+  resources :bids, only: [:index, :create]
 
   devise_for :user, :path => '', :path_names => { :sign_in => "authenticate/:id/pin" }
 

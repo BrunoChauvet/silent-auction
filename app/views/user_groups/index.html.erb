@@ -1,9 +1,9 @@
-<%= render partial: 'common/bidding_header', locals: {back_link: user_groups_path} %>
+<%= render partial: 'common/bidding_header', locals: {back_link: tables_path} %>
 
 <div id="tables" class="container">
   <% @user_groups.each do |user_group| %>
     <div class="col-md-12">
-      <%= link_to user_group.name, user_group_users_path(user_group_id: user_group.id) %>
+      <%= link_to user_group.name, table_users_path(table_id: user_group.id) %>
     </div>
   <% end %>
 </div>

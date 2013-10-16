@@ -1,4 +1,4 @@
-<%= render partial: 'common/bidding_header', locals: {back_link: user_group_users_path(user_group_id: @user.user_group.id)} %>
+<%= render partial: 'common/bidding_header', locals: {back_link: table_users_path(table_id: @user.user_group.id)} %>
 
 <div id="items" class="container">
   <% @items.each do |item| %>

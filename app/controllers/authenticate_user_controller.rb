@@ -13,7 +13,7 @@ class AuthenticateUserController < ApplicationController
     elsif request.post?
       @user = warden.authenticate!(params)
       if @user
-        redirect_to new_bid_path
+        redirect_to bids_path
       else
         flash.keep
         redirect_to new_user_session_path(User.find(params[:id])), :flash => { :error => "Invalid Pin" }

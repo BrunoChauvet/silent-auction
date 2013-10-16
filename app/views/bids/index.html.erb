@@ -1,0 +1,36 @@
+<%= render partial: 'common/public_header' %>
+
+<div id="user-bid" class="container" ng-controller="UserBidsCtrl" ng-init="init()">
+
+  <div ng-hide="bidding" ng-repeat="item in items" class="row">
+    <div class="col-md-12 bid-item {{item.status}}">
+      <a class="user-bid-link" href="#" ng-click="createBid(item)">
+	    	<span class="item-code">{{item.item.code}}</span>
+	    	<span class="item-name">{{item.item.name}}</span>
+	    	<span class="item-price">{{item.price | currency}}</span>
+      </a>
+    </div>
+  </div>
+
+  <div ng-show="bidding" class="row">
+    <div class="row" ng-show="message != ''">
+      <div class="col-md-12 error">{{message}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 bid-actions">
+        <button class="btn btn-primary" type="submit" ng-click="add(-50)"><b>-</b>$50</button>
+        <button class="btn btn-primary" type="submit" ng-click="add(-10)"><b>-</b>$10</button>
+        <span class="item-price">{{biddingPrice | currency}}</span>
+        <button class="btn btn-primary" type="submit" ng-click="add(10)"><b>+</b>$10</button>
+        <button class="btn btn-primary" type="submit" ng-click="add(50)"><b>+</b>$50</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 bid-actions">
+        <button class="btn btn-primary" type="submit" ng-click="cancelBid()">Cancel</button>
+        <button class="btn btn-primary" type="submit" ng-click="placeBid()">Place Bid</button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,4 +1,4 @@
-/* Auction interface */
+/* TESTING BOOTSTRAP CONTAINERS */
 
 [class*="col-"] {
   background-color: rgba(86, 61, 124, 0.15);
@@ -6,6 +6,8 @@
   padding-bottom: 15px;
   padding-top: 15px;
 }
+
+/* Auction interface */
 
 .item-container {
   padding: 5px !important;
@@ -100,4 +102,32 @@ span.public-header-title {
   display: inline-block;
   margin-right: 10px;
   float: left;
+}
+
+#user-bid div.none {
+  background-color: rgba(86, 86, 86, 0.15);
+  border: 1px solid rgba(86, 86, 86, 0.2);
+}
+
+#user-bid div.owner {
+  background-color: rgba(86, 124, 61, 0.15);
+  border: 1px solid rgba(86, 124, 61, 0.2);
+}
+
+#user-bid div.outbidded {
+  background-color: rgba(124, 86, 61, 0.15);
+  border: 1px solid rgba(124, 86, 61, 0.2);
+}
+
+#user-bid div.start-price {
+  background-color: rgba(61, 86, 124, 0.15);
+  border: 1px solid rgba(61, 86, 124, 0.2);
+}
+
+div.bid-actions {
+  text-align: center;
+}
+
+div.error {
+  border: 1px solid rgba(182, 86, 64, 0.3);
 }

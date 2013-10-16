@@ -9,7 +9,7 @@ describe UsersController do
     lmoore = User.create(user_group: group1, title: 'Mrs', first_name: 'Lisa', last_name: 'Moore')
     plang = User.create(user_group: group2, title: 'Mr', first_name: 'Pat', last_name: 'Lang')
 
-    get :index, user_group_id: group1.id
+    get :index, table_id: group1.id
 
     assigns(:users).should include(jsmith, lmoore)
   end
