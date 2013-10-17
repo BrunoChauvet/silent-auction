@@ -6,6 +6,7 @@
     <div class="col-md-12 bid-item {{item.status}}">
       <a class="user-bid-link" href="#" ng-click="createBid(item)">
 	    	<span class="item-code">{{item.item.code}}</span>
+        -
 	    	<span class="item-name">{{item.item.name}}</span>
 	    	<span class="item-price">{{item.price | currency}}</span>
       </a>
@@ -17,13 +18,15 @@
       <div class="col-md-12 error">{{message}}</div>
     </div>
     <div class="row">
-      <div class="col-md-12">{{biddingItem.code}} {{biddingItem.name}}</div>
+      <div class="col-md-12">
+        <span class="item-bid">{{biddingItem.code}} - {{biddingItem.name}}</span>
+      </div>
     </div>
     <div class="row">
       <div class="col-md-12 bid-actions">
         <button class="btn btn-primary" type="submit" ng-click="add(-50)"><b>-</b>$50</button>
         <button class="btn btn-primary" type="submit" ng-click="add(-10)"><b>-</b>$10</button>
-        <span class="item-price">{{biddingPrice | currency}}</span>
+        <span class="bid-price">{{biddingPrice | currency}}</span>
         <button class="btn btn-primary" type="submit" ng-click="add(10)"><b>+</b>$10</button>
         <button class="btn btn-primary" type="submit" ng-click="add(50)"><b>+</b>$50</button>
       </div>

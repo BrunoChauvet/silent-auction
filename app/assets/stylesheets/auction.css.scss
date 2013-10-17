@@ -15,33 +15,33 @@
   position: relative;
 }
 
-.item-code {
+#auction .item-code {
   font-weight: bold;
   font-size: 1.1em;
 }
 
-.item-name {
+#auction .item-name {
   font-weight: bold;
 }
 
-.item-image {
+#auction .item-image {
   overflow: hidden;
 	padding: 0px !important;
   height: 100%;
 }
 
-.item-content {
+#auction .item-content {
   height: 100%;
   padding: 0px !important;
 }
 
-.item-bid {
+#auction .item-bid {
   height: 70px;
   position: absolute !important;
   bottom: 0;
 }
 
-.bid-price {
+#auction .bid-price {
   text-align: center;
 }
 
@@ -101,7 +101,6 @@ span.public-header-title {
 #public-header a.back {
   display: inline-block;
   margin-right: 10px;
-  float: left;
 }
 
 #user-bid div.none {
@@ -132,4 +131,41 @@ div.error {
   text-align: center;
   border: 1px solid rgba(182, 86, 64, 0.2);
   background-color: 1px solid rgba(182, 86, 64, 0.3);
+}
+
+#public-header .username {
+  font-weight: bold;
+}
+
+#user-bid div.bid-item {
+  padding: 2px;
+}
+
+a.user-bid-link {
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+}
+
+#user-bid span.item-code {
+  font-weight: bold;
+}
+
+#user-bid span.item-price {
+  font-weight: bold;
+  font-size: 1.1em;
+  float: right;
+}
+
+#user-bid span.item-bid {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: block;
+}
+
+#user-bid span.bid-price {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 10px;
 }

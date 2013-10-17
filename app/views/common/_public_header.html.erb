@@ -2,13 +2,18 @@
   <div class="row">
     <div class="col-md-12" style="text-align: center;">
       <% if user_signed_in? %>
-        <%= link_to(destroy_user_session_path, :class => 'back') do %>
-          <span class="glyphicon glyphicon-remove">Logout</span>
-        <% end %>
+        <div style="float: right;">
+          Bidding as: <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
+          <%= link_to(destroy_user_session_path, :class => 'back') do %>
+            <span class="glyphicon glyphicon-remove">Logout</span>
+          <% end %>
+        </div>
       <% else %>
-        <%= link_to(select_table_path, :class => 'back') do %>
-          <span class="glyphicon glyphicon-chevron-left">Back</span>
-        <% end %>
+        <div style="float: left;">
+          <%= link_to(select_table_path, :class => 'back') do %>
+            <span class="glyphicon glyphicon-chevron-left">Back</span>
+          <% end %>
+        </div>
       <% end %>
       <span class="public-header-title">Gala UFE 2013</span>
     </div>
