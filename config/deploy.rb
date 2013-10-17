@@ -3,8 +3,8 @@ require 'bundler/deployment'
 application = 'silent-auction'
 
 set :application, "#{application}"
-set :stages, %w(production)
-set :default_stage, "production"
+set :stages, %w(production, development)
+set :default_stage, "development"
 
 set :user, "user"
 set :scm, "git"
