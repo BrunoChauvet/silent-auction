@@ -22,7 +22,7 @@ set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
 set :ssh_options, { forward_agent: true }
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
+after "deploy", "deploy:cleanup", "deploy:stop", "deploy:start"
 
 server_path = "/var/www/silent-auction/current"
 
