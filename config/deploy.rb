@@ -1,5 +1,8 @@
 require 'bundler/deployment'
 
+# Not working with Capistrano 3.0
+# require 'puma/capistrano'
+
 application = 'silent-auction'
 
 set :application, "#{application}"
@@ -21,25 +24,36 @@ set :ssh_options, { forward_agent: true }
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
+server_path = "/var/www/silent-auction/current"
+
+puma_sock    = "unix://#{shared_path}/sockets/puma.sock"
+puma_control = "unix://#{shared_path}/sockets/pumactl.sock"
+puma_state   = "#{shared_path}/sockets/puma.state"
+
+puma_log     = "#{server_path}/log/puma.log"
+puma_pid     = "#{server_path}/tmp/puma.pid"
+
 namespace :deploy do
-
-  desc 'Restart application'
+  desc "Start the application"
+  task :start do
+    puts "Starting puma"
+    `cd #{server_path} && bundle exec puma --pidfile #{puma_pid} --control '#{puma_control}' -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} &`
+  end
+ 
+  desc "Stop the application"
+  task :stop do
+    puts "Stoping puma"
+    `cd #{server_path} && bundle exec pumactl -S #{puma_state} stop`
+  end
+ 
+  desc "Restart the application"
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
+    puts "Restarting puma"
+    `cd #{server_path} && bundle exec pumactl -S #{puma_state} restart`
   end
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+ 
+  desc "Status of the application"
+  task :status do
+    `cd #{server_path} && bundle exec pumactl -S #{puma_state} stats`
   end
-
-  after :finishing, 'deploy:cleanup'
-
 end
