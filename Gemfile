@@ -33,9 +33,11 @@ gem 'cloudinary'
 gem 'browser'
 gem 'devise'
 
-group :test, :development do
-  gem 'puma'
+gem 'puma'
+gem 'capistrano'
+gem 'capistrano-bundler'
 
+group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
 end
