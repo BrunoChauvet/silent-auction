@@ -7,17 +7,17 @@ set :stages, %w(production, development)
 set :default_stage, "development"
 
 set :user, "user"
-set :scm, "git"
-set :repository, "git@github.com:BrunoChauvet/#{application}.git"
+set :domain, "auction.hut.net.au"
+
+set :scm, :git
+set :repo_url, "git@github.com:BrunoChauvet/#{application}.git"
 set :branch, "master"
-
-set :deploy_to, "/var/www/#{application}"
-
 set :repository_cache, "git_cache"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
-set :ssh_options, { :forward_agent => true }
+set :deploy_to, "/var/www/#{application}"
+set :ssh_options, { forward_agent: true }
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
