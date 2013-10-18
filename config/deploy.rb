@@ -35,32 +35,25 @@ puma_pid     = "#{server_path}/tmp/puma.pid"
 namespace :deploy do
   desc "Start the application"
   task :start do
-    puts "Starting puma"
-    `cd #{server_path} && bundle exec puma --pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} &`
+    # nothin for passenger
   end
- 
-  desc "Stop the application"
+
   task :stop do
-    puts "Stoping puma"
-    `cd #{server_path} && bundle exec pumactl -S #{puma_state} stop`
+    # nothin for passenger
   end
  
   desc "Restart the application"
   task :restart do
-    puts "Restarting puma from capistrano"
+    puts "Restarting passenger from capistrano"
     on "user@localhost" do |host|
       within "#{server_path}" do
-        execute :mkdir, "tmp"
-        execute(:rails, "server -p 9292 --daemon")
-        # test(:puma, "--pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} -d")
-        # execute "bundle exec pumactl -S #{puma_state} stop"
-        # background "bundle exec puma --pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log}"
+        execute :mkdir, :tmp
+      end
+
+      within "#{server_path}/tmp" do
+        execute :touch, "restart.txt"
       end
     end
   end
- 
-  desc "Status of the application"
-  task :status do
-    `cd #{server_path} && bundle exec pumactl -S #{puma_state} stats`
-  end
+
 end
