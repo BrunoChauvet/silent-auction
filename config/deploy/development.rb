@@ -5,9 +5,7 @@ set :stage, :development
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w{localhost}
-role :web, %w{localhost}
-role :db,  %w{localhost}
+role :all, %w{localhost:22}
 
 # Extended Server Syntax
 # ======================
@@ -15,7 +13,7 @@ role :db,  %w{localhost}
 # definition into the server list. The second argument
 # something that quacks like a has can be used to set
 # extended properties on the server.
-server 'localhost', user: 'user', roles: %w{web app}
+server 'localhost:22', user: 'user', roles: %w{web app}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

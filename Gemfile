@@ -36,6 +36,7 @@ gem 'devise'
 gem 'puma'
 gem 'capistrano'
 gem 'capistrano-bundler'
+gem 'capistrano-rails'
 
 group :test, :development do
   gem 'rspec'

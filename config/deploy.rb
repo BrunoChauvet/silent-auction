@@ -10,7 +10,6 @@ set :stages, %w(production, development)
 set :default_stage, "development"
 
 set :user, "user"
-set :domain, "auction.hut.net.au"
 
 set :scm, :git
 set :repo_url, "git@github.com:BrunoChauvet/#{application}.git"
@@ -37,7 +36,7 @@ namespace :deploy do
   desc "Start the application"
   task :start do
     puts "Starting puma"
-    `cd #{server_path} && bundle exec puma --pidfile #{puma_pid} --control '#{puma_control}' -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} &`
+    `cd #{server_path} && bundle exec puma --pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} &`
   end
  
   desc "Stop the application"
@@ -48,8 +47,16 @@ namespace :deploy do
  
   desc "Restart the application"
   task :restart do
-    puts "Restarting puma"
-    `cd #{server_path} && bundle exec pumactl -S #{puma_state} restart`
+    puts "Restarting puma from capistrano"
+    on "user@localhost" do |host|
+      within "#{server_path}" do
+        execute :mkdir, "tmp"
+        execute(:rails, "server -p 9292 --daemon")
+        # test(:puma, "--pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log} -d")
+        # execute "bundle exec pumactl -S #{puma_state} stop"
+        # background "bundle exec puma --pidfile #{puma_pid} -S #{puma_state} --threads 16:32 --workers 16 >> #{puma_log}"
+      end
+    end
   end
  
   desc "Status of the application"
