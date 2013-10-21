@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe ItemsController do
   before do
+    Preference.create(name: 'END_TIME', value: (Time.now + 1.day).strftime("%Y-%m-%d %H:%M:%S"))
+
     @table1 = UserGroup.create(name: 'Table 1')
 
     @jsmith = User.create(user_group: @table1, title: 'Mr', first_name: 'John', last_name: 'Smith')
