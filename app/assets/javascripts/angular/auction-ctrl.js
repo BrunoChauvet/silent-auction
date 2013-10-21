@@ -55,7 +55,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
     (function tickTimeLeft() {
       $scope.timeLeft = $scope.timeLeft - 1;
       duration = moment.duration($scope.timeLeft, 'seconds');
-      $scope.timer = moment(duration.asMilliseconds()).format('hh:mm:ss');
+      $scope.timer = moment(duration.asMilliseconds()).format('h:m:s');
 
       $timeout(tickTimeLeft, 1000);
     })();

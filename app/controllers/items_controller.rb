@@ -20,16 +20,13 @@ class ItemsController < ApplicationController
   end
 
   def place_bid
-    item = Item.find(params[:id])
-    bid = Bid.where(item: item).order('timestamp desc').first
-    if item.start_price > params[:price]
-      render json: {success: false, message: 'Price cannot be lower than start price', price: item.start_price}
-    elsif bid.present? && bid.price >= params[:price]
-      render json: {success: false, message: 'Asked price is to low', price: bid.price}
-    else
+    begin
+      item = Item.find(params[:id])
       user = User.find(params[:user_id])
-      bid = Bid.create!(user: user, item: item, price: params[:price], timestamp: Time.now)
-      render json: {success: true, item: item, user: user, bid: bid}
+      bid = Bid.place(item, user, params[:price])
+      render json: {success: true, item: item, user: current_user, bid: bid}
+    rescue Exception => e
+      render json: {success: false, message: e.message, price: params[:price]}
     end
   end
 end

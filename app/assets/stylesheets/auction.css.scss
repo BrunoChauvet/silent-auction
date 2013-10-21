@@ -7,6 +7,15 @@
   padding-top: 15px;
 }
 
+a {
+  text-decoration: none;
+  display: block;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
 /* Auction interface */
 
 .item-container {
@@ -59,13 +68,13 @@ span#time-left {
 
 /* iPad interface */
 
-#tables div {
+div.ipad-list div {
   padding: 3px;
 }
 
-#tables div a {
-  display: block;
+div.ipad-list div a {
   padding: 10px;
+  font-weight: bold;
 }
 
 div#bidding-header {

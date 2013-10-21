@@ -12,6 +12,7 @@ auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
   $scope.init = function(user_id, item_id) {
   	$scope.user_id = user_id;
   	$scope.item_id = item_id;
+    $scope.message = '';
 
     var last_bid = Bids.show({user_id: user_id, item_id: item_id}, function success(){
     	$scope.user = last_bid.user;
@@ -34,7 +35,8 @@ auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
 
   	Bids.place_bid({user_id: $scope.user_id, item_id: $scope.item_id}, {price: $scope.price}, function success(response){
     	if(response.success) {
-        console.log('Bid placed');
+        $scope.message = 'Bid has been placed';
+        window.location = '/user_groups';
       } else {
         $scope.price = response.price;
         $scope.message = response.message;

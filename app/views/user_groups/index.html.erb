@@ -1,6 +1,6 @@
 <%= render partial: 'common/bidding_header', locals: {back_link: tables_path} %>
 
-<div id="tables" class="container">
+<div id="tables" class="container ipad-list">
   <% @user_groups.each do |user_group| %>
     <div class="col-md-12">
       <%= link_to user_group.name, table_users_path(table_id: user_group.id) %>
