@@ -1,5 +1,9 @@
 <%= render partial: 'common/bidding_header', locals: {back_link: tables_path} %>
 
+<% if flash[:message] %>
+  <div class="col-md-12 message"><%= flash[:message] %></div>
+<% end %>
+
 <div id="tables" class="container ipad-list">
   <% @user_groups.each do |user_group| %>
     <div class="col-md-12">

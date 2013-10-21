@@ -37,6 +37,7 @@ gem 'puma'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
+gem 'newrelic_rpm'
 
 group :test, :development do
   gem 'rspec'
