@@ -1,7 +1,7 @@
 class Preference < ActiveRecord::Base
 	def self.end_time
     end_time_preference = Preference.where(name: 'END_TIME').first
-    DateTime.strptime(end_time_preference.value, '%Y-%m-%d %H:%M:%S')
+    DateTime.strptime(end_time_preference.value, '%Y-%m-%d %H:%M:%S').change(:offset => "+1100")
   end
 
   def as_json(options={})
