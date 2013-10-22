@@ -112,34 +112,34 @@ span.public-header-title {
   margin-right: 10px;
 }
 
+#user-bid a {
+  color: white;
+}
+
 #user-bid div.none {
-  background-color: rgba(86, 86, 86, 0.15);
-  border: 1px solid rgba(86, 86, 86, 0.2);
+  background-color: #44B3CB;
 }
 
 #user-bid div.owner {
-  background-color: rgba(86, 124, 61, 0.15);
-  border: 1px solid rgba(86, 124, 61, 0.2);
+  background-color: #98AF3B;
 }
 
 #user-bid div.outbidded {
-  background-color: rgba(124, 86, 61, 0.15);
-  border: 1px solid rgba(124, 86, 61, 0.2);
+  background-color: #E9AB3D;
 }
 
 #user-bid div.start-price {
-  background-color: rgba(61, 86, 124, 0.15);
-  border: 1px solid rgba(61, 86, 124, 0.2);
+  background-color: #44B3CB;
 }
 
 div.bid-actions {
   text-align: center;
 }
 
-div.error {
+div.alert-danger {
   text-align: center;
-  border: 1px solid rgba(182, 86, 64, 0.2);
-  background-color: 1px solid rgba(182, 86, 64, 0.3);
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 #public-header .username {

@@ -15,8 +15,7 @@ class AuthenticateUserController < ApplicationController
       if @user
         redirect_to bids_path
       else
-        flash.keep
-        redirect_to new_user_session_path(User.find(params[:id])), :flash => { :error => "Invalid Pin" }
+        redirect_to new_user_session_path(User.find(params[:id]), {:param_1 => "Test message"})
       end
     end
   end
