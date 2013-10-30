@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
       name: name,
       description: description,
       code: code,
+      category: category.name.downcase,
       image: image.url,
       start_price: start_price
     }

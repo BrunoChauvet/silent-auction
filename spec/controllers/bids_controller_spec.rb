@@ -7,10 +7,12 @@ describe BidsController do
     @jsmith = User.create(user_group: @table1, title: 'Mr', first_name: 'John', last_name: 'Smith')
     @lmoore = User.create(user_group: @table1, title: 'Mrs', first_name: 'Lisa', last_name: 'Moore')
 
-    @item1 = Item.create(code: '101', start_price: 250, name: 'Owner')
-    @item2 = Item.create(code: '102', start_price: 150, name: 'Outbidded')
-    @item3 = Item.create(code: '103', start_price: 200, name: 'No bid')
-    @item4 = Item.create(code: '104', start_price: 100, name: 'Start price')
+    experiences = Category.create(name: 'Experiences')
+
+    @item1 = Item.create(category: experiences, code: '101', start_price: 250, name: 'Owner')
+    @item2 = Item.create(category: experiences, code: '102', start_price: 150, name: 'Outbidded')
+    @item3 = Item.create(category: experiences, code: '103', start_price: 200, name: 'No bid')
+    @item4 = Item.create(category: experiences, code: '104', start_price: 100, name: 'Start price')
 
     @bid1 = Bid.create(user: @jsmith, item: @item1, price: 250, timestamp: Time.now)
     @bid2 = Bid.create(user: @jsmith, item: @item2, price: 210, timestamp: Time.now - 1.minute)

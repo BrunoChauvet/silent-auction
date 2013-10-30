@@ -1,6 +1,6 @@
 class AuthenticateUserController < ApplicationController
 	def tables
-    @tables = UserGroup.find(:all, order: :name)
+    @tables = UserGroup.find(:all, order: :sort_order)
   end
 
   def users

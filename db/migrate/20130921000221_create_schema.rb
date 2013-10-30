@@ -9,6 +9,7 @@ class CreateSchema < ActiveRecord::Migration
 
     create_table :user_groups do |t|
       t.string :name
+      t.integer :sort_order
     end
 
     add_index(:user_groups, :name, :unique => true)

@@ -1,10 +1,7 @@
 /* TESTING BOOTSTRAP CONTAINERS */
 
 [class*="col-"] {
-  background-color: rgba(86, 61, 124, 0.15);
   border: 1px solid rgba(86, 61, 124, 0.2);
-  padding-bottom: 15px;
-  padding-top: 15px;
 }
 
 a {
@@ -18,15 +15,51 @@ a:hover, a:focus {
 
 /* Auction interface */
 
-.item-container {
+#auction .header {
+  height: 100px; 
+}
+
+#auction .item-container {
   padding: 5px !important;
   height: 200px;
   position: relative;
 }
 
+#auction .experiences {
+  background-color: #F8F0CE;
+}
+
+#auction .electronics {
+  background-color: #E3F8CE;
+}
+
+#auction .cat1 {
+  background-color: #CEF8D5;
+}
+
+#auction .cat2 {
+  background-color: #CEF8F0;
+}
+
+#auction .cat3 {
+  background-color: #CEE3F8;
+}
+
+#auction .cat4 {
+  background-color: #D5CEF8;
+}
+
+#auction .cat5 {
+  background-color: #F0CEF8;
+}
+
+#auction .cat6 {
+  background-color: #F8D5CE;
+}
+
 #auction .item-code {
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 #auction .item-name {

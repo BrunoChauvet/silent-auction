@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 20130921000221) do
   add_index "preferences", ["name"], name: "index_preferences_on_name", unique: true
 
   create_table "user_groups", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "sort_order"
   end
 
   add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true
