@@ -19,6 +19,11 @@ a:hover, a:focus {
   height: 100px; 
 }
 
+#auction .auction-items {
+  min-height: 960px;
+  clear: both;
+}
+
 #auction .item-container {
   padding: 5px !important;
   height: 200px;

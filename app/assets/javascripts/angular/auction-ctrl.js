@@ -55,20 +55,23 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
     (function tickTimeLeft() {
       $scope.timeLeft = $scope.timeLeft - 1;
       duration = moment.duration($scope.timeLeft, 'seconds');
-      $scope.timer = moment(duration.asMilliseconds()).format('h:m:s');
+      $scope.timer = moment(duration.asMilliseconds()).format('h:mm:ss');
 
       $timeout(tickTimeLeft, 1000);
     })();
 
     (function nextPage() {
-      $scope.pageNumber = $scope.pageNumber + 1;
-      if($scope.pageNumber > ($scope.totalItems / $scope.itemsPerPage)) {
-        $scope.pageNumber = 0;
-      }
-
+      $scope.loadNextPage();
       $timeout(nextPage, 10000);
     })();
 
+  };
+
+  $scope.loadNextPage = function() {
+    $scope.pageNumber = $scope.pageNumber + 1;
+    if($scope.pageNumber > ($scope.totalItems / $scope.itemsPerPage)) {
+      $scope.pageNumber = 0;
+    }
   };
 
 }]);
