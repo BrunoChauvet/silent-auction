@@ -3,7 +3,7 @@
 <div id="tables" class="container">
   <% @tables.each do |table| %>
     <div class="col-md-12">
-      <%= link_to table.name, select_user_path(table.id) %>
+      <%= link_to table.name, authenticate_select_user_path(table.id) %>
     </div>
   <% end %>
 </div>

@@ -2,10 +2,7 @@ class AuctionController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html {
-        redirect_to tables_path if browser.ipad?
-        redirect_to select_table_path if browser.mobile?
-      }
+      format.html { }
       format.json {
         auction = []
         items = Item.all(order: :code)

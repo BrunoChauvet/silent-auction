@@ -1,28 +1,12 @@
 var auctionModule = angular.module('auction');
 
-auctionModule.factory('Bids', ['$resource', function($resource) {
-  return $resource('/users/:user_id/items/:item_id',{},{
-  	show: {method: 'GET'},
-  	place_bid: {method: 'POST'}
-  });
-}]);
+auctionModule.controller('BidsCtrl', ['$scope', '$http', function($scope, $http) {
 
-auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
-
-  $scope.init = function(user_id, item_id) {
+  $scope.init = function(user_id, item_id, price) {
   	$scope.user_id = user_id;
   	$scope.item_id = item_id;
+    $scope.price = price;
     $scope.message = '';
-
-    var last_bid = Bids.show({user_id: user_id, item_id: item_id}, function success(){
-    	$scope.user = last_bid.user;
-    	$scope.item = last_bid.item;
-    	if(last_bid.bid) {
-        $scope.price = last_bid.bid.price;
-      } else {
-        $scope.price = last_bid.item.start_price;
-      }
-    });
   };
 
   $scope.add = function(amount) {
@@ -32,14 +16,19 @@ auctionModule.controller('BidsCtrl', ['$scope', 'Bids', function($scope, Bids) {
 
   $scope.placeBid = function() {
     $scope.message = '';
-
-  	Bids.place_bid({user_id: $scope.user_id, item_id: $scope.item_id}, {price: $scope.price}, function success(response){
-    	if(response.success) {
+    
+    $http({method: 'POST', url: '/place_bid/' + $scope.user_id + '/' + $scope.item_id + '.json', data: {'price': $scope.price}})
+         .success(function(data, status, headers, config) {
+      if(data.success) {
         $scope.message = 'Bid has been placed';
-        window.location = '/user_groups';
+        window.location = '/select_table';
       } else {
-        $scope.price = response.price;
-        $scope.message = response.message;
+        if(data.price) {
+          $scope.price = data.price;
+        }
+        if(data.message) {
+          $scope.message = data.message;
+        }
       }
     });
   };

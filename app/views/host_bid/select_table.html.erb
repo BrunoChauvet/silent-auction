@@ -1,4 +1,4 @@
-<%= render partial: 'common/bidding_header', locals: {back_link: tables_path} %>
+<%= render partial: 'common/bidding_header', locals: {back_link: select_table_path} %>
 
 <% if flash[:message] %>
   <div class="col-md-12 message"><%= flash[:message] %></div>
@@ -7,7 +7,7 @@
 <div id="tables" class="container ipad-list">
   <% @user_groups.each do |user_group| %>
     <div class="col-md-12">
-      <%= link_to user_group.name, table_users_path(table_id: user_group.id) %>
+      <%= link_to user_group.name, select_user_path(table_id: user_group.id) %>
     </div>
   <% end %>
 </div>

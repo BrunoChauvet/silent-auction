@@ -1,6 +1,6 @@
 SilentAuction::Application.routes.draw do
 
-  root 'auction#index'
+  root 'application#index'
 
   # Auction screen
   get 'auction', to: 'auction#index'
@@ -10,25 +10,23 @@ SilentAuction::Application.routes.draw do
   # Administration
   resources :preferences, only: [:index, :show, :update]
 
-  # iPad bidding
-  resources :user_groups, only: [:index], as: 'tables' do
-    resources :users, only: [:index]
-  end
+  # Authentication
+  get 'authenticate', to: 'authentication#tables', as: 'authenticate_select_table'
+  get 'authenticate/:id', to: 'authentication#users', as: 'authenticate_select_user'
+  get 'authenticate/:id/pin', to: 'authentication#user_pin', as: 'user_pin'
+  post 'authenticate/:id/pin', to: 'authentication#user_pin'
 
-  resources :users, only: [:index] do
-    resources :items, only: [:index, :show] do
-      post '', on: :member, to: 'items#place_bid'
-    end
-  end
+  # iPad bidding
+  get 'select_table', to: 'host_bid#select_table', as: 'select_table'
+  get 'select_user/:table_id', to: 'host_bid#select_user', as: 'select_user'
+  get 'select_item/:user_id', to: 'host_bid#select_item', as: 'select_item'
+  get 'select_amount/:user_id/:item_id', to: 'host_bid#select_amount', as: 'select_amount'
+  post 'place_bid/:user_id/:item_id', to: 'host_bid#place_bid', as: 'place_host_bid'
 
   # Users interface
-  get 'authenticate', to: 'authenticate_user#tables', as: 'select_table'
-  get 'authenticate/:id', to: 'authenticate_user#users', as: 'select_user'
-  get 'authenticate/:id/pin', to: 'authenticate_user#authenticate', as: 'user_pin'
-  post 'authenticate/:id/pin', to: 'authenticate_user#authenticate'
+  get 'list_items', to: 'user_bid#list_items', as: 'list_items'
+  post 'place_bid', to: 'user_bid#place_bid', as: 'place_user_bid'
 
-  resources :bids, only: [:index, :create]
-
-  devise_for :user, :path => '', :path_names => { :sign_in => "authenticate/:id/pin" }
+  devise_for :user, :path => '', :path_names => { :sign_in => "authenticate" }
 
 end

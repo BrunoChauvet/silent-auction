@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BidsController do
+describe UserBidController do
   before do
     @table1 = UserGroup.create(name: 'Table 1')
 
@@ -20,11 +20,11 @@ describe BidsController do
     @bid4 = Bid.create(user: @lmoore, item: @item3, price: 250, timestamp: Time.now)
   end
 
-  describe "#index" do
+  describe "#list_items" do
     it "returns the items with current user bid status" do
       sign_in @jsmith
 
-      get :index, format: :json
+      get :list_items, format: :json
 
       response.body.should eql([
           {item: @item1, price: @bid1.price, status: 'owner'},

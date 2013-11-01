@@ -1,0 +1,9 @@
+<%= render partial: 'common/bidding_header', locals: {back_link: select_table_path} %>
+
+<div id="users" class="container ipad-list">
+  <% @users.each do |user| %>
+    <div class="col-md-12">
+      <%= link_to "#{user.first_name} #{user.last_name}", select_item_path(user_id: user.id) %>
+    </div>
+  <% end %>
+</div>

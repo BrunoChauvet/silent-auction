@@ -20,6 +20,7 @@ class CreateSchema < ActiveRecord::Migration
       t.string :last_name
       t.string :title
       t.string :pin
+      t.boolean :admin, :default => false
     end
 
     create_table :categories do |t|

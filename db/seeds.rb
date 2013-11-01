@@ -1,12 +1,17 @@
-# Configuration
+### Configuration
 Preference.create(name: 'END_TIME', value: '2013-11-30 22:00:00+0900')
 
-# Data
+### Data
+
+# Staff
+staff_table = UserGroup.create(name: "Staff", sort_order: 0)
+User.create(user_group: staff_table, title: 'Mr', first_name: 'Bruno', last_name: 'Chauvet', pin: 1234, admin: true)
+
+# People
 (1..30).each do |n|
   UserGroup.create(name: "Table #{n}", sort_order: n)
 end
-tables = UserGroup.all.order('sort_order')
-
+tables = UserGroup.all.where('sort_order > 0').order('sort_order')
 
 jsmith = User.create(user_group: tables[0], title: 'Mr', first_name: 'John', last_name: 'Smith', pin: 1234)
 lmoore = User.create(user_group: tables[0], title: 'Mrs', first_name: 'Lisa', last_name: 'Moore', pin: 1234)

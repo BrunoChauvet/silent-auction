@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "last_name"
     t.string  "title"
     t.string  "pin"
+    t.boolean "admin",         default: false
   end
 
 end

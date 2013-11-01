@@ -1,8 +1,8 @@
-class BidsController < ApplicationController
+class UserBidController < ApplicationController
   before_filter :authenticate_user!
 
-  def index
-  	respond_to do |format|
+  def list_items
+    respond_to do |format|
       format.html {}
       format.json {
         bids = []
@@ -17,7 +17,7 @@ class BidsController < ApplicationController
     end
   end
 
-  def create
+  def place_bid
     begin
       item = Item.find(params[:item][:id])
       bid = Bid.place(item, current_user, params[:price])
@@ -47,4 +47,5 @@ private
       end
     end
   end
+
 end
