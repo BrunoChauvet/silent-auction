@@ -9,7 +9,7 @@ development:
   pool: 100
   timeout: 5000
 
-test:
+test: &test
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 100
@@ -24,3 +24,6 @@ production:
   password: AAQ1guojZmdjiRrcUEXK-584-M
   host: ec2-54-221-236-207.compute-1.amazonaws.com
   port: 5432
+
+cucumber:
+  <<: *test

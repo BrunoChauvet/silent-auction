@@ -42,6 +42,10 @@ gem 'newrelic_rpm'
 group :test, :development do
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner', :require => false
 end
 
 gem 'rails_12factor', group: :production
