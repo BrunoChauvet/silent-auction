@@ -15,15 +15,23 @@
 
   <div ng-show="bidding" class="row">
     <div class="row">
-      <div class="col-md-12">
-        <span class="item-bid">{{biddingItem.code}} - {{biddingItem.name}}</span>
+      <div class="col-md-12 item-bid">
+        <span class="item-bid-code">{{biddingItem.code}}</span>
+        <span class="item-bid-name">- {{biddingItem.name}}</span>
+      </div>
+    </div>
+
+    <div class="row"><div class="col-md-12">&nbsp;</div></div>
+    
+    <div class="row">
+      <div class="col-md-12 bid-price">
+        <span class="bid-price">Bid price: {{biddingPrice | currency}}</span>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 bid-actions">
         <button class="btn btn-default btn-lg" type="submit" ng-click="add(-50)"><b>-</b>$50</button>
         <button class="btn btn-default btn-lg" type="submit" ng-click="add(-10)"><b>-</b>$10</button>
-        <span class="bid-price">{{biddingPrice | currency}}</span>
         <button class="btn btn-default btn-lg" type="submit" ng-click="add(10)"><b>+</b>$10</button>
         <button class="btn btn-default btn-lg" type="submit" ng-click="add(50)"><b>+</b>$50</button>
       </div>
@@ -31,6 +39,9 @@
     <div class="row" ng-show="message != ''">
       <div class="col-md-12 alert-danger">{{message}}</div>
     </div>
+
+    <div class="row"><div class="col-md-12">&nbsp;</div></div>
+
     <div class="row">
       <div class="col-md-12 bid-actions">
         <button class="btn btn-primary btn-lg btn-warning" type="submit" ng-click="cancelBid()">Cancel</button>

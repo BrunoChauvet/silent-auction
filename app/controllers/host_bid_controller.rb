@@ -24,7 +24,7 @@ class HostBidController < ApplicationController
     begin
       item = Item.find(params[:item_id])
       user = User.find(params[:user_id])
-      bid = Bid.place(item, user, params[:price])
+      bid = Bid.place(item, user, params[:price].to_d)
       flash[:message] = "Bid has been placed"
       render json: {success: true, item: item, user: current_user, bid: bid}
     rescue Exception => e

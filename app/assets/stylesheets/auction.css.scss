@@ -223,15 +223,25 @@ a.user-bid-link {
   float: right;
 }
 
-#user-bid span.item-bid {
+#user-bid .item-bid {
   text-align: center;
   font-weight: bold;
   font-size: 1.2em;
   display: block;
+  line-height: 40px;
 }
 
-#user-bid span.bid-price {
+#user-bid .item-bid-code {
+  font-size:1.2em;
+}
+
+#user-bid .item-bid-name {
+  font-size:1.1em;
+}
+
+#user-bid .bid-price {
+  text-align: center;
   font-weight: bold;
   font-size: 1.2em;
-  margin: 10px;
+  line-height: 40px;
 }
