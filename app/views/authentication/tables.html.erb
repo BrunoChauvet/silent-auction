@@ -1,8 +1,8 @@
 <%= render partial: 'common/public_header' %>
 
-<div id="tables" class="container">
+<div id="tables" class="list container">
   <% @tables.each do |table| %>
-    <div class="col-md-12">
+    <div class="col-md-12 list-item">
       <%= link_to table.name, authenticate_select_user_path(table.id) %>
     </div>
   <% end %>

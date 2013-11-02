@@ -4,8 +4,8 @@
   <% if flash[:message] %>
   	<div class="col-md-12 error"><%= flash[:message] %></div>
   <% end %>
-  <div class="col-md-12"><%= "#{@user.title} #{@user.first_name} #{@user.last_name}" %></div>
-  <div class="col-md-12">
+  <div class="col-md-12 username"><%= "#{@user.title} #{@user.first_name} #{@user.last_name}" %></div>
+  <div class="col-md-12 pin">
     <div class="row">
       <%= form_tag do %>
         <div class="col-md-6"><input type="number" name="pin"></input></div>

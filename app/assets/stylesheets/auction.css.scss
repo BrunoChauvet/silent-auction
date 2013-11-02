@@ -136,6 +136,16 @@ span.header-title {
   text-align: center;
 }
 
+#authenticate .username {
+  padding: 15px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#authenticate .pin {
+  padding: 15px;
+}
+
 /* Mobile interface */
 
 span.public-header-title {
@@ -143,11 +153,20 @@ span.public-header-title {
   display: inline-block;
   margin-right: 20px;
   margin-left: 20px;
+  padding: 15px;
+}
+
+#public-header {
 }
 
 #public-header a.back {
   display: inline-block;
   margin-right: 10px;
+}
+
+.list .list-item a {
+  padding: 10px;
+  display: block;
 }
 
 #user-bid a {
