@@ -1,12 +1,18 @@
 var auctionModule = angular.module('auction');
 
-auctionModule.controller('UserBidsCtrl', ['$scope', '$http', function($scope, $http) {
+auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
 
   $scope.init = function() {
   	$scope.message = '';
   	$scope.bidding = false;
   	$scope.items = [];
     refreshItems();
+
+    (function tickRefreshItems() {
+     refreshItems();
+
+      $timeout(tickRefreshItems, 10000);
+    })();
   };
 
   $scope.createBid = function(item) {
@@ -32,7 +38,6 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', function($scope, $h
   	$http({method: 'POST', url: '/place_bid.json', data: {'item': $scope.biddingItem, 'price': $scope.biddingPrice}}).
     success(function(data, status, headers, config) {
       if(data.success == true) {
-      	console.log('Valid bid');
       	refreshItems();
       	$scope.bidding = false;
       } else {
