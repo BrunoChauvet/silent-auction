@@ -9,6 +9,5 @@ When(/^I go to the auction page$/) do
 end
 
 Then(/^I should see the following items on the auction screen$/) do |table|
-  # table is a Cucumber::Ast::Table
-  pending # express the regexp above with the code you wish you had
+  items = find(".item-container")
 end

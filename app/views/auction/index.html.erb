@@ -1,19 +1,19 @@
-<div id="auction" class="container auction" ng-controller="AuctionCtrl" ng-init="init()">
+<div id="auction" class="auction" ng-controller="AuctionCtrl" ng-init="init()">
   <div class="auction-items">
-    <div class="col-md-12 header">
+    <div class="header col-md">
       <span id="amount-raised">Amount raised: {{amountRaised | currency}}</span>
       <span id="time-left">Time left: {{timer}}</span>
     </div>
 
-    <div ng-repeat="item in pageItems" class="col-md-6 item-container {{item.item.category}}">
-    	<div class="col-md-3 item-image">
+    <div ng-repeat="item in pageItems" class="item-container {{item.item.category}} col-md">
+    	<div class="item-image col-md">
     		<!-- img src="http://placekitten.com/150/150"/ -->
     	</div>
       
-    	<div class="col-md-9 item-content">
+    	<div class="item-content col-md">
   	  	<span class="item-code">{{item.item.code}}</span>
         <span class="item-name">{{item.item.name}}</span>
-  	  	<div class="col-md-12 item-bid">
+  	  	<div class="item-bid col-md">
   		  	<div class="col-md-4 item-price">
             <span ng-show="item.bid.price">{{item.bid.price | currency}}</span>
             <span ng-hide="item.bid.price">{{item.item.start_price | currency}}</span>

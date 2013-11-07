@@ -1,3 +1,4 @@
+@javascript
 Feature: Display the auction screen
   In order to know what the heck is spinach
   As a developer

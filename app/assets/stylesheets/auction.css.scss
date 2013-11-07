@@ -26,8 +26,10 @@ a:hover, a:focus {
 
 #auction .item-container {
   padding: 5px !important;
+  width: 50%;
   height: 200px;
   position: relative;
+  float: left;
 }
 
 #auction .experiences {
@@ -65,25 +67,34 @@ a:hover, a:focus {
 #auction .item-code {
   font-weight: bold;
   font-size: 1.5em;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 #auction .item-name {
   font-weight: bold;
+  font-size: 1.2em;
 }
 
 #auction .item-image {
   overflow: hidden;
 	padding: 0px !important;
   height: 100%;
+  width: 20%;
+  float: left;
 }
 
 #auction .item-content {
   height: 100%;
+  width: 80%;
+  float: left;
   padding: 0px !important;
 }
 
 #auction .item-bid {
   height: 70px;
+  width: 100%;
+  float: left;
   position: absolute !important;
   bottom: 0;
 }
@@ -144,6 +155,28 @@ span.header-title {
 
 #authenticate .pin {
   padding: 15px;
+}
+
+#bid {
+  text-align: center;
+}
+
+#bid .bid-user {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+#bid .bid-item {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+#bid .bid-price {
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 35px;
 }
 
 /* Mobile interface */

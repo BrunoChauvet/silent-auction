@@ -46,6 +46,7 @@ group :test, :development do
   gem 'cucumber'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner', :require => false
+  gem 'selenium-webdriver'
 end
 
 gem 'rails_12factor', group: :production

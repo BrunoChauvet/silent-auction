@@ -56,4 +56,9 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+AfterStep('@pause') do
+  print "Press Return to continue"
+  STDIN.getc
+end
+
 FactoryGirl.find_definitions
