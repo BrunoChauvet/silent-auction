@@ -19,6 +19,11 @@ a:hover, a:focus {
   height: 80px; 
 }
 
+#auction .header img.logo{
+  max-height: 78px;
+  vertical-align: top;
+}
+
 #auction .header .auction-title {
   width: 60%;
   height: 100%;
