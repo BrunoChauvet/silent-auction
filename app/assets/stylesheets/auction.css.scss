@@ -16,20 +16,51 @@ a:hover, a:focus {
 /* Auction interface */
 
 #auction .header {
-  height: 100px; 
+  height: 80px; 
+}
+
+#auction .header .auction-title {
+  width: 60%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6em;
+  line-height: 80px;
+}
+
+#auction .header .auction-info {
+  width: 40%;
+  height: 100%;
+  float: left;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#auction .header .auction-info div {
+  display: block;
+}
+
+#auction .header .auction-info span {
+  display: inline-block;
+}
+
+#auction .header .auction-info .label {
+  width: 40%;
+  font-size: 1.0em;
+  color: #333333;
+}
+
+#auction .header .auction-info .value {
+  width: 50%;
+  font-size: 1.2em;
+  color: #333333;
 }
 
 #auction .auction-items {
   min-height: 960px;
   clear: both;
-}
-
-#auction .item-container {
-  padding: 5px !important;
-  width: 50%;
-  height: 200px;
-  position: relative;
-  float: left;
 }
 
 #auction .experiences {
@@ -64,29 +95,58 @@ a:hover, a:focus {
   background-color: #F8D5CE;
 }
 
+#auction .item-container {
+  padding: 5px !important;
+  width: 50%;
+  height: 160px;
+  position: relative;
+  float: left;
+}
+
+#auction .item-detail {
+  line-height: 60px;
+}
+
+#auction .item-bid {
+  line-height: 40px;
+}
+
+#auction .item-price {
+  width: 40%;
+  float: left;
+}
+
+#auction .item-user {
+  width: 60%;
+  float: left;
+}
+
 #auction .item-code {
   font-weight: bold;
   font-size: 1.5em;
-  padding-left: 5px;
-  padding-right: 5px;
+  display: inline-block;
+  width: 18%;
 }
 
 #auction .item-name {
   font-weight: bold;
   font-size: 1.2em;
+  display: inline-block;
+  width: 80%;
+  text-align: center;
 }
 
 #auction .item-image {
   overflow: hidden;
 	padding: 0px !important;
   height: 100%;
-  width: 20%;
+  width: 30%;
   float: left;
 }
 
 #auction .item-content {
   height: 100%;
-  width: 80%;
+  width: 70%;
   float: left;
   padding: 0px !important;
 }
@@ -95,24 +155,11 @@ a:hover, a:focus {
   height: 70px;
   width: 100%;
   float: left;
-  position: absolute !important;
   bottom: 0;
 }
 
 #auction .bid-price {
   text-align: center;
-}
-
-span#amount-raised {
-  display: inline-block;
-  width: 200px;
-  font-size: 1.2em;
-}
-
-span#time-left {
-  display: inline-block;
-  width: 200px;
-  font-size: 1.2em;
 }
 
 /* iPad interface */

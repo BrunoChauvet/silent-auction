@@ -8,6 +8,7 @@ SilentAuction::Application.routes.draw do
   get 'time_left', to: 'auction#time_left'
 
   # Administration
+  get 'admin', to: 'admin#index'
   resources :preferences, only: [:index, :show, :update]
   resources :users
 

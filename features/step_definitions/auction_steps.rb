@@ -9,5 +9,5 @@ When(/^I go to the auction page$/) do
 end
 
 Then(/^I should see the following items on the auction screen$/) do |table|
-  items = find(".item-container")
+  items = all(".item-container")
 end
