@@ -1,11 +1,11 @@
-<h1>Editing user</h1>
+<h1>Editing item</h1>
 
 <%= link_to admin_path, html_options = {class: "btn"} do %>
   <i class="glyphicon glyphicon-home">Administration</i>
 <% end %>
 <br/>
-<%= link_to users_path, html_options = {class: "btn"} do %>
-  <i class="glyphicon glyphicon-user">Manage Users</i>
+<%= link_to items_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-list-alt">Manage Items</i>
 <% end %>
 
 <%= render 'form' %>

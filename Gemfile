@@ -30,6 +30,7 @@ gem 'activerecord'
 gem 'foreigner'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'mini_magick'
 gem 'browser'
 gem 'devise'
 

@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: {role: "form", class: "form-inline"}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="form-group col-xs-1">
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+  <div class="form-group col-xs-2">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, :class => 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+  <div class="form-group col-xs-2">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, :class => 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :pin %><br>
-    <%= f.text_field :pin %>
+  <div class="form-group col-xs-1">
+    <%= f.label :pin %>
+    <%= f.text_field :pin, :class => 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :user_group %><br>
-    <%= f.select(:user_group_id, @tables.collect {|t| [ t.name, t.id ] }, { include_blank: false }) %>
+  <div class="form-group col-xs-2">
+    <%= f.label :user_group %>
+    <%= f.select(:user_group_id, @tables.collect {|t| [ t.name, t.id ] }, { include_blank: false }, :class => 'form-control') %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group actions col-xs-1">
+    <%= f.label :update %>
+    <%= f.submit :id => 'user_update', :class => 'form-control btn btn-primary' %>
   </div>
 <% end %>

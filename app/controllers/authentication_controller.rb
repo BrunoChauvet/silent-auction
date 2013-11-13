@@ -20,7 +20,7 @@ class AuthenticationController < ApplicationController
           redirect_to list_items_path
         end
       else
-        flash[:message] = "Invalid pin"
+        flash[:error] = "Invalid pin"
         redirect_to user_pin_path(User.find(params[:id]))
       end
     end

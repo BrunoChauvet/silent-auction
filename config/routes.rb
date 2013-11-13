@@ -11,6 +11,8 @@ SilentAuction::Application.routes.draw do
   get 'admin', to: 'admin#index'
   resources :preferences, only: [:index, :show, :update]
   resources :users
+  resources :items
+  resources :bids
 
   # Authentication
   get 'authenticate', to: 'authentication#tables', as: 'authenticate_select_table'

@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
       description: description,
       code: code,
       category: category.name.downcase,
-      image: image.url,
+      image: image.thumb.url,
       start_price: start_price
     }
   end

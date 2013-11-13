@@ -1,9 +1,6 @@
 <%= render partial: 'common/public_header' %>
 
 <div id="authenticate" class="container">
-  <% if flash[:message] %>
-  	<div class="col-md-12 error"><%= flash[:message] %></div>
-  <% end %>
   <div class="col-md-12 username"><%= "#{@user.title} #{@user.first_name} #{@user.last_name}" %></div>
   <div class="col-md-12 pin">
     <div class="row">
