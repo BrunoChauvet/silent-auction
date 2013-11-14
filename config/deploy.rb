@@ -9,7 +9,7 @@ set :application, "#{application}"
 set :stages, %w(production, staging)
 set :default_stage, "staging"
 
-set :user, "bruno"
+set :user, "user"
 
 set :scm, :git
 set :repo_url, "git@github.com:BrunoChauvet/#{application}.git"
@@ -27,7 +27,7 @@ set :rvm_ruby_version, '2.0.0-p247'
 after "deploy", "deploy:cleanup", "deploy:stop", "deploy:start"
 
 server_path = "/var/www/silent-auction/current"
-user        = "bruno"
+user        = "user"
 
 puma_sock    = "unix://#{shared_path}/sockets/puma.sock"
 puma_control = "unix://#{shared_path}/sockets/pumactl.sock"
