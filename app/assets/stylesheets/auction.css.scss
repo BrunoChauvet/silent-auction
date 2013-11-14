@@ -68,23 +68,23 @@ a:hover, a:focus {
   clear: both;
 }
 
-#auction .experiences {
+#auction .experience {
   background-color: #F8F0CE;
 }
 
-#auction .electronics {
+#auction .electricals {
   background-color: #E3F8CE;
 }
 
-#auction .cat1 {
+#auction .spiritswines {
   background-color: #CEF8D5;
 }
 
-#auction .cat2 {
+#auction .personalfamily {
   background-color: #CEF8F0;
 }
 
-#auction .cat3 {
+#auction .art {
   background-color: #CEE3F8;
 }
 
@@ -130,15 +130,21 @@ a:hover, a:focus {
   font-weight: bold;
   font-size: 1.5em;
   display: inline-block;
-  width: 18%;
+  width: 15%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #auction .item-name {
   font-weight: bold;
   font-size: 1.2em;
   display: inline-block;
-  width: 80%;
+  width: 83%;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #auction .item-image {

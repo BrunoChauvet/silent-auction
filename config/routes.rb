@@ -9,6 +9,7 @@ SilentAuction::Application.routes.draw do
 
   # Administration
   get 'admin', to: 'admin#index'
+  get 'import_items', to: 'admin#import_items'
   resources :preferences, only: [:index, :show, :update]
   resources :user_groups
   resources :users

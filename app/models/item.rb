@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
       name: name,
       description: description,
       code: code,
-      category: category.name.downcase,
+      category: category.name.tr('^A-Za-z0-9', '').downcase,
       image: image.thumb.url || 'images/ufe_logo.png',
       start_price: start_price
     }
