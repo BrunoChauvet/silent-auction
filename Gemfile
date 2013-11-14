@@ -33,6 +33,7 @@ gem 'cloudinary'
 gem 'mini_magick'
 gem 'browser'
 gem 'devise'
+gem 'spreadsheet'
 
 gem 'puma'
 gem 'capistrano'
