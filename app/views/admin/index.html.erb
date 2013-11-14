@@ -23,13 +23,23 @@
 <% end %>
 
 <br/>
+<hr/>
+<br/>
+
+<%= form_tag(import_items_google_drive_path) do -%>
+  <%= text_field_tag 'username', nil, placeholder: 'Google username' %>
+  <%= password_field_tag 'password', nil, placeholder: 'Google password' %>
+  <%= submit_tag 'Import Items from Google Drive', class: "btn btn-primary" %>
+<% end -%>
+
+<br/>
 
 <%= link_to import_items_path, html_options = {class: "btn"} do %>
-  <i class="glyphicon glyphicon-share">Import Items</i>
+  <i class="glyphicon glyphicon-share">Import Items (Local copy)</i>
 <% end %>
 
 <br/>
 
 <%= link_to import_users_path, html_options = {class: "btn"} do %>
-  <i class="glyphicon glyphicon-share">Import Tables</i>
+  <i class="glyphicon glyphicon-share">Import Tables (Local copy)</i>
 <% end %>

@@ -4,7 +4,7 @@ describe ImportItems do
 
   describe "#import" do
 
-    let(:file_path) {'spec/fixtures/gala_content.xls'}
+    let(:file_path) {'spec/fixtures/gala_content.xlsx'}
 
     it "should extract the categories" do
       ImportItems.import file_path

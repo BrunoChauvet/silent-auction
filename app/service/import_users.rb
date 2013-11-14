@@ -1,5 +1,3 @@
-require 'spreadsheet'
-
 class ImportUsers
 
   IDX_TITLE = 0

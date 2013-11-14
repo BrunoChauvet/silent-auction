@@ -1,28 +1,26 @@
-require 'spreadsheet'
-
 class ImportItems
 
-  IDX_CODE = 0
-  IDX_NAME = 2
-  IDX_START_PRICE = 4
+  IDX_CODE = 1
+  IDX_NAME = 3
+  IDX_START_PRICE = 5
 
   def self.import(file_path)
-  	book = Spreadsheet.open(file_path)
-  	sheet = book.worksheet('Silent AUCTION')
+  	book = Roo::Excelx.new(file_path)
+    book.default_sheet = 'Silent AUCTION'
 
     category = nil
 
-  	sheet.each_with_index do |row, index|
-      next if index == 0
-      break if row[0].nil?
+    for line in 2..book.last_row do
+      first_cell = book.cell(line, 1)
+      break if first_cell.nil?
 
-      if row[0].is_a? String
-        category_name = row[0]
+      if first_cell.is_a? String
+        category_name = first_cell
         category = Category.where(name: category_name).first_or_create
       else
-        code = row[IDX_CODE]
-        name = row[IDX_NAME]
-        start_price = row[IDX_START_PRICE] || 0
+        code = book.cell(line, IDX_CODE).to_i.to_s
+        name = book.cell(line, IDX_NAME)
+        start_price = book.cell(line, IDX_START_PRICE) || 0
 
         item = Item.where(code: code).first
         if item.blank?

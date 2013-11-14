@@ -11,6 +11,8 @@ SilentAuction::Application.routes.draw do
   get 'admin', to: 'admin#index'
   get 'import_items', to: 'admin#import_items'
   get 'import_users', to: 'admin#import_users'
+  post 'import_items_google_drive', to: 'admin#import_items_google_drive'
+
   resources :preferences, only: [:index, :show, :update]
   resources :user_groups
   resources :users
