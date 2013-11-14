@@ -1,5 +1,11 @@
 <h1>Administration</h1>
 
+<%= link_to user_groups_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-user">Manage Tables</i>
+<% end %>
+
+<br/>
+
 <%= link_to users_path, html_options = {class: "btn"} do %>
   <i class="glyphicon glyphicon-user">Manage Users</i>
 <% end %>

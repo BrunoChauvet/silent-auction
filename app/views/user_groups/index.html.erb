@@ -1,0 +1,31 @@
+<h1>Listing user_groups</h1>
+
+<%= link_to admin_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-home">Administration</i>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sort order</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_groups.each do |user_group| %>
+      <tr>
+        <td><%= user_group.name %></td>
+        <td><%= user_group.sort_order %></td>
+        <td><%= button_to 'Edit', edit_user_group_path(user_group), method: :get, :class => 'btn btn-primary' %></td>
+        <td><%= button_to 'Destroy', user_group, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User group', new_user_group_path %>

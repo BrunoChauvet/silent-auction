@@ -56,6 +56,10 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+Before do
+  Preference.create(name: 'END_TIME', value: '2013-11-30 22:00:00+0900')
+end
+
 AfterStep('@pause') do
   print "Press Return to continue"
   STDIN.getc

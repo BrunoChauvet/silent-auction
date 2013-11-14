@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        flash[:message] = "User has been edited"
+        flash[:message] = "User has been updated"
         format.html { redirect_to edit_user_path(@user) }
         format.json { head :no_content }
       else

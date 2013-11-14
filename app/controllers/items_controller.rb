@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        flash[:message] = "Item has been edited"
+        flash[:message] = "Item has been updated"
         format.html { redirect_to edit_item_path(@item) }
         format.json { head :no_content }
       else

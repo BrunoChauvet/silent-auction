@@ -5,7 +5,7 @@ class AuctionController < ApplicationController
       format.html { }
       format.json {
         auction = []
-        items = Item.all(order: :code)
+        items = Item.order(:code)
         items.each do |item|
           last_bid = Bid.where(item: item).order('timestamp desc').first
           auction << {item: item, bid: last_bid, user: last_bid.try(:user)}

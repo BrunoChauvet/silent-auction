@@ -10,6 +10,7 @@ SilentAuction::Application.routes.draw do
   # Administration
   get 'admin', to: 'admin#index'
   resources :preferences, only: [:index, :show, :update]
+  resources :user_groups
   resources :users
   resources :items
   resources :bids
