@@ -16,9 +16,7 @@ class ImportItems
       next if index == 0
       break if row[0].nil?
 
-      # NUMERO  RETRAVAIL TITLE value OB  IMG BY  Proposition DESCRIPTION
-      if row[0].is_a? String 
-        # Category
+      if row[0].is_a? String
         category_name = row[0]
         category = Category.where(name: category_name).first_or_create
       else

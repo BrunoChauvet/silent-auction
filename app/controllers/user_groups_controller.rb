@@ -4,7 +4,7 @@ class UserGroupsController < ApplicationController
   # GET /user_groups
   # GET /user_groups.json
   def index
-    @user_groups = UserGroup.all
+    @user_groups = UserGroup.all.order(:sort_order)
   end
 
   # GET /user_groups/1
