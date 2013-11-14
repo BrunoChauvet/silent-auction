@@ -6,10 +6,10 @@ require 'bundler/deployment'
 application = 'silent-auction'
 
 set :application, "#{application}"
-set :stages, %w(production, development)
-set :default_stage, "development"
+set :stages, %w(production, staging)
+set :default_stage, "staging"
 
-set :user, "user"
+set :user, "bruno"
 
 set :scm, :git
 set :repo_url, "git@github.com:BrunoChauvet/#{application}.git"
@@ -21,9 +21,13 @@ set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
 set :ssh_options, { forward_agent: true }
 
+set :rvm_type, :user
+set :rvm_ruby_version, '2.0.0-p247'
+
 after "deploy", "deploy:cleanup", "deploy:stop", "deploy:start"
 
 server_path = "/var/www/silent-auction/current"
+user        = "bruno"
 
 puma_sock    = "unix://#{shared_path}/sockets/puma.sock"
 puma_control = "unix://#{shared_path}/sockets/pumactl.sock"
@@ -45,13 +49,13 @@ namespace :deploy do
   desc "Restart the application"
   task :restart do
     puts "Restarting passenger from capistrano"
-    on "user@localhost" do |host|
+    on "#{user}@localhost" do |host|
       within "#{server_path}" do
-        execute :mkdir, :tmp
+        test :mkdir, :tmp
       end
 
       within "#{server_path}/tmp" do
-        execute :touch, "restart.txt"
+        test :touch, "restart.txt"
       end
     end
   end

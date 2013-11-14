@@ -38,6 +38,7 @@ gem 'puma'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
+gem 'capistrano-rvm'
 gem 'newrelic_rpm'
 
 group :test, :development do

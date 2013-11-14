@@ -15,7 +15,7 @@ role :db,  %w{localhost}
 # definition into the server list. The second argument
 # something that quacks like a has can be used to set
 # extended properties on the server.
-server 'localhost', user: 'user', roles: %w{web app}
+server 'localhost', user: 'bruno', roles: %w{web app}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
