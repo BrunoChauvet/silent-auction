@@ -9,4 +9,4 @@ User.create(user_group: staff_table, title: 'Mr', first_name: 'Bruno', last_name
 
 ImportUsers.import 'public/gala_tables.xls'
 
-ImportItems.import 'public/gala_content.xls'
+ImportItems.import 'public/gala_content.xlsx'
