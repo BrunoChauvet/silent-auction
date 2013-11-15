@@ -9,7 +9,7 @@ set :application, "#{application}"
 set :stages, %w(production, staging)
 set :default_stage, "staging"
 
-set :user, "user"
+set :user, "deployer"
 
 set :scm, :git
 set :repo_url, "git@github.com:BrunoChauvet/#{application}.git"
@@ -21,13 +21,13 @@ set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
 set :ssh_options, { forward_agent: true }
 
-set :rvm_type, :user
-set :rvm_ruby_version, '2.0.0-p247'
+set :rvm_type, :auto
+set :rvm_ruby_version, '2.0.0'
 
 after "deploy", "deploy:cleanup", "deploy:stop", "deploy:start"
 
 server_path = "/var/www/silent-auction/current"
-user        = "user"
+user        = "deployer"
 
 puma_sock    = "unix://#{shared_path}/sockets/puma.sock"
 puma_control = "unix://#{shared_path}/sockets/pumactl.sock"
@@ -39,11 +39,11 @@ puma_pid     = "#{server_path}/tmp/puma.pid"
 namespace :deploy do
   desc "Start the application"
   task :start do
-    # nothin for passenger
+    # nothing for passenger
   end
 
   task :stop do
-    # nothin for passenger
+    # nothing for passenger
   end
  
   desc "Restart the application"
