@@ -1,4 +1,7 @@
 class Bid < ActiveRecord::Base
+  
+  MINIMUM_INCREMENT = 10
+
   belongs_to :item
   belongs_to :user
 

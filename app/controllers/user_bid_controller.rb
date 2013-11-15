@@ -9,7 +9,11 @@ class UserBidController < ApplicationController
         items = Item.all(order: :code)
         items.each do |item|
           last_bid = Bid.where(item: item).order('timestamp desc').first
-          bids << {item: item, price: last_bid.present? ? last_bid.price : item.start_price, status: bid_status(item)}
+          bids << {
+                    item: item,
+                    price: last_bid.present? ? last_bid.price : item.start_price,
+                    min_price: last_bid.present? ? last_bid.price + Bid::MINIMUM_INCREMENT : item.start_price,
+                    status: bid_status(item)}
         end
 
         render json: bids

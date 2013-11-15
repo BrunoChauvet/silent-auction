@@ -27,10 +27,10 @@ describe UserBidController do
       get :list_items, format: :json
 
       response.body.should eql([
-          {item: @item1, price: @bid1.price, status: 'owner'},
-          {item: @item2, price: @bid3.price, status: 'outbidded'},
-          {item: @item3, price: @bid4.price, status: 'none'},
-          {item: @item4, price: @item4.start_price, status: 'start-price'}].to_json)
+          {item: @item1, price: @bid1.price, min_price: @bid1.price + Bid::MINIMUM_INCREMENT, status: 'owner'},
+          {item: @item2, price: @bid3.price, min_price: @bid3.price + Bid::MINIMUM_INCREMENT, status: 'outbidded'},
+          {item: @item3, price: @bid4.price, min_price: @bid4.price + Bid::MINIMUM_INCREMENT, status: 'none'},
+          {item: @item4, price: @item4.start_price, min_price: @item4.start_price, status: 'start-price'}].to_json)
     end
   end
 
