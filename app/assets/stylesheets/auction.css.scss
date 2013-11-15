@@ -298,6 +298,10 @@ div.alert-danger {
   padding: 2px;
 }
 
+#user-bid div.bid-item span {
+  display: inline-block;
+}
+
 a.user-bid-link {
   display: inline-block;
   width: 100%;
@@ -306,6 +310,16 @@ a.user-bid-link {
 
 #user-bid span.item-code {
   font-weight: bold;
+  float: left;
+  width: 10%;
+}
+
+#user-bid span.item-name {
+  float: left;
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #user-bid span.item-price {
