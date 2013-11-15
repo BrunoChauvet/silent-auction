@@ -25,7 +25,6 @@ class UserBidController < ApplicationController
     begin
       item = Item.find(params[:item][:id])
       bid = Bid.place(item, current_user, params[:price].to_d)
-      flash[:message] = "Bid has been placed"
       render json: {success: true, item: item, user: current_user, bid: bid}
     rescue Exception => e
       render json: {success: false, message: e.message, price: params[:price]}

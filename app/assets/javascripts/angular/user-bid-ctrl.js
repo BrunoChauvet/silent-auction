@@ -17,7 +17,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.createBid = function(item) {
   	$scope.bidding = true;
-    $scope.biddingPrice = item.price;
+    $scope.biddingPrice = item.min_price;
     $scope.minimumPrice = item.min_price;
     $scope.biddingItem = item.item;
   };
@@ -40,9 +40,10 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
     success(function(data, status, headers, config) {
       if(data.success == true) {
       	refreshItems();
+        $scope.message = 'Bid has been placed';
       	$scope.bidding = false;
       } else {
-      	$scope.message = data.message;
+      	$scope.error = data.message;
       	$scope.biddingPrice = data.price;
       }
     });

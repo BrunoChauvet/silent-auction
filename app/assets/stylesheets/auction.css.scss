@@ -239,12 +239,25 @@ span.header-title {
 
 /* Mobile interface */
 
-span.public-header-title {
-  font-size: 1.2em;
+div#public-header {
+  padding: 10px;
+  line-height: 30px;
+}
+
+div.public-header-title {
+  font-size: 1.4em;
+  font-weight: bold;
   display: inline-block;
-  margin-right: 20px;
-  margin-left: 20px;
-  padding: 15px;
+  width: 43%;
+  text-align: center;
+}
+
+div.public-header-user {
+  font-size: 1.1em;
+  display: inline-block;
+  width: 55%;
+  text-align: right;
+  float: right;
 }
 
 #public-header {
@@ -287,10 +300,6 @@ div.bid-actions {
 div.alert-danger {
   text-align: center;
   font-size: 1.2em;
-  font-weight: bold;
-}
-
-#public-header .username {
   font-weight: bold;
 }
 

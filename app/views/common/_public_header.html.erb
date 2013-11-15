@@ -1,21 +1,16 @@
-<div id="public-header" class="container">
-  <div class="row">
-    <div class="col-md-12" style="text-align: center;">
-      <% if user_signed_in? %>
-        <div style="float: right;">
-          Bidding as: <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
-          <%= link_to(destroy_user_session_path, :class => 'back') do %>
-            <span class="glyphicon glyphicon-remove">Logout</span>
-          <% end %>
-        </div>
-      <% else %>
-        <div style="float: left;">
-          <%= link_to(authenticate_select_table_path, :class => 'back') do %>
-            <span class="glyphicon glyphicon-chevron-left">Back</span>
-          <% end %>
-        </div>
+<div id="public-header">
+  <div class="public-header-title">Gala UFE 2013</div>
+
+  <div class="public-header-user">
+    <% if user_signed_in? %>
+      <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
+      <%= link_to(destroy_user_session_path, :class => 'btn btn-primary') do %>
+        <span class="glyphicon glyphicon-remove">Logout</span>
       <% end %>
-      <span class="public-header-title">Gala UFE 2013</span>
-    </div>
+    <% else %>
+      <%= link_to(authenticate_select_table_path, :class => 'btn btn-primary') do %>
+        <span class="glyphicon glyphicon-chevron-left">Back</span>
+      <% end %>
+    <% end %>
   </div>
 </div>
