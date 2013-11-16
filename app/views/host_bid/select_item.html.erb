@@ -1,8 +1,8 @@
-<%= render partial: 'common/bidding_header', locals: {back_link: select_table_path(table_id: @user.user_group.id)} %>
+<%= render partial: 'common/bidding_header', locals: {back_link: select_user_path(table_id: @user.user_group.id)} %>
 
-<div id="items" class="container ipad-list">
-  <% @items.each do |item| %>
-    <div class="col-md-12">
+<div id="items" class="container list">
+  <% @items.each_with_index do |item, index| %>
+    <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
       <%= link_to "#{item.code} - #{item.name}", select_amount_path(user_id: params[:user_id], item_id: item.id) %>
     </div>
   <% end %>

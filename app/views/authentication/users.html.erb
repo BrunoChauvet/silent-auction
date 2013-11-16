@@ -1,9 +1,11 @@
-<%= render partial: 'common/public_header' %>
+<%= render partial: 'common/authentication_header', locals: {title: "Select your name"} %>
 
 <div id="users" class="list container">
-  <% @users.each do |user| %>
-    <div class="col-md-12 list-item">
-      <%= link_to "#{user.title} #{user.first_name} #{user.last_name}", user_pin_path(user.id) %>
+  <% @users.each_with_index do |user, index| %>
+  	<div class="row">
+      <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
+        <%= link_to "#{user.title} #{user.first_name} #{user.last_name}", user_pin_path(user.id) %>
+      </div>
     </div>
   <% end %>
 </div>

@@ -1,16 +1,12 @@
-<div id="public-header">
-  <div class="public-header-title">Gala UFE 2013</div>
-
-  <div class="public-header-user">
-    <% if user_signed_in? %>
-      <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
-      <%= link_to(destroy_user_session_path, :class => 'btn btn-primary') do %>
-        <span class="glyphicon glyphicon-remove">Logout</span>
-      <% end %>
-    <% else %>
-      <%= link_to(authenticate_select_table_path, :class => 'btn btn-primary') do %>
-        <span class="glyphicon glyphicon-chevron-left">Back</span>
-      <% end %>
-    <% end %>
+<div class="container mobile-header">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="public-header-title">
+        <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
+        <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
+          <span class="glyphicon glyphicon-remove">Logout</span>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

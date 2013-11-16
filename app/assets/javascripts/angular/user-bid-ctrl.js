@@ -4,6 +4,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.init = function() {
   	$scope.message = '';
+    $scope.error = '';
   	$scope.bidding = false;
   	$scope.items = [];
     refreshItems();
@@ -24,6 +25,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.cancelBid = function() {
   	$scope.message = '';
+    $scope.error = '';
   	$scope.bidding = false;
     $scope.biddingPrice = 0;
     $scope.biddingItem = null;
@@ -36,6 +38,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.placeBid = function() {
   	$scope.message = '';
+    $scope.error = '';
   	$http({method: 'POST', url: '/place_bid.json', data: {'item': $scope.biddingItem, 'price': $scope.biddingPrice}}).
     success(function(data, status, headers, config) {
       if(data.success == true) {

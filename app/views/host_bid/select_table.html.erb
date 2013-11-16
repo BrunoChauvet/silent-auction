@@ -1,8 +1,12 @@
 <%= render partial: 'common/bidding_header', locals: {back_link: select_table_path} %>
 
-<div id="tables" class="container ipad-list">
-  <% @user_groups.each do |user_group| %>
-    <div class="col-md-12">
+<% if flash[:message] %>
+  <div class="alert alert-success"><%= flash[:message] %></div>
+<% end %>
+
+<div id="tables" class="container list">
+  <% @user_groups.each_with_index do |user_group, index| %>
+    <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
       <%= link_to user_group.name, select_user_path(table_id: user_group.id) %>
     </div>
   <% end %>

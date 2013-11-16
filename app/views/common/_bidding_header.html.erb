@@ -1,7 +1,15 @@
-<div id="bidding-header" class="container">
+<div class="container mobile-header">
   <div class="row">
-    <div class="col-md-2"><a class="start" href="<%= select_table_path %>">New Bid</a></div>
-    <div class="col-md-2"><a class="back" href="<%= back_link %>">Back</a></div>
-    <div class="col-md-8"><span class="header-title">Gala UFE 2013</span></div>
+    <div class="col-md-12 public-header-title">
+      <%= link_to back_link, html_options = {class: "btn btn-primary pull-left back"} do %>
+        <i class="glyphicon glyphicon-chevron-left">Back</i>
+      <% end %>
+
+      Place a Bid
+
+      <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
+        <span class="glyphicon glyphicon-remove"><%= "#{current_user.first_name}" %></span>
+      <% end %>
+    </div>
   </div>
 </div>

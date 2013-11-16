@@ -1,4 +1,4 @@
-class UserBidController < ApplicationController
+class UserBidController < MobileApplicationController
   before_filter :authenticate_user!
 
   def list_items

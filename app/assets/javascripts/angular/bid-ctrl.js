@@ -20,7 +20,6 @@ auctionModule.controller('BidsCtrl', ['$scope', '$http', function($scope, $http)
     $http({method: 'POST', url: '/place_bid/' + $scope.user_id + '/' + $scope.item_id + '.json', data: {'price': $scope.price}})
          .success(function(data, status, headers, config) {
       if(data.success) {
-        $scope.message = 'Bid has been placed';
         window.location = '/select_table';
       } else {
         if(data.price) {

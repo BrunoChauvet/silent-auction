@@ -4,6 +4,12 @@
   border: 1px solid rgba(86, 61, 124, 0.2);
 }
 
+body.mobile {
+  background-image: image-url("background.jpg");
+  background-position: top center;
+  color: #B86D6D;
+}
+
 a {
   text-decoration: none;
   display: block;
@@ -200,19 +206,32 @@ a.start, a.back {
   font-weight: bold;
 }
 
+.host-username {
+  font-size: 0.6em;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
 span.header-title {
   display: block;
   text-align: center;
 }
 
 #authenticate .username {
-  padding: 15px;
+  padding-left: 80px;
   font-weight: bold;
   font-size: 1.2em;
 }
 
 #authenticate .pin {
   padding: 15px;
+}
+
+.container .row .title {
+  line-height: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
 }
 
 #bid {
@@ -239,38 +258,63 @@ span.header-title {
 
 /* Mobile interface */
 
-div#public-header {
-  padding: 10px;
-  line-height: 30px;
+div.mobile-header {
+  line-height: 70px;
 }
 
 div.public-header-title {
-  font-size: 1.4em;
+  background-image: image-url("ufe_logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  font-size: 2em;
   font-weight: bold;
-  display: inline-block;
-  width: 43%;
+  padding-left: 120px;
   text-align: center;
 }
 
-div.public-header-user {
-  font-size: 1.1em;
-  display: inline-block;
-  width: 55%;
-  text-align: right;
-  float: right;
+.mobile-header a.back {
+  margin-top: 20px;
 }
 
-#public-header {
-}
-
-#public-header a.back {
-  display: inline-block;
-  margin-right: 10px;
+.list .list-item {
+  background-position: left center;
+  background-repeat: no-repeat;
+  line-height: 64px;
 }
 
 .list .list-item a {
-  padding: 10px;
   display: block;
+  padding-left: 80px;
+  color: #B86D6D;
+  font-size: 1.4em;
+}
+
+.mask1 {
+  background-image: image-url("mask1.png");
+}
+
+.mask2 {
+  background-image: image-url("mask2.png");
+}
+
+.mask3 {
+  background-image: image-url("mask3.png");
+}
+
+.mask4 {
+  background-image: image-url("mask4.png");
+}
+
+.mask5 {
+  background-image: image-url("mask5.png");
+}
+
+.mask6 {
+  background-image: image-url("mask6.png");
+}
+
+#user-bid {
+  margin-top: 10px;
 }
 
 #user-bid a {
@@ -325,7 +369,7 @@ a.user-bid-link {
 
 #user-bid span.item-name {
   float: left;
-  width: 70%;
+  width: 65%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

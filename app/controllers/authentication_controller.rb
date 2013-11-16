@@ -1,4 +1,4 @@
-class AuthenticationController < ApplicationController
+class AuthenticationController < MobileApplicationController
   
   def tables
     @tables = UserGroup.find(:all, order: :sort_order)

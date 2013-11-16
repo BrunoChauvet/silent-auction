@@ -1,4 +1,4 @@
-class HostBidController < ApplicationController
+class HostBidController < MobileApplicationController
   before_filter :authenticate_user!
 
   def select_table

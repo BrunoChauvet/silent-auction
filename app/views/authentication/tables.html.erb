@@ -1,9 +1,11 @@
-<%= render partial: 'common/public_header' %>
+<%= render partial: 'common/authentication_header', locals: {title: "Select your table"}  %>
 
-<div id="tables" class="list container">
-  <% @tables.each do |table| %>
-    <div class="col-md-12 list-item">
-      <%= link_to table.name, authenticate_select_user_path(table.id) %>
+<div id="tables" class="container list">
+  <% @tables.each_with_index do |table, index| %>
+    <div class="row">
+      <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
+        <%= link_to table.name, authenticate_select_user_path(table.id) %>
+      </div>
     </div>
   <% end %>
 </div>
