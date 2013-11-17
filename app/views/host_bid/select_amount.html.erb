@@ -11,29 +11,29 @@
   </div>
 
   <div class="row">
-    <div class="col-md-12">&nbsp;</div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-12 bid-price">${{price}}</div>
+    <div class="col-md-12 bid-price"><span class="bid-price-label">Bid price: </span>${{price}}</div>
   </div>
 
   <div class="row">
     <div class="col-md-12 bid-actions">
-      <button id="minus-50" type="submit" class="btn btn-primary btn-lg" ng-click="add(-50)"><b>-</b>$50</button>
-      <button id="minus-10" type="submit" class="btn btn-primary btn-lg" ng-click="add(-10)"><b>-</b>$10</button>
-      <button id="plus-10" type="submit" class="btn btn-primary btn-lg" ng-click="add(10)"><b>+</b>$10</button>
-      <button id="plus-50" type="submit" class="btn btn-primary btn-lg" ng-click="add(50)"><b>+</b>$50</button>
+      <button class="btn btn-default btn-lg" type="submit" ng-click="refresh()">
+        <span class="glyphicon glyphicon-refresh"></span><span class="btn-bid">Reset</span>
+      </button>
+      <button class="btn btn-default btn-lg" type="submit" ng-click="add(10)">
+        <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$10</span>
+      </button>
+      <button class="btn btn-default btn-lg" type="submit" ng-click="add(50)">
+        <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$50</span>
+      </button>
     </div>
   </div>
 
-  <div class="row" ng-show="message != ''">
-    <div class="bid-message alert alert-danger">{{message}}</div>
+  <div class="row" ng-show="error != ''">
+    <div class="col-md-12">&nbsp;</div>
+    <div class="bid-message alert alert-danger">{{error}}</div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">&nbsp;</div>
-  </div>
+  <div class="row"><div class="col-md-12">&nbsp;</div></div>
 
   <div class="row">
     <div class="col-md-12">

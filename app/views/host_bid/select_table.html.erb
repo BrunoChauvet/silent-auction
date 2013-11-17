@@ -1,13 +1,16 @@
 <%= render partial: 'common/host_header', locals: {back_link: select_table_path} %>
 
 <% if flash[:message] %>
-  <div class="alert alert-success"><%= flash[:message] %></div>
+  <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <%= flash[:message] %>
+  </div>
 <% end %>
 
 <div id="tables" class="container list">
   <% @user_groups.each_with_index do |user_group, index| %>
-    <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
-      <%= link_to user_group.name, select_user_path(table_id: user_group.id) %>
-    </div>
+  <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
+    <%= link_to user_group.name, select_user_path(table_id: user_group.id) %>
+  </div>
   <% end %>
 </div>

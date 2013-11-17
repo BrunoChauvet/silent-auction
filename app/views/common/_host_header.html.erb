@@ -2,14 +2,16 @@
   <div class="row">
     <div class="col-md-12 public-header-title">
       <%= link_to back_link, html_options = {class: "btn btn-primary pull-left back"} do %>
-        <i class="glyphicon glyphicon-chevron-left">Back</i>
+        <span class="glyphicon glyphicon-chevron-left"></span>
       <% end %>
 
-      Place a Bid
-
-      <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
-        <span class="glyphicon glyphicon-remove"><%= "#{current_user.first_name}" %></span>
-      <% end %>
+      <div class="title">
+        Place a Bid
+        <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
+          <span class="glyphicon glyphicon-remove"><%= "#{current_user.first_name}" %></span>
+        <% end %>
+      </div>
+      
     </div>
   </div>
 </div>

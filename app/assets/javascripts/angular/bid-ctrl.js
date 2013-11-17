@@ -6,16 +6,22 @@ auctionModule.controller('BidsCtrl', ['$scope', '$http', function($scope, $http)
   	$scope.user_id = user_id;
   	$scope.item_id = item_id;
     $scope.price = price;
-    $scope.message = '';
+    $scope.initialPrice = price;
+    $scope.error = '';
   };
 
   $scope.add = function(amount) {
-    $scope.message = '';
-  	$scope.price = parseInt($scope.price) + parseInt(amount);
+    $scope.error = '';
+    $scope.price = parseInt($scope.price) + parseInt(amount);
+  };
+
+  $scope.refresh = function() {
+    $scope.error = '';
+    $scope.price = $scope.initialPrice;
   };
 
   $scope.placeBid = function() {
-    $scope.message = '';
+    $scope.error = '';
     
     $http({method: 'POST', url: '/place_bid/' + $scope.user_id + '/' + $scope.item_id + '.json', data: {'price': $scope.price}})
          .success(function(data, status, headers, config) {
@@ -26,7 +32,7 @@ auctionModule.controller('BidsCtrl', ['$scope', '$http', function($scope, $http)
           $scope.price = data.price;
         }
         if(data.message) {
-          $scope.message = data.message;
+          $scope.error = data.message;
         }
       }
     });

@@ -231,22 +231,23 @@ span.header-title {
   text-align: center;
 }
 
-#bid .bid-user {
-  font-size: 1.2em;
+#bid .bid-user, #bid .bid-item, #bid .bid-price {
+  font-size: 1.4em;
   font-weight: bold;
   line-height: 30px;
-}
-
-#bid .bid-item {
-  font-size: 1.2em;
-  font-weight: bold;
-  line-height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #303030;
 }
 
 #bid .bid-price {
-  font-size: 1.4em;
-  font-weight: bold;
-  line-height: 35px;
+  font-size: 1.6em;
+}
+
+#bid .bid-price-label {
+  font-weight: normal;
+  font-size: 0.8em;
 }
 
 /* Mobile interface */

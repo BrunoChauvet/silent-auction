@@ -19,6 +19,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
   $scope.createBid = function(item) {
   	$scope.bidding = true;
     $scope.biddingPrice = item.min_price;
+    $scope.defaultPrice = item.min_price;
     $scope.biddingItem = item.item;
   };
 
@@ -31,8 +32,13 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
   };
 
   $scope.add = function(amount) {
-  	$scope.message = '';
-  	$scope.biddingPrice = parseInt($scope.biddingPrice) + parseInt(amount);
+    $scope.message = '';
+    $scope.biddingPrice = parseInt($scope.biddingPrice) + parseInt(amount);
+  };
+
+  $scope.refresh = function() {
+    $scope.message = '';
+    $scope.biddingPrice = $scope.defaultPrice;
   };
 
   $scope.placeBid = function() {
