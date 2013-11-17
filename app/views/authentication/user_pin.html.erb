@@ -5,6 +5,10 @@
     <div class="col-md-12 list-item username mask1"><%= "#{@user.title} #{@user.first_name} #{@user.last_name}" %></div>
   </div>
 
+  <% if flash[:error] %>
+    <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
+
   <div class="row">
     <div class="col-md-12 pin">
       <%= form_tag({},{:class => 'form-horizontal', :role => 'form'}) do %>
@@ -15,13 +19,9 @@
           </div>
         </div>
         
-        <% if flash[:error] %>
-          <div class="alert alert-danger"><%= flash[:error] %></div>
-        <% end %>
-
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" class="btn btn-primary" value="Submit"></input>
+            <input type="submit" class="btn btn-primary btn-lg" value="Submit"></input>
           </div>
        </div>
       <% end %>

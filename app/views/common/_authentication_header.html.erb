@@ -1,12 +1,14 @@
 <div class="container mobile-header">
   <div class="row">
-    <div class="col-md-12">
-      <div class="public-header-title">
-        <%= defined?(title) ? title : '&nbsp;'.html_safe %>
-        <%= link_to authenticate_select_table_path, html_options = {class: "back btn btn-primary pull-left"} do %>
-          <i class="glyphicon glyphicon-chevron-left">Back</i>
+    <div class="col-md-12 public-header-title">
+      <div class="back-button">
+        <%= link_to authenticate_select_table_path, html_options = {class: "back btn btn-primary btn-lg pull-left"} do %>
+          <span class="glyphicon glyphicon-chevron-left"></span>
         <% end %>
       </div>
+      <% if defined?(title) %>
+        <div class="title"><%= title.html_safe %></div>
+      <% end %>
     </div>
   </div>
 </div>

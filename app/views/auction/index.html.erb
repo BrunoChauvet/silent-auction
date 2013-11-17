@@ -8,7 +8,7 @@
       <div class="auction-info">
         <div>
           <span class="label">Amount raised</span>
-          <span class="value">{{amountRaised | currency}}</span>
+          <span class="value">{{amountRaised | roundedCurrency}}</span>
         </div>
         <div>
           <span class="label">Time left</span>
@@ -31,8 +31,8 @@
           <div ng-show="item.bid.price" class="col-md item-user">{{item.user.title}} {{item.user.first_name}} {{item.user.last_name}}</div>
           <div ng-hide="item.bid.price" class="col-md item-user">Start price</div>
   		  	<div class="col-md item-price">
-            <span ng-show="item.bid.price">{{item.bid.price | currency}}</span>
-            <span ng-hide="item.bid.price">{{item.item.start_price | currency}}</span>
+            <span ng-show="item.bid.price">{{item.bid.price | roundedCurrency}}</span>
+            <span ng-hide="item.bid.price">{{item.item.start_price | roundedCurrency}}</span>
           </div>
   		  </div>
     	</div>

@@ -1,8 +1,8 @@
 /* TESTING BOOTSTRAP CONTAINERS */
 
-[class*="col-"] {
-  border: 1px solid rgba(86, 61, 124, 0.2);
-}
+// [class*="col-"] {
+//   border: 1px solid rgba(86, 61, 124, 0.2);
+// }
 
 body.mobile {
   background-image: image-url("background.jpg");
@@ -218,20 +218,13 @@ span.header-title {
 }
 
 #authenticate .username {
-  padding-left: 80px;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.4em;
+  text-align: center;
 }
 
 #authenticate .pin {
   padding: 15px;
-}
-
-.container .row .title {
-  line-height: 30px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
 }
 
 #bid {
@@ -258,34 +251,49 @@ span.header-title {
 
 /* Mobile interface */
 
+.btn-primary {
+    // background: linear-gradient(135deg, #961E20 0%, #CA5A5C 62%, rgba(207, 96, 98, 0.7) 68%, rgba(234, 126, 128, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background-color: #961E20;
+    border-color: #303030;
+    color: #F0C1C1;
+}
+
 div.mobile-header {
   line-height: 70px;
+  border-bottom: 1px solid #A0A0A0;
 }
 
 div.public-header-title {
   background-image: image-url("ufe_logo.png");
-  background-position: left center;
+  background-position: right top;
   background-repeat: no-repeat;
-  font-size: 2em;
+  font-size: 1.6em;
   font-weight: bold;
-  padding-left: 120px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.public-header-title .title {
+  margin-left: 5px;
+  margin-right: 60px;
   text-align: center;
 }
 
 .mobile-header a.back {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .list .list-item {
   background-position: left center;
   background-repeat: no-repeat;
   line-height: 64px;
+  border-bottom: 1px solid #707070;
 }
 
 .list .list-item a {
   display: block;
   padding-left: 80px;
-  color: #B86D6D;
+  color: #CAADAD;
   font-size: 1.4em;
 }
 
@@ -313,6 +321,14 @@ div.public-header-title {
   background-image: image-url("mask6.png");
 }
 
+.mask7 {
+  background-image: image-url("mask7.png");
+}
+
+.mask8 {
+  background-image: image-url("mask8.png");
+}
+
 #user-bid {
   margin-top: 10px;
 }
@@ -337,8 +353,22 @@ div.public-header-title {
   background-color: #44B3CB;
 }
 
+div.bid-amount {
+  border-top: 1px solid #707070;
+  border-bottom: 1px solid #707070;
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
 div.bid-actions {
   text-align: center;
+}
+
+.btn-bid {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 div.alert-danger {
@@ -348,7 +378,9 @@ div.alert-danger {
 }
 
 #user-bid div.bid-item {
-  padding: 2px;
+  font-size: 1.2em;
+  padding: 0px;
+  border-bottom: 1px solid #303030;
 }
 
 #user-bid div.bid-item span {
@@ -358,7 +390,7 @@ div.alert-danger {
 a.user-bid-link {
   display: inline-block;
   width: 100%;
-  padding: 8px;
+  padding: 10px 5px;
 }
 
 #user-bid span.item-code {
@@ -369,7 +401,7 @@ a.user-bid-link {
 
 #user-bid span.item-name {
   float: left;
-  width: 65%;
+  width: 72.5%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -387,14 +419,17 @@ a.user-bid-link {
   font-size: 1.2em;
   display: block;
   line-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #user-bid .item-bid-code {
-  font-size:1.2em;
+  font-size: 1.2em;
 }
 
 #user-bid .item-bid-name {
-  font-size:1.1em;
+  font-size: 1.1em;
 }
 
 #user-bid .bid-price {

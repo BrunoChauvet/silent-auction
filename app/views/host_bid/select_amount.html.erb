@@ -1,4 +1,4 @@
-<%= render partial: 'common/bidding_header', locals: {back_link: select_item_path(user_id: @user.id)} %>
+<%= render partial: 'common/host_header', locals: {back_link: select_item_path(user_id: @user.id)} %>
 
 <div id="bid" class="container" ng-controller="BidsCtrl" ng-init="init(<%= @user.id =%>, <%= @item.id =%>, <%= @last_bid.present? ? @last_bid.price + Bid::MINIMUM_INCREMENT : @item.start_price =%>)">
 

@@ -15,36 +15,44 @@
         <a class="user-bid-link" href="#" ng-click="createBid(item)">
         	<span class="item-code">{{item.item.code}}</span>
         	<span class="item-name">{{item.item.name}}</span>
-        	<span class="item-price">{{item.price | currency}}</span>
+        	<span class="item-price">{{item.price | roundedCurrency}}</span>
         </a>
       </div>
     </div>
   </div>
 
-  <div ng-show="bidding" class="row">
+  <div ng-show="bidding">
     <div class="row">
       <div class="col-md-12 item-bid">
         <span class="item-bid-code">{{biddingItem.code}}</span>
         <span class="item-bid-name">- {{biddingItem.name}}</span>
       </div>
     </div>
-
-    <div class="row"><div class="col-md-12">&nbsp;</div></div>
     
-    <div class="row">
-      <div class="col-md-12 bid-price">
-        <span class="bid-price">Bid price: {{biddingPrice | currency}}</span>
+    <div class="bid-amount">
+      <div class="row">
+        <div class="col-md-12 bid-price">
+          <span class="bid-price">Bid price: {{biddingPrice | roundedCurrency}}</span>
+        </div>
       </div>
-    </div>
 
-    <div class="row"><div class="col-md-12">&nbsp;</div></div>
+      <div class="row"><div class="col-md-12">&nbsp;</div></div>
 
-    <div class="row">
-      <div class="col-md-12 bid-actions">
-        <button class="btn btn-default btn-lg" type="submit" ng-click="add(-50)"><b>-</b>$50</button>
-        <button class="btn btn-default btn-lg" type="submit" ng-click="add(-10)"><b>-</b>$10</button>
-        <button class="btn btn-default btn-lg" type="submit" ng-click="add(10)"><b>+</b>$10</button>
-        <button class="btn btn-default btn-lg" type="submit" ng-click="add(50)"><b>+</b>$50</button>
+      <div class="row">
+        <div class="col-md-12 bid-actions">
+          <button class="btn btn-default" type="submit" ng-click="add(-50)">
+            <span class="glyphicon glyphicon-minus"></span><span class="btn-bid">$50</span>
+          </button>
+          <button class="btn btn-default" type="submit" ng-click="add(-10)">
+            <span class="glyphicon glyphicon-minus"></span><span class="btn-bid">$10</span>
+          </button>
+          <button class="btn btn-default" type="submit" ng-click="add(10)">
+            <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$10</span>
+          </button>
+          <button class="btn btn-default" type="submit" ng-click="add(50)">
+            <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$50</span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -56,8 +64,12 @@
 
     <div class="row">
       <div class="col-md-12 bid-actions">
-        <button class="btn btn-primary btn-lg btn-warning" type="submit" ng-click="cancelBid()">Cancel</button>
-        <button class="btn btn-primary btn-lg btn-success" type="submit" ng-click="placeBid()">Place Bid</button>
+        <button class="btn btn-primary btn-lg btn-warning" type="submit" ng-click="cancelBid()">
+          <span class="glyphicon glyphicon-remove"></span>Cancel
+        </button>
+        <button class="btn btn-primary btn-lg btn-success" type="submit" ng-click="placeBid()">
+          <span class="glyphicon glyphicon-usd"></span>Place Bid
+        </button>
       </div>
     </div>
   </div>

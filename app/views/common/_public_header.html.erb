@@ -1,12 +1,10 @@
 <div class="container mobile-header">
   <div class="row">
-    <div class="col-md-12">
-      <div class="public-header-title">
-        <span class="username"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></span>
-        <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
-          <span class="glyphicon glyphicon-remove">Logout</span>
-        <% end %>
-      </div>
+    <div class="col-md-12 public-header-title">
+      <%= link_to(destroy_user_session_path, :class => 'back btn btn-primary btn-lg pull-left') do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+      <div class="title"><%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %></div>
     </div>
   </div>
 </div>
