@@ -1,8 +1,8 @@
 class ImportItems
 
   IDX_CODE = 1
-  IDX_NAME = 3
-  IDX_START_PRICE = 5
+  IDX_NAME = 2
+  IDX_START_PRICE = 7
 
   def self.import(file_path)
   	book = Roo::Excelx.new(file_path)
