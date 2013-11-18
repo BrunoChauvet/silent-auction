@@ -4,6 +4,12 @@
   <i class="glyphicon glyphicon-home">Administration</i>
 <% end %>
 
+<br/>
+
+<%= link_to new_user_group_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-plus">New Table</i>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
@@ -25,7 +31,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User group', new_user_group_path %>

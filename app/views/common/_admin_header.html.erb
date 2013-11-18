@@ -1,0 +1,9 @@
+<div class="container admin-header">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to(destroy_user_session_path, :class => 'btn btn-default') do %>
+        <span class="glyphicon glyphicon-remove"></span> <%= "#{current_user.title} #{current_user.first_name} #{current_user.last_name}" %>
+      <% end %>
+    </div>
+  </div>
+</div>

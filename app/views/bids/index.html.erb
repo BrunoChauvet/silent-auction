@@ -20,7 +20,7 @@
       <tr>
         <td>$<%= bid.price %></td>
         <td><%= bid.item.name %></td>
-        <td><%= bid.user.first_name %><%= bid.user.last_name %></td>
+        <td><%= bid.user.title %> <%= bid.user.first_name %> <%= bid.user.last_name %></td>
         <td><%= button_to 'Edit', edit_bid_path(bid), method: :get, :class => 'btn btn-primary' %></td>
         <td><%= button_to 'Destroy', bid, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>

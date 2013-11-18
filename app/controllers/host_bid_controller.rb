@@ -1,12 +1,12 @@
 class HostBidController < MobileApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :authenticate_admin!
 
   def select_table
     @user_groups = UserGroup.find(:all, order: :sort_order)
   end
 
   def select_user
-    @users = User.where('user_group_id = ?', params['table_id'])
+    @users = User.where('user_group_id = ?', params['table_id']).order('last_name, first_name')
   end
 
   def select_item

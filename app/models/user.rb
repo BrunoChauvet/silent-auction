@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   belongs_to :user_group
   has_many :bids
 
+  def admin?
+    admin
+  end
+
   def encrypted_password
     return pin
   end

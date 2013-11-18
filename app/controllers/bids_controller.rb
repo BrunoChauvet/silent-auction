@@ -1,4 +1,6 @@
 class BidsController < ApplicationController
+  before_filter :authenticate_admin!
+  
   before_action :set_bid, only: [:show, :edit, :update, :destroy]
 
   # GET /bids
@@ -69,6 +71,6 @@ class BidsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bid_params
-      params.require(:bid).permit(:price, :item, :user)
+      params.require(:bid).permit(:price)
     end
 end

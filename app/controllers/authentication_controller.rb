@@ -5,7 +5,7 @@ class AuthenticationController < MobileApplicationController
   end
 
   def users
-    @users = User.where('user_group_id = ?', params[:id])
+    @users = User.where('user_group_id = ?', params[:id]).order('last_name, first_name')
   end
 
   def user_pin

@@ -1,4 +1,6 @@
 class UserGroupsController < ApplicationController
+  before_filter :authenticate_admin!
+  
   before_action :set_user_group, only: [:show, :edit, :update, :destroy]
 
   # GET /user_groups

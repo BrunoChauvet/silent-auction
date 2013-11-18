@@ -1,5 +1,13 @@
 <h1>New bid</h1>
 
-<%= render 'form' %>
+<%= link_to admin_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-home">Administration</i>
+<% end %>
 
-<%= link_to 'Back', bids_path %>
+<br/>
+
+<%= link_to bids_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-chevron-left">Manage Bids</i>
+<% end %>
+
+<%= render 'form' %>

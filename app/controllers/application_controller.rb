@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authenticate_admin!
+    (current_user.nil?) ? redirect_to(authenticate_select_table_path) : (redirect_to(authenticate_select_table_path) unless current_user.admin?)
+  end
+
 end

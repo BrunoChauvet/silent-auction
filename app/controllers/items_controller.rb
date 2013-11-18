@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_admin!
+  
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_categories, only: [:new, :show, :edit, :update]
 

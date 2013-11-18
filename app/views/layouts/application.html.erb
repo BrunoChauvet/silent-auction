@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html ng-app="auction">
 <head>
-  <title>SilentAuction</title>
+  <title>UFE Gala 2013</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= csrf_meta_tag %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
+
 <body>
 
-<% if flash[:message] %>
-  <div class="alert alert-success"><%= flash[:message] %></div>
-<% end %>
+  <% if current_user.try(:admin?) %>
+    <%= render partial: 'common/admin_header' %>
+  <% end %>
 
-<% if flash[:error] %>
-  <div class="alert alert-danger"><%= flash[:error] %></div>
-<% end %>
+	<% if flash[:message] %>
+	  <div class="alert alert-success"><%= flash[:message] %></div>
+	<% end %>
 
-<%= yield %>
+	<% if flash[:error] %>
+	  <div class="alert alert-danger"><%= flash[:error] %></div>
+	<% end %>
+
+	<%= yield %>
 
 </body>
 </html>
