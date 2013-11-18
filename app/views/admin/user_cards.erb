@@ -1,0 +1,25 @@
+<div class="container">
+	<% @users.each do |user| %>
+    <div class="col-md-4 user-card">
+      <div class="card-top">
+        <div class="ufe-logo">
+          <%= image_tag("ufe_logo.png") %>
+        </div>
+        <div class="card-detail">
+          <div class="card-header">
+            Silent Auction
+          </div>
+          <div class="username">
+            <%= user.title %> <%= user.first_name %> <%= user.last_name %>
+          </div>
+          <div class="user-pin">
+            PIN: <%= user.pin %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        Charity Gala UFE 2013
+      </div>
+      </div>
+  <% end %>
+</div>

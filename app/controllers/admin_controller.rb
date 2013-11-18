@@ -1,8 +1,13 @@
 class AdminController < ApplicationController
   before_filter :authenticate_admin!
+  layout 'empty', only: [:user_cards]
 
   def index
 
+  end
+
+  def user_cards
+    @users = User.all.joins(:user_group).order('user_groups.sort_order ASC, last_name asc, first_name ASC')   
   end
 
   def import_items

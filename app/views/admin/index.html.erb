@@ -24,6 +24,13 @@
 
 <br/>
 <hr/>
+
+<%= link_to user_cards_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-user">Export user cards</i>
+<% end %>
+
+<br/>
+<hr/>
 <br/>
 
 <%= form_tag(import_items_google_drive_path) do -%>
