@@ -12,7 +12,7 @@ class AdminController < ApplicationController
   end
 
   def import_users
-    ImportUsers.import 'public/gala_tables.xls'
+    ImportUsers.import 'public/gala_tables.xlsx'
     flash[:message] = "Tables have been imported"
     redirect_to admin_path
   end
