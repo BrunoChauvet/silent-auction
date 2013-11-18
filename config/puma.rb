@@ -1,4 +1,4 @@
 daemonize true
 
-threads 16,32
-workers 16
+threads 4,16
+workers 4
