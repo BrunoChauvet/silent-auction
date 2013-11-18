@@ -36,8 +36,10 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.integer "category_id"
     t.string  "name"
     t.string  "description"
+    t.string  "by"
     t.string  "code"
     t.string  "image"
+    t.string  "sponsor"
     t.decimal "start_price"
   end
 

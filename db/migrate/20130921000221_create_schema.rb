@@ -33,8 +33,10 @@ class CreateSchema < ActiveRecord::Migration
       t.belongs_to :category
       t.string :name
       t.string :description
+      t.string :by
       t.string :code
       t.string :image
+      t.string :sponsor
       t.decimal :start_price
     end
 

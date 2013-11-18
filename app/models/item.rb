@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   has_many :bids
 
 	mount_uploader :image, ImageUploader
+  mount_uploader :sponsor, ImageUploader
 
 	def as_json(options={})
     {
