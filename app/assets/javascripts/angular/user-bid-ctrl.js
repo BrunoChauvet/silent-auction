@@ -58,7 +58,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
   };
 
   function refreshItems() {
-    $http({method: 'GET', url: '/list_items.json'}).
+    $http({method: 'GET', url: '/current_bids.json'}).
     success(function(data, status, headers, config) {
       $scope.items = data;
     });

@@ -1,7 +1,11 @@
 class UserBidController < MobileApplicationController
   before_filter :authenticate_user!
 
-  def list_items
+  def all_items
+    @items = Item.all.order('code ASC')
+  end
+
+  def current_bids
     respond_to do |format|
       format.html {}
       format.json {

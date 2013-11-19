@@ -17,7 +17,7 @@ class AuthenticationController < MobileApplicationController
         if browser.ipad?
           redirect_to select_table_path 
         else
-          redirect_to list_items_path
+          redirect_to current_bids_path
         end
       else
         flash[:error] = "Invalid pin"

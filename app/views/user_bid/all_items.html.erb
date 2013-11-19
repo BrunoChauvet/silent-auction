@@ -1,0 +1,29 @@
+<%= render partial: 'common/public_header' %>
+
+<div id="mobile-items" class="container">
+  <% @items.each do |item| %>
+    <div class="row">
+      <div class="col-md-12 item-container">
+        <div class="item-image"><img src="<%= item.image.thumb.url %>"/></div>
+        <div class="item-details">
+          <span class="item-code"><%= item.code %></span>
+          <span class="item-name"><%= item.name %></span>
+        </div>
+        <div class="item-description"><%= item.description %></div>
+        <div class="item-sponsor">
+          <div class="item-by">
+            <span class="courtesy">Courtesy of:</span>
+            <span class="by"><%= item.by %></span>
+          </div>
+          <div class="item-start-price">
+            <span class="opening">Opening bid:</span>
+            <span class="price">$<%= item.start_price %></span>
+          </div>
+        </div>
+        <div class="item-sponsor-logo">
+          <img src="<%= item.sponsor.thumb.url %>"/>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

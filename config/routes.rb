@@ -35,7 +35,8 @@ SilentAuction::Application.routes.draw do
   post 'place_bid/:user_id/:item_id', to: 'host_bid#place_bid', as: 'place_host_bid'
 
   # Users interface
-  get 'list_items', to: 'user_bid#list_items', as: 'list_items'
+  get 'all_items', to: 'user_bid#all_items', as: 'all_items'
+  get 'current_bids', to: 'user_bid#current_bids', as: 'current_bids'
   post 'place_bid', to: 'user_bid#place_bid', as: 'place_user_bid'
 
   devise_for :user, :path => '', :path_names => { :sign_in => "authenticate" }

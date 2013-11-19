@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if browser.ipad?
       redirect_to select_table_path 
     elsif browser.mobile?
-      redirect_to list_items_path
+      redirect_to current_bids_path
     else
       redirect_to auction_path
     end

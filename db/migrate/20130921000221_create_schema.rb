@@ -32,7 +32,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :items do |t|
       t.belongs_to :category
       t.string :name
-      t.string :description
+      t.text :description
       t.string :by
       t.string :code
       t.string :image

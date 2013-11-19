@@ -20,11 +20,11 @@ describe UserBidController do
     @bid4 = Bid.create(user: @lmoore, item: @item3, price: 250, timestamp: Time.now)
   end
 
-  describe "#list_items" do
+  describe "#current_bids" do
     it "returns the items with current user bid status" do
       sign_in @jsmith
 
-      get :list_items, format: :json
+      get :current_bids, format: :json
 
       response.body.should eql([
           {item: @item1, price: @bid1.price, min_price: @bid1.price + Bid::MINIMUM_INCREMENT, status: 'owner'},

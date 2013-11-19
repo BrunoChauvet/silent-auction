@@ -1,9 +1,5 @@
 /* TESTING BOOTSTRAP CONTAINERS */
 
-// [class*="col-"] {
-//   border: 1px solid rgba(86, 61, 124, 0.2);
-// }
-
 body.mobile {
   background-image: image-url("background.jpg");
   background-position: top center;
@@ -253,10 +249,36 @@ span.header-title {
 /* Mobile interface */
 
 .btn-primary {
-    // background: linear-gradient(135deg, #961E20 0%, #CA5A5C 62%, rgba(207, 96, 98, 0.7) 68%, rgba(234, 126, 128, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
     background-color: #961E20;
     border-color: #303030;
     color: #F0C1C1;
+}
+
+.navbar-header {
+  background-image: image-url("ufe_logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 75px;
+}
+
+.navbar-header .title {
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 50px
+}
+
+.navbar-nav .divider {
+  background-color: #E5E5E5;
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+}
+
+.navbar-nav > li > span {
+    line-height: 35px;
+    padding-left: 15px;
+    color: #777777;
 }
 
 div.mobile-header {
@@ -505,4 +527,88 @@ a.user-bid-link {
   width: 100%;
   text-align: center;
   margin-bottom: 4px;
+}
+
+#mobile-items .item-container {
+  border: 1px solid #A0A0A0;
+  margin-top: 10px;
+  padding-top: 10px;
+  float: left;
+  width: 100%;
+}
+
+#mobile-items .item-image {
+  width: 35%;
+  height: 100px;
+  float: left;
+}
+
+#mobile-items .item-image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+#mobile-items .item-details {
+  width: 65%;
+  height: 100px;
+  float: left;
+}
+
+#mobile-items .item-code {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+#mobile-items .item-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#mobile-items .item-description {
+  min-height: 100px;
+  font-size: 1.0em;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #A86D6D;
+}
+
+#mobile-items .item-sponsor {
+  width: 65%;
+  height: 70px;
+  float: left;
+}
+
+#mobile-items .item-by {
+  margin-left: 10px;
+}
+
+#mobile-items .item-by .courtesy {
+  font-style: italic;
+  font-size: 1.0em;
+}
+
+#mobile-items .item-by .by {
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+#mobile-items .item-start-price {
+  font-style: italic;
+  font-size: 1.0em;
+  margin-left: 10px;
+}
+
+#mobile-items .item-start-price .opening {
+  font-style: italic;
+  font-size: 1.0em;
+}
+
+#mobile-items .item-start-price .price {
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+#mobile-items .item-sponsor-logo {
+  width: 35%;
+  height: 70px;
+  float: left;
 }
