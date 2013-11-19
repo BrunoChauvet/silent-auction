@@ -435,19 +435,19 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   margin-top: -2px;
 }
 
-#user-bid .none .item-status {
+.none .item-status {
   color: #44B3CB;
 }
 
-#user-bid .owner .item-status {
+.owner .item-status {
   color: #98AF3B;
 }
 
-#user-bid .outbidded .item-status {
+.outbidded .item-status {
   color: #E9AB3D;
 }
 
-#user-bid .start-price .item-status {
+.start-price .item-status {
   color: #44B3CB;
 }
 
@@ -646,4 +646,17 @@ a.user-bid-link:hover, a.user-bid-link:focus {
 #mobile-items .item-sponsor-logo img {
   max-width: 150px;
   max-height: 70px;
+}
+
+.legend-item {
+  line-height: 30px;
+  font-size: 1.2em;
+}
+
+.legend-item div {
+  float: left;
+}
+
+.legend-item .item-status-description {
+  width: 200px;
 }

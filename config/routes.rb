@@ -38,6 +38,7 @@ SilentAuction::Application.routes.draw do
   get 'all_items', to: 'user_bid#all_items', as: 'all_items'
   get 'current_bids', to: 'user_bid#current_bids', as: 'current_bids'
   post 'place_bid', to: 'user_bid#place_bid', as: 'place_user_bid'
+  get 'legend', to: 'user_bid#legend', as: 'legend'
 
   devise_for :user, :path => '', :path_names => { :sign_in => "authenticate" }
 
