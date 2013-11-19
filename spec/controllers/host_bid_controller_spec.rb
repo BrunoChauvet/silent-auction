@@ -47,12 +47,11 @@ describe HostBidController do
   end
 
   describe "#select_amount" do
-    it "returns the specified item, user and last bid on item" do
+    it "returns the specified item and user" do
       get :select_amount, format: :html, item_id: @item1.id, user_id: @jsmith.id
 
       assigns(:item).should eql(@item1)
       assigns(:user).should eql(@jsmith)
-      assigns(:last_bid).should eql(@bid1)
     end
 
   end
