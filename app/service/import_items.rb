@@ -27,6 +27,7 @@ class ImportItems
         unless by.blank?
           by.gsub!('Courtesy of:', '')
           by.gsub!('.', '')
+          by.gsub!('-', '')
           by.lstrip!
         end
         description = book.cell(line, IDX_DESCRIPTION)
@@ -43,10 +44,13 @@ class ImportItems
           item.save
         end
 
-        if File.exist?("public/sponsor/#{by}.jpg")
-          item.sponsor = File.open("public/sponsor/#{by}.jpg")
-          item.save
-        end
+        by.split(/\W+/).each do |word|
+          if File.exist?("public/sponsors/#{word}.jpg")
+            item.sponsor = File.open("public/sponsors/#{word}.jpg")
+            item.save
+            break
+          end
+        end unless by.blank?
       end
   	end
   end
