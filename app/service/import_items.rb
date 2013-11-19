@@ -25,7 +25,8 @@ class ImportItems
         start_price = book.cell(line, IDX_START_PRICE) || 0
         by = book.cell(line, IDX_BY)
         unless by.blank?
-          by.gsub!('Courtesy of:', '')
+          by.gsub!('Courtesy of', '')
+          by.gsub!(':', '')
           by.gsub!('.', '')
           by.gsub!('-', '')
           by.lstrip!
