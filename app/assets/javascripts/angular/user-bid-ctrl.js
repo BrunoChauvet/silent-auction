@@ -13,7 +13,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
     (function tickRefreshItems() {
      refreshItems();
 
-      // $timeout(tickRefreshItems, 10000);
+      $timeout(tickRefreshItems, 10000);
     })();
   };
 
