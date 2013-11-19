@@ -13,7 +13,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
     (function tickRefreshItems() {
      refreshItems();
 
-      // $timeout(tickRefreshItems, 10000);
+      $timeout(tickRefreshItems, 10000);
     })();
   };
 
@@ -60,7 +60,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.icon = function(item) {
     if(item.status == 'start-price') {
-      return 'glyphicon-pushpin';
+      return 'glyphicon-unchecked';
     } else if(item.status == 'none') {
       return 'glyphicon-usd';
     } else if(item.status == 'outbidded') {
