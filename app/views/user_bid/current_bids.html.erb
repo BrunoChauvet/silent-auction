@@ -32,22 +32,26 @@
     
     <div class="bid-amount">
       <div class="row">
-        <div class="col-md-12 bid-price">
-          <span class="bid-price">Bid price: {{biddingPrice | roundedCurrency}}</span>
+        <div class="col-md-12">
+          <div class="bid-price">Bid price: {{biddingPrice | roundedCurrency}}</div>
+        </div>
+        <div ng-show="status == 'start-price'" class="col-md-12 sub-price">
+          <div class="bid-current-price">Start price: {{currentPrice | roundedCurrency}}</div>
+        </div>
+        <div ng-hide="status == 'start-price'" class="col-md-12 sub-price">
+          <div class="bid-current-price">Current price: {{currentPrice | roundedCurrency}}</div>
         </div>
       </div>
 
-      <div class="row"><div class="col-md-12">&nbsp;</div></div>
-
       <div class="row">
         <div class="col-md-12 bid-actions">
-          <button class="btn btn-default btn-lg" type="submit" ng-click="refresh()">
+          <button class="btn btn-default" type="submit" ng-click="refresh()">
             <span class="glyphicon glyphicon-refresh"></span><span class="btn-bid">Reset</span>
           </button>
-          <button class="btn btn-default btn-lg" type="submit" ng-click="add(10)">
+          <button class="btn btn-default" type="submit" ng-click="add(10)">
             <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$10</span>
           </button>
-          <button class="btn btn-default btn-lg" type="submit" ng-click="add(50)">
+          <button class="btn btn-default" type="submit" ng-click="add(50)">
             <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$50</span>
           </button>
         </div>

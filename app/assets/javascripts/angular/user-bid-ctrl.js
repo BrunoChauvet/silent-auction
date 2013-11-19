@@ -19,9 +19,11 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
 
   $scope.createBid = function(item) {
   	$scope.bidding = true;
+    $scope.currentPrice = item.price;
     $scope.biddingPrice = item.min_price;
     $scope.defaultPrice = item.min_price;
     $scope.biddingItem = item.item;
+    $scope.status = item.status;
   };
 
   $scope.cancelBid = function() {

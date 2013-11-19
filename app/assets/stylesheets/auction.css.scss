@@ -473,7 +473,21 @@ a.user-bid-link:hover, a.user-bid-link:focus {
 #user-bid .bid-price {
   text-align: center;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.4em;
+  line-height: 40px;
+}
+
+#user-bid .sub-price {
+  padding-top: 0px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+#user-bid .bid-current-price {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.0em;
   line-height: 40px;
 }
 
