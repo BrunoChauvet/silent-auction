@@ -7,12 +7,13 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
     $scope.error = '';
   	$scope.bidding = false;
   	$scope.items = [];
+
     refreshItems();
 
     (function tickRefreshItems() {
      refreshItems();
 
-      $timeout(tickRefreshItems, 10000);
+      // $timeout(tickRefreshItems, 10000);
     })();
   };
 
@@ -56,6 +57,18 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
       }
     });
   };
+
+  $scope.icon = function(item) {
+    if(item.status == 'start-price') {
+      return 'glyphicon-pushpin';
+    } else if(item.status == 'none') {
+      return 'glyphicon-usd';
+    } else if(item.status == 'outbidded') {
+      return 'glyphicon-upload';
+    } else if(item.status == 'owner') {
+      return 'glyphicon-thumbs-up';
+    }
+  }
 
   function refreshItems() {
     $http({method: 'GET', url: '/current_bids.json'}).

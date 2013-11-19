@@ -356,24 +356,25 @@ div.public-header-title {
   margin-top: 10px;
 }
 
-#user-bid a {
-  color: white;
+#user-bid i {
+  font-size: 1.6em;
+  font-weight: bold;
 }
 
-#user-bid div.none {
-  background-color: #44B3CB;
+#user-bid div.none i {
+  color: #44B3CB;
 }
 
-#user-bid div.owner {
-  background-color: #98AF3B;
+#user-bid div.owner i {
+  color: #98AF3B;
 }
 
-#user-bid div.outbidded {
-  background-color: #E9AB3D;
+#user-bid div.outbidded i {
+  color: #E9AB3D;
 }
 
-#user-bid div.start-price {
-  background-color: #44B3CB;
+#user-bid div.start-price i {
+  color: #44B3CB;
 }
 
 div.bid-amount {
@@ -414,6 +415,11 @@ a.user-bid-link {
   display: inline-block;
   width: 100%;
   padding: 10px 5px;
+  color: #B86D6D;
+}
+
+a.user-bid-link:hover, a.user-bid-link:focus {
+  color: #D89D9D;
 }
 
 #user-bid span.item-code {
@@ -611,6 +617,7 @@ a.user-bid-link {
   width: 35%;
   height: 70px;
   float: left;
+  text-align: right;
 }
 
 #mobile-items .item-sponsor-logo img {

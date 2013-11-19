@@ -15,6 +15,7 @@
         <a class="user-bid-link" href="#" ng-click="createBid(item)">
         	<span class="item-code">{{item.item.code}}</span>
         	<span class="item-name">{{item.item.name}}</span>
+          <i class="item-status glyphicon {{icon(item)}}"></i>
         	<span class="item-price">{{item.price | roundedCurrency}}</span>
         </a>
       </div>
