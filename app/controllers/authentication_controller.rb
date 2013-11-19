@@ -14,8 +14,8 @@ class AuthenticationController < MobileApplicationController
     elsif request.post?
       @user = warden.authenticate(params)
       if @user
-        if browser.ipad?
-          redirect_to select_table_path 
+        if @user.admin?
+          redirect_to select_table_path
         else
           redirect_to current_bids_path
         end

@@ -55,7 +55,10 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
       	$scope.bidding = false;
       } else {
       	$scope.error = data.message;
-      	$scope.biddingPrice = data.price;
+        $scope.status = 'none';
+      	$scope.currentPrice = data.current_price;
+        $scope.defaultPrice = data.minimum_price;
+        $scope.biddingPrice = data.minimum_price;
       }
     });
   };
