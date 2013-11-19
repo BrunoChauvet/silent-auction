@@ -1,17 +1,29 @@
-<div class="container mobile-header">
-  <div class="row">
-    <div class="col-md-12 public-header-title">
-      <%= link_to back_link, html_options = {class: "btn btn-primary pull-left back"} do %>
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      <% end %>
-
-      <div class="title">
-        Place a Bid
-        <%= link_to(destroy_user_session_path, :class => 'btn btn-primary pull-right back') do %>
-          <span class="glyphicon glyphicon-remove"><%= "#{current_user.first_name}" %></span>
-        <% end %>
-      </div>
-      
-    </div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="title">UFE Charity Gala 2013</div>
   </div>
-</div>
+
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+    <ul class="nav navbar-nav navbar-default">
+      <li class="back-item">
+        <%= link_to back_link do %>
+          <span class="glyphicon glyphicon-chevron-left"></span> Back
+        <% end %>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to(destroy_user_session_path) do %>
+          <span class="glyphicon glyphicon-remove"></span>
+          Logout
+          <span class="username"><%= "(#{current_user.first_name} #{current_user.last_name})" %></span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

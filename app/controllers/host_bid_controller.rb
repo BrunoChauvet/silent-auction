@@ -17,7 +17,6 @@ class HostBidController < MobileApplicationController
   def select_amount
     @item = Item.find(params[:item_id])
     @user = User.find(params[:user_id])
-    @last_bid = Bid.where(item: @item).order('timestamp desc').first
   end
 
   def place_bid
@@ -28,7 +27,7 @@ class HostBidController < MobileApplicationController
       flash[:message] = "Bid has been placed at $#{params[:price]}"
       render json: {success: true, item: item, user: current_user, bid: bid}
     rescue Exception => e
-      render json: {success: false, message: e.message, price: params[:price]}
+      render json: {success: false, message: e.message, minimum_price: item.minimum_price, current_price: item.current_price}
     end
   end
 

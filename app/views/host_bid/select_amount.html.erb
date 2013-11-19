@@ -1,18 +1,44 @@
 <%= render partial: 'common/host_header', locals: {back_link: select_item_path(user_id: @user.id)} %>
 
-<div id="bid" class="container" ng-controller="BidsCtrl" ng-init="init(<%= @user.id =%>, <%= @item.id =%>, <%= @last_bid.present? ? @last_bid.price + Bid::MINIMUM_INCREMENT : @item.start_price =%>)">
+<div id="bid" class="container" ng-controller="HostBidsCtrl" ng-init="init(<%= @user.id =%>, <%= @item.id =%>, <%= @item.current_price =%>, <%= @item.minimum_price =%>)">
 
   <div class="row">
-    <div class="col-md-12 bid-user"><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></div>
+    <div class="col-md-12 bid-user">
+      <h1>Place Bid</h1>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-md-12 bid-item"><%= @item.code %> <%= @item.name %></div>
+    <div class="col-md-12 bid-user">
+      <span class="name">Guest: </span>
+      <span class="value"><%= @user.title %> <%= @user.first_name %> <%= @user.last_name %></span>
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-md-12 bid-price"><span class="bid-price-label">Bid price: </span>${{price}}</div>
+    <div class="col-md-12 bid-item">
+      <span class="name">Package: </span>
+      <span class="value"><%= @item.code %> - <%= @item.name %></span>
+    </div>
   </div>
+
+  <div class="bid-amount">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bid-price">
+          <span class="name">Bid price: </span>
+          <span class="current-price">{{biddingPrice | roundedCurrency}}</span>
+        </div>
+      </div>
+      <div ng-show="currentPrice == defaultPrice" class="col-md-12 sub-price">
+        <div class="bid-current-price">Start price: {{currentPrice | roundedCurrency}}</div>
+      </div>
+      <div ng-hide="currentPrice == defaultPrice" class="col-md-12 sub-price">
+        <div class="bid-current-price">Current price: {{currentPrice | roundedCurrency}}</div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="row">
     <div class="col-md-12 bid-actions">
@@ -40,7 +66,9 @@
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-          <button id="place-bid" type="submit" class="btn btn-primary btn-lg btn-success" ng-click="placeBid()">Place Bid</button>
+          <button id="place-bid" type="submit" class="btn btn-primary btn-lg btn-success" ng-click="placeBid()">
+            <span class="glyphicon glyphicon-usd"></span> Place Bid
+          </button>
         </div>
         <div class="col-md-5"></div>
       </div>
