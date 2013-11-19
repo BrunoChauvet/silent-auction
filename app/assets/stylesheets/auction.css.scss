@@ -4,6 +4,7 @@ body.mobile {
   background-image: image-url("background.jpg");
   background-position: top center;
   color: #B86D6D;
+  overflow: hidden;
 }
 
 a {
@@ -428,7 +429,7 @@ div.alert-danger {
 a.user-bid-link span{
   display: inline-block;
   width: 100%;
-  line-height: 50px;
+  line-height: 60px;
   color: #B86D6D;
 }
 
@@ -681,14 +682,32 @@ a.user-bid-link:hover, a.user-bid-link:focus {
 }
 
 .legend-item {
-  line-height: 30px;
+  border-bottom: 1px solid #707070;
+  clear: both;
+  float: left;
   font-size: 1.2em;
+  line-height: 30px;
+  padding-bottom: 10px;
+  width: 100%;
 }
 
-.legend-item div {
+
+.legend-item .item-status {
   float: left;
+  width: 10%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.legend-item .item-status-name {
+  float: left;
+  width: 90%;
+  height: 20px;
 }
 
 .legend-item .item-status-description {
-  width: 200px;
+  float: left;
+  width: 90%;
+  height: 20px;
+  font-size: 0.8em;
 }
