@@ -15,7 +15,7 @@ Then(/^I should see the following items on the auction screen$/) do |table|
   eventually {
     page.should have_css('.item-container', :count => table.hashes.length)
     
-    items = all(".item-container")
+    items = page.all(".item-container")
     actual_items = []
     items.each do |item|
       item.allow_reload!

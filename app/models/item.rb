@@ -29,7 +29,8 @@ class Item < ActiveRecord::Base
       name: name,
       description: description,
       code: code,
-      category: category.name.tr('^A-Za-z0-9', '').downcase,
+      category: category.name.split.map(&:capitalize).join(' '),
+      category_class: category.name.tr('^A-Za-z0-9', '').downcase,
       image: image.thumb.url || 'images/ufe_logo.png',
       start_price: start_price
     }

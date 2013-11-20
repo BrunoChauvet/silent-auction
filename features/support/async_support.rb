@@ -7,6 +7,7 @@ module AsyncSupport
       begin 
         yield
       rescue Exception => error
+      rescue Error => error
       end
       return if error.nil?
       raise error if Time.now >= time_limit

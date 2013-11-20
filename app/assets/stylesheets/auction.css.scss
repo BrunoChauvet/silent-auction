@@ -4,6 +4,12 @@ body.mobile {
   color: #B86D6D;
 }
 
+body {
+  background-image: image-url("background.jpg");
+  background-position: top center;
+  color: #B86D6D;
+}
+
 a {
   text-decoration: none;
   display: block;
@@ -16,29 +22,29 @@ a:hover, a:focus {
 /* Auction interface */
 
 #auction .header {
-  height: 80px; 
-}
-
-#auction .header img.logo{
-  max-height: 78px;
-  vertical-align: top;
+  height: 60px; 
 }
 
 #auction .header .auction-title {
+  background-image: image-url("ufe_logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 75px;
   width: 60%;
   height: 100%;
   float: left;
   text-align: center;
   font-weight: bold;
   font-size: 1.6em;
-  line-height: 80px;
+  line-height: 60px;
+
 }
 
 #auction .header .auction-info {
   width: 40%;
   height: 100%;
   float: left;
-  line-height: 40px;
+  line-height: 30px;
   font-weight: bold;
   font-size: 1.2em;
 }
@@ -54,50 +60,18 @@ a:hover, a:focus {
 #auction .header .auction-info .label {
   width: 40%;
   font-size: 1.0em;
-  color: #333333;
+  color: #B86D6D;
 }
 
 #auction .header .auction-info .value {
   width: 50%;
   font-size: 1.2em;
-  color: #333333;
+  color: #F08080;
 }
 
 #auction .auction-items {
   min-height: 960px;
   clear: both;
-}
-
-#auction .experience {
-  background-color: #F8F0CE;
-}
-
-#auction .electricals {
-  background-color: #E3F8CE;
-}
-
-#auction .spiritswines {
-  background-color: #CEF8D5;
-}
-
-#auction .personalfamily {
-  background-color: #CEF8F0;
-}
-
-#auction .art {
-  background-color: #CEE3F8;
-}
-
-#auction .cat4 {
-  background-color: #D5CEF8;
-}
-
-#auction .cat5 {
-  background-color: #F0CEF8;
-}
-
-#auction .cat6 {
-  background-color: #F8D5CE;
 }
 
 #auction .item-container {
@@ -109,42 +83,88 @@ a:hover, a:focus {
 }
 
 #auction .item-detail {
-  line-height: 60px;
+  line-height: 30px;
 }
 
 #auction .item-bid {
-  line-height: 40px;
+  line-height: 20px;
+}
+
+#auction .item-category {
+  line-height: 20px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+#auction .item-category .category-label {
+  font-size: 1.0em;
+}
+
+#auction .item-category .category-value {
+  font-size: 1.0em;
+  font-weight: bold;
+}
+
+#auction .experience .category-value {
+  color: #F8F0CE;
+}
+
+#auction .electricals .category-value {
+  color: #E3F8CE;
+}
+
+#auction .spiritswines .category-value {
+  color: #CEF8D5;
+}
+
+#auction .personalfamily .category-value {
+  color: #CEF8F0;
+}
+
+#auction .art .category-value {
+  color: #CEE3F8;
 }
 
 #auction .item-price {
-  width: 40%;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 30%;
   float: left;
+  text-align: right;
+  padding-right: 20px;
+  color: #F08080;
 }
 
 #auction .item-user {
-  width: 60%;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 70%;
   float: left;
+  text-align: right;
+  color: #D07070;
 }
 
 #auction .item-code {
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.2em;
   display: inline-block;
-  width: 15%;
+  min-width: 12%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: right;
 }
 
 #auction .item-name {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.3em;
   display: inline-block;
-  width: 83%;
+  width: 85%;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: left;
 }
 
 #auction .item-image {
