@@ -1,5 +1,5 @@
 class AuctionController < ApplicationController
-  layout 'empty', only: [:index]
+  layout 'auction', only: [:index]
   
   def index
     respond_to do |format|

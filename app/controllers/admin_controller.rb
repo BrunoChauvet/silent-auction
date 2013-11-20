@@ -7,7 +7,27 @@ class AdminController < ApplicationController
   end
 
   def user_cards
-    @users = User.all.joins(:user_group).order('user_groups.sort_order ASC, last_name asc, first_name ASC')   
+    @users = User.all.joins(:user_group).order('user_groups.sort_order ASC, last_name asc, first_name ASC')  
+    respond_to do |format|
+      format.html
+      format.pdf {
+puts 'src="/assets/ufe_logo.png"/>'.gsub(/\/assets\/([A-Za-z0-9\-\_]+\.png)/, "#{Rails.root}/public/images/\1")
+
+        html = render_to_string(:action => "user_cards.html.erb")
+        html.gsub!(/\/assets\/([A-Za-z0-9\-\_]+\.png)/, "#{Rails.root}/public/images/\1")
+
+        kit = PDFKit.new(html, :disable_javascript => true, :orientation => 'Landscape')
+
+        Dir.foreach("#{Rails.root}/public/assets") do |filename|
+          if filename =~ /\.css$/
+            kit.stylesheets << "#{Rails.root}/public/assets/#{filename}"
+          end
+        end
+
+        send_data(kit.to_pdf, :filename => "user_cards.pdf", :type => 'application/pdf', :disposition => 'inline')        
+        return
+      }
+    end
   end
 
   def import_items

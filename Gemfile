@@ -36,6 +36,8 @@ gem 'devise'
 gem 'roo'
 gem 'spreadsheet'
 gem 'google_drive'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 gem 'puma'
 gem 'capistrano'
