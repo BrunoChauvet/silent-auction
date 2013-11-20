@@ -59,5 +59,5 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'sqlite3', group: [:test]
-gem 'mysql2', group: [:development]
+gem 'mysql2', group: [:development, :staging]
 gem 'pg', group: [:production]
