@@ -33,7 +33,6 @@ class AdminController < ApplicationController
             pdf.bounding_box([0, pdf.bounds.top], width: img_width, height: card_height) do
               pdf.image "#{Rails.root}/app/assets/images/ufe_logo.png",
                 :at => [5, pdf.cursor - 25], scale: 0.9
-              # pdf.stroke_bounds
             end
 
             pdf.bounding_box([img_width, pdf.bounds.top], width: detail_width, height: card_height) do
@@ -48,7 +47,7 @@ class AdminController < ApplicationController
               pdf.bounding_box([20, pdf.cursor], width: detail_width - 40, height: line_height) do
                 pdf.formatted_text_box([text: "PIN: ", size: 12, align: :center, color: "606060"],
                   at: [30, line_height - 6], height: line_height, width: 40)
-                pdf.formatted_text_box([text: "1234", size: 14, align: :center, color: "606060"],
+                pdf.formatted_text_box([text: "#{user.pin}", size: 14, align: :center, color: "606060"],
                   at: [80, line_height - 4], height: line_height, width: 40)
 
                 pdf.stroke_color '606060'
@@ -60,7 +59,6 @@ class AdminController < ApplicationController
                   at: [20, -15], height: line_height, width: detail_width)
               end
 
-              # pdf.stroke_bounds
             end
 
             pdf.stroke_color '000000'
