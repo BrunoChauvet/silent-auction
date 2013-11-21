@@ -11,20 +11,68 @@ class AdminController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf {
-puts 'src="/assets/ufe_logo.png"/>'.gsub(/\/assets\/([A-Za-z0-9\-\_]+\.png)/, "#{Rails.root}/public/images/\1")
+        pdf = Prawn::Document.new(:margin => [20,40,20,40])
 
-        html = render_to_string(:action => "user_cards.html.erb")
-        html.gsub!(/\/assets\/([A-Za-z0-9\-\_]+\.png)/, "#{Rails.root}/public/images/\1")
+        card_gap = 15
+        card_width = 252
+        img_width = 60
+        detail_width = card_width - img_width
+        card_height = 144
+        line_height = 20
+        
+        @users.each_with_index do |user, index|
+          gap = 0
+          if index % 2 == 1
+            gap = card_width + card_gap
+            pdf.move_cursor_to( pdf.cursor + card_height)
+          else
+            pdf.move_cursor_to(pdf.cursor - card_gap)
+          end
 
-        kit = PDFKit.new(html, :disable_javascript => true, :orientation => 'Landscape')
+          pdf.bounding_box([gap, pdf.cursor], width: card_width, height: card_height) do
+            pdf.bounding_box([0, pdf.bounds.top], width: img_width, height: card_height) do
+              pdf.image "#{Rails.root}/app/assets/images/ufe_logo.png",
+                :at => [5, pdf.cursor - 25], scale: 0.9
+              # pdf.stroke_bounds
+            end
 
-        Dir.foreach("#{Rails.root}/public/assets") do |filename|
-          if filename =~ /\.css$/
-            kit.stylesheets << "#{Rails.root}/public/assets/#{filename}"
+            pdf.bounding_box([img_width, pdf.bounds.top], width: detail_width, height: card_height) do
+              pdf.bounding_box([0, pdf.cursor - 30], width: detail_width, height: line_height) do
+                pdf.text_box("Silent Auction", size: 18, align: :center)
+              end
+
+              pdf.bounding_box([0, pdf.cursor - 5], width: detail_width, height: line_height) do
+                pdf.text_box("#{user.title} #{user.first_name} #{user.last_name}", size: 14, align: :center)
+              end
+
+              pdf.bounding_box([20, pdf.cursor], width: detail_width - 40, height: line_height) do
+                pdf.formatted_text_box([text: "PIN: ", size: 12, align: :center, color: "606060"],
+                  at: [30, line_height - 6], height: line_height, width: 40)
+                pdf.formatted_text_box([text: "1234", size: 14, align: :center, color: "606060"],
+                  at: [80, line_height - 4], height: line_height, width: 40)
+
+                pdf.stroke_color '606060'
+                pdf.stroke_bounds
+              end
+
+              pdf.bounding_box([0, pdf.cursor], width: detail_width, height: line_height) do
+                pdf.formatted_text_box([text: "Charity Gala UFE 2013", size: 10, align: :center, color: "8080A0"],
+                  at: [20, -15], height: line_height, width: detail_width)
+              end
+
+              # pdf.stroke_bounds
+            end
+
+            pdf.stroke_color '000000'
+            pdf.stroke_bounds
+          end
+
+          if index % 8 == 7
+            pdf.start_new_page
           end
         end
 
-        send_data(kit.to_pdf, :filename => "user_cards.pdf", :type => 'application/pdf', :disposition => 'inline')        
+        send_data pdf.render, type: "application/pdf", disposition: "inline"
         return
       }
     end

@@ -26,7 +26,11 @@
 <hr/>
 
 <%= link_to user_cards_path, html_options = {class: "btn"} do %>
-  <i class="glyphicon glyphicon-user">Export user cards</i>
+  <i class="glyphicon glyphicon-user">Export user cards (HTML)</i>
+<% end %>
+<br/>
+<%= link_to "#{user_cards_path}.pdf", html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-user">Export user cards (PDF)</i>
 <% end %>
 
 <br/>
