@@ -1,6 +1,14 @@
 <%= render partial: 'common/authentication_header', locals: {title: "Select your name"} %>
 
 <div id="users" class="list container">
+  <div class="row">
+    <div class="col-md-12 list-item">
+      <%= link_to authenticate_select_table_path, html_options = {class: "btn btn-sm"} do %>
+        <i class="glyphicon glyphicon-chevron-left">Back</i>
+      <% end %>
+    </div>
+  </div>
+
   <% @users.each_with_index do |user, index| %>
   	<div class="row">
       <div class="col-md-12 list-item mask<%= index%8 + 1 %>">

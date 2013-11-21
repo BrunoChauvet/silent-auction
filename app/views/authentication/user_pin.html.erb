@@ -22,7 +22,13 @@
         <div class="form-group">
           <label for="pin" class="col-xs-2 control-label">&nbsp;</label>
           <div class="col-xs-6">
-            <input type="submit" class="btn btn-primary btn-lg" value="Submit"></input>
+            <%= link_to authenticate_select_user_path(user_id: @user.id), html_options = {class: "btn btn-default btn-lg"} do %>
+              <i class="glyphicon glyphicon-chevron-left">Back</i>
+            <% end %>
+            &nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="glyphicon glyphicon-user"></i> Submit
+            </button>
           </div>
        </div>
       <% end %>
