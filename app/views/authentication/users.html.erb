@@ -1,11 +1,14 @@
 <%= render partial: 'common/authentication_header', locals: {title: "Select your name"} %>
 
 <div id="users" class="list container">
-  <div class="row">
-    <div class="col-md-12 back-button">
-      <%= link_to authenticate_select_table_path, html_options = {class: "btn btn-primary btn-sm"} do %>
-        <i class="glyphicon glyphicon-chevron-left">Back</i>
-      <% end %>
+  <div class="row header-row">
+    <div class="col-md-12">
+      <h1>
+        <%= link_to authenticate_select_table_path, html_options = {class: "btn btn-primary btn-sm"} do %>
+          <i class="glyphicon glyphicon-chevron-left">Back</i>
+        <% end %>
+        Select your name
+      </h1>
     </div>
   </div>
 

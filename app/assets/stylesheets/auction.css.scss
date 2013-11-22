@@ -236,9 +236,18 @@ span.header-title {
   text-align: center;
 }
 
+.header-row {
+  border-bottom: 1px solid #707070;
+  font-size: 1.6em;
+  font-weight: bold;
+  line-height: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 #authenticate .username {
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.8em;
   text-align: center;
 }
 
@@ -479,7 +488,7 @@ a.user-bid-link:hover, a.user-bid-link:focus {
 
 #user-bid .item-name {
   float: left;
-  width: 67%;
+  width: 65%;
   font-size: 1.1em;
   overflow: hidden;
   white-space: nowrap;

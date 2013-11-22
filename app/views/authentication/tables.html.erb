@@ -1,6 +1,12 @@
 <%= render partial: 'common/authentication_header', locals: {title: "Select your table"}  %>
 
 <div id="tables" class="container list">
+  <div class="row header-row">
+    <div class="col-md-12">
+      <h1>Select your table</h1>
+    </div>
+  </div>
+
   <% @tables.each_with_index do |table, index| %>
     <div class="row">
       <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
