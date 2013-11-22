@@ -15,7 +15,7 @@ SilentAuction::Application.routes.draw do
   post 'import_items_google_drive', to: 'admin#import_items_google_drive'
   post 'import_tables_google_drive', to: 'admin#import_tables_google_drive'
 
-  resources :preferences, only: [:index, :show, :update]
+  resources :preferences
   resources :user_groups
   resources :users
   resources :items

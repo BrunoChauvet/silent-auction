@@ -32,7 +32,7 @@
         <td><%= user.pin %></td>
         <td><%= user.user_group.name %></td>
         <td><%= button_to 'Edit', edit_user_path(user), method: :get, :class => 'btn btn-primary' %></td>
-        <td><%= button_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+        <td><%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

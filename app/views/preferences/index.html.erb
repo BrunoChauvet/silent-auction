@@ -1,0 +1,38 @@
+<h1>Listing preferences</h1>
+
+<%= link_to admin_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-home">Administration</i>
+<% end %>
+
+<br/>
+
+<%= link_to new_preference_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-plus">New Preference</i>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @preferences.each do |preference| %>
+      <tr>
+        <td><%= preference.name %></td>
+        <td><%= preference.value %></td>
+        <td><%= button_to 'Edit', edit_preference_path(preference), method: :get, :class => 'btn btn-primary' %></td>
+        <td><%= button_to 'Delete', preference, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Preference', new_preference_path %>

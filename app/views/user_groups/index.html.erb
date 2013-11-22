@@ -26,7 +26,7 @@
         <td><%= user_group.name %></td>
         <td><%= user_group.sort_order %></td>
         <td><%= button_to 'Edit', edit_user_group_path(user_group), method: :get, :class => 'btn btn-primary' %></td>
-        <td><%= button_to 'Destroy', user_group, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+        <td><%= button_to 'Delete', user_group, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

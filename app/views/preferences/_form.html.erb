@@ -1,0 +1,26 @@
+<%= form_for(@preference, html: {role: "form", class: "form-inline"}) do |f| %>
+  <% if @preference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preference.errors.count, "error") %> prohibited this preference from being saved:</h2>
+
+      <ul>
+      <% @preference.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group col-xs-2">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+  <div class="form-group col-xs-2">
+    <%= f.label :value %><br>
+    <%= f.text_field :value, :class => 'form-control' %>
+  </div>
+  <div class="form-group actions col-xs-2">
+    <%= f.label :update %>
+    <%= f.submit :id => 'preference_update', :class => 'form-control btn btn-primary' %>
+  </div>
+<% end %>
