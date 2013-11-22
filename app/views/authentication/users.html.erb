@@ -14,10 +14,9 @@
 
   <% @users.each_with_index do |user, index| %>
   	<div class="row">
-      <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
+      <div class="col-xs-12 list-item mask<%= index%8 + 1 %>">
         <%= link_to user_pin_path(user.id) do %>
           <%= "#{user.title} #{user.first_name} #{user.last_name}" %>
-          <i class="glyphicon glyphicon-chevron-right pull-right"></i></i>
         <% end %>
       </div>
     </div>
