@@ -451,6 +451,7 @@ div.alert-danger {
   font-size: 1.2em;
   padding: 0px;
   border-bottom: 1px solid #303030;
+  overflow: hidden;
 }
 
 #user-bid div.bid-item span {
@@ -480,23 +481,23 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   width: 67%;
   font-size: 1.1em;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 #user-bid .item-price {
   float: left;
-  width: 15%;
+  width: 17%;
   font-weight: bold;
   font-size: 1.1em;
   text-align: right;
+  padding-right: 2px;
   color: #D88D8D;
 }
 
 #user-bid .item-status {
   float: right;
   text-align: center;
-  width: 8%;
+  width: 6%;
   font-size: 1.3em;
   margin-top: -2px;
 }
