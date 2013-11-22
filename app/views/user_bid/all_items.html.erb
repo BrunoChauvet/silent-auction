@@ -2,7 +2,7 @@
 
 <div id="mobile-items" class="container">
   <% @items.each do |item| %>
-    <div class="row">
+    <div class="row row-item-container">
       <div class="col-md-12 item-container">
         <div class="item-image"><img src="<%= item.image.thumb.url %>"/></div>
         <div class="item-details">
@@ -17,7 +17,7 @@
           </div>
           <div class="item-start-price">
             <span class="opening">Opening bid:</span>
-            <span class="price">$<%= item.start_price %></span>
+            <span class="price">$<%= number_with_precision(item.start_price, precision: 0, delimiter: ',') %></span>
           </div>
         </div>
         <div class="item-sponsor-logo">

@@ -625,6 +625,10 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   margin-bottom: 4px;
 }
 
+#mobile-items .row-item-container {
+  overflow: hidden;
+}
+
 #mobile-items .item-container {
   border: 1px solid #A0A0A0;
   margin-top: 10px;
