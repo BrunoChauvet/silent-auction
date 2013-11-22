@@ -3,14 +3,17 @@
 <div id="tables" class="container list">
   <div class="row header-row">
     <div class="col-md-12">
-      <h2>Select your table</h2>
+      <h3>Select your table</h3>
     </div>
   </div>
 
   <% @tables.each_with_index do |table, index| %>
     <div class="row">
       <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
-        <%= link_to table.name, authenticate_select_user_path(table.id) %>
+        <%= link_to authenticate_select_user_path(table.id) do %>
+          <%= table.name %>
+          <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        <% end %>
       </div>
     </div>
   <% end %>

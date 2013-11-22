@@ -3,19 +3,22 @@
 <div id="users" class="list container">
   <div class="row header-row">
     <div class="col-md-12">
-      <h2>
-        <%= link_to authenticate_select_table_path, html_options = {class: "btn btn-primary btn-sm"} do %>
+      <h3>
+        <%= link_to authenticate_select_table_path, html_options = {class: "btn btn-primary btn-md"} do %>
           <i class="glyphicon glyphicon-chevron-left">Back</i>
         <% end %>
         Select your name
-      </h2>
+      </h3>
     </div>
   </div>
 
   <% @users.each_with_index do |user, index| %>
   	<div class="row">
       <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
-        <%= link_to "#{user.title} #{user.first_name} #{user.last_name}", user_pin_path(user.id) %>
+        <%= link_to user_pin_path(user.id) do %>
+          <%= "#{user.title} #{user.first_name} #{user.last_name}" %>
+          <i class="glyphicon glyphicon-chevron-right pull-right"></i></i>
+        <% end %>
       </div>
     </div>
   <% end %>
