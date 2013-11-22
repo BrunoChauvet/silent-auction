@@ -21,52 +21,60 @@ a:hover, a:focus {
 
 /* Auction interface */
 
-#auction .header {
-  height: 60px; 
+#auction .full-size {
+  width: 100%;
 }
 
-#auction .header .auction-title {
-  background-image: image-url("ufe_logo.png");
-  background-position: left center;
-  background-repeat: no-repeat;
-  padding-left: 75px;
-  width: 60%;
-  height: 100%;
+.navbar-header .title {
   float: left;
   text-align: center;
+  font-size: 1.4em;
   font-weight: bold;
-  font-size: 1.6em;
-  line-height: 60px;
-
+  line-height: 50px;
+  padding: 0px 5px;
+  color: #A43030;
 }
 
-#auction .header .auction-info {
-  width: 40%;
-  height: 100%;
+.navbar-header .auction-title {
   float: left;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: bold;
+  line-height: 50px;
+  padding: 0px 5px;
+  color: #A43030;
+  width: 50%;
+}
+
+#auction .auction-info {
+  height: 100%;
+  width: 50%;
+  float: right;
   line-height: 30px;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-#auction .header .auction-info div {
+#auction .auction-info div {
   display: block;
 }
 
-#auction .header .auction-info span {
+#auction .auction-info span {
   display: inline-block;
 }
 
-#auction .header .auction-info .label {
-  width: 40%;
+#auction .auction-info .label {
+  width: 45%;
   font-size: 1.0em;
   color: #B86D6D;
+  text-align: right;
 }
 
-#auction .header .auction-info .value {
-  width: 50%;
+#auction .auction-info .value {
+  width: 45%;
   font-size: 1.2em;
   color: #F08080;
+  text-align: left;
 }
 
 #auction .auction-items {
@@ -308,11 +316,12 @@ span.header-title {
 }
 
 .navbar-header .title {
+  float: left;
   text-align: center;
-  font-size: 1.4em;
+  font-size: 1.3em;
   font-weight: bold;
   line-height: 50px;
-  padding: 0px 5px;
+  padding: 0px;
   color: #A43030;
 }
 
@@ -480,11 +489,13 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   width: 15%;
   font-weight: bold;
   font-size: 1.1em;
+  text-align: right;
   color: #D88D8D;
 }
 
 #user-bid .item-status {
   float: right;
+  text-align: center;
   width: 8%;
   font-size: 1.3em;
   margin-top: -2px;
@@ -657,7 +668,7 @@ a.user-bid-link:hover, a.user-bid-link:focus {
 
 #mobile-items .item-sponsor {
   width: 65%;
-  height: 70px;
+  min-height: 70px;
   float: left;
 }
 

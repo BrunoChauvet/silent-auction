@@ -11,6 +11,6 @@ angular.module('auction').filter('roundedCurrency', ['$filter', function ($filte
     if(input % 1 === 0) {
       input = input.toFixed(0);
     }
-    return '$' + input;
+    return '$' + input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
   };
 }]);

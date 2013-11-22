@@ -1,21 +1,21 @@
 <div id="auction" class="auction" ng-controller="AuctionCtrl" ng-init="init()">
-  <div class="auction-items">
-    <div class="header col-md">
-      <div class="auction-title">
-        UFE Charity Gala 2013
-      </div>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header full-size">
+      <div class="auction-title">UFE Charity Gala 2013</div>
       <div class="auction-info">
-        <div>
-          <span class="label">Amount raised</span>
-          <span class="value">{{amountRaised | roundedCurrency}}</span>
+          <div>
+            <span class="label">Amount raised</span>
+            <span class="value">{{amountRaised | roundedCurrency}}</span>
+          </div>
+          <div>
+            <span class="label">Time left</span>
+            <span class="value">{{timer}}</span>
+          </div>
         </div>
-        <div>
-          <span class="label">Time left</span>
-          <span class="value">{{timer}}</span>
-        </div>
-      </div>
     </div>
+  </nav>
 
+  <div class="auction-items">
     <div ng-repeat="item in pageItems" class="item-container {{item.item.category_class}} col-md">
     	<div class="item-image col-md">
     		<img ng-src="{{item.item.image}}"/>
