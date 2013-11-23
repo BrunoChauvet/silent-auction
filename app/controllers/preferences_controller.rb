@@ -28,7 +28,8 @@ class PreferencesController < ApplicationController
 
     respond_to do |format|
       if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
+        flash[:message] = "Preference has been created"
+        format.html { redirect_to edit_preference_path(@preference) }
         format.json { render action: 'show', status: :created, location: @preference }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,8 @@ class PreferencesController < ApplicationController
   def update
     respond_to do |format|
       if @preference.update(preference_params)
-        format.html { redirect_to @preference, notice: 'Preference was successfully updated.' }
+        flash[:message] = "Preference has been updated"
+        format.html { redirect_to edit_preference_path(@preference) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

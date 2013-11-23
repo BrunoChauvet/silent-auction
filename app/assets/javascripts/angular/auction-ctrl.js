@@ -12,6 +12,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
     $scope.itemsPerPage = 8;
     $scope.pageNumber = 0;
     $scope.totalItems = 0;
+    $scope.timeLeft = 3600;
 
     $scope.allItems = [];
     $scope.pageItems = [];
@@ -53,11 +54,15 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
     })();
 
     (function tickTimeLeft() {
-      $scope.timeLeft = $scope.timeLeft - 1;
-      duration = moment.duration($scope.timeLeft, 'seconds');
-      $scope.timer = moment(duration.asMilliseconds()).format('h:mm:ss');
+      if($scope.timeLeft > 0) {
+        $scope.timeLeft = $scope.timeLeft - 1;
+        duration = moment.duration($scope.timeLeft, 'seconds');
+        $scope.timer = moment(duration.asMilliseconds()).utc().format('H:mm:ss');
 
-      $timeout(tickTimeLeft, 1000);
+        $timeout(tickTimeLeft, 1000);
+      } else {
+        $scope.timer = 'Auction is now closed';
+      }
     })();
 
     (function nextPage() {

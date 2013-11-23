@@ -1,6 +1,11 @@
 <h1>Editing preference</h1>
 
-<%= render 'form' %>
+<%= link_to admin_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-home">Administration</i>
+<% end %>
+<br/>
+<%= link_to preferences_path, html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-list-alt">Manage Preferences</i>
+<% end %>
 
-<%= link_to 'Show', @preference %> |
-<%= link_to 'Back', preferences_path %>
+<%= render 'form' %>

@@ -23,6 +23,15 @@ class AdminController < ApplicationController
     render text: csv
   end
 
+  def all_receipts
+    pdf = nil
+    items = Item.order(:code)
+    items.each do |item|
+      pdf = GenerateReceipts.receipt_for(pdf, item)
+    end
+    send_data pdf.render, type: "application/pdf", disposition: "inline"
+  end
+
   def import_items
     ImportItems.import 'public/gala_content.xlsx'
     flash[:message] = "Items have been imported"

@@ -28,6 +28,7 @@ class AuctionController < ApplicationController
 
   def time_left
     time_left = ((Preference.end_time - DateTime.now) * 24 * 60 * 60).to_i
+    time_left = 0 if time_left < 0
     render json: {time_left: time_left}
   end
 
