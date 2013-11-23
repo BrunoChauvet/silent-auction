@@ -38,6 +38,10 @@
 <%= link_to "#{user_cards_path}.pdf", html_options = {class: "btn"} do %>
   <i class="glyphicon glyphicon-user">Export user cards (PDF)</i>
 <% end %>
+<br/>
+<%= link_to "#{highest_bids_path}.csv", html_options = {class: "btn"} do %>
+  <i class="glyphicon glyphicon-usd">Export highest bids (CSV)</i>
+<% end %>
 
 <br/>
 <hr/>

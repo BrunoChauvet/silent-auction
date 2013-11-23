@@ -12,6 +12,7 @@ SilentAuction::Application.routes.draw do
   get 'import_items', to: 'admin#import_items'
   get 'import_users', to: 'admin#import_users'
   get 'user_cards', to: 'admin#user_cards'
+  get 'highest_bids', to: 'admin#highest_bids'
   post 'import_items_google_drive', to: 'admin#import_items_google_drive'
   post 'import_tables_google_drive', to: 'admin#import_tables_google_drive'
 
