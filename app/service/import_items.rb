@@ -5,6 +5,7 @@ class ImportItems
   IDX_START_PRICE = 7
   IDX_BY = 9
   IDX_DESCRIPTION = 11
+  IDX_CATEGORY = 10
 
   def self.import(file_path)
   	book = Roo::Excelx.new(file_path)
@@ -13,16 +14,21 @@ class ImportItems
     category = nil
 
     for line in 2..book.last_row do
-      first_cell = book.cell(line, 1)
-      break if first_cell.nil?
+      break if book.cell(line, IDX_CODE).nil? && book.cell(line, IDX_CATEGORY).nil?
 
-      if first_cell.is_a? String
-        category_name = first_cell
+      if book.cell(line, IDX_CODE).nil?
+        category_name = book.cell(line, IDX_CATEGORY)
         category = Category.where(name: category_name).first_or_create
       else
         code = book.cell(line, IDX_CODE).to_i.to_s
         name = book.cell(line, IDX_NAME)
-        start_price = book.cell(line, IDX_START_PRICE) || 0
+
+        if book.cell(line, IDX_START_PRICE).is_a? Float
+          start_price = book.cell(line, IDX_START_PRICE).to_i
+        else
+          start_price = 0
+        end
+
         by = book.cell(line, IDX_BY)
         unless by.blank?
           by.gsub!('Courtesy of', '')
