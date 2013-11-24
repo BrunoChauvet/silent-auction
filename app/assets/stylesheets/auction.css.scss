@@ -287,10 +287,14 @@ span.header-title {
 }
 
 #bid .current-price {
-  font-size: 1.4em;
-  color: #C88D8D;
+  font-size: 1.8em;
+  color: #C8DD9D;
   border: 1px solid #707070;
-  padding: 3px 7px;
+  padding: 7px 12px;
+}
+
+#bid .bid-current-price {
+  margin-top: 10px;
 }
 
 #bid .sub-price {
@@ -395,7 +399,10 @@ div.back-button {
 
 .list .list-item a {
   display: block;
+  padding-bottom: 10px;
   padding-left: 80px;
+  padding-top: 10px;
+  line-height: 45px;
   color: #CAADAD;
   font-size: 1.4em;
   overflow: hidden;

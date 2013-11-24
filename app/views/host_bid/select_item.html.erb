@@ -3,7 +3,10 @@
 <div id="items" class="container list">
   <% @items.each_with_index do |item, index| %>
     <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
-      <%= link_to "#{item.code} - #{item.name}", select_amount_path(user_id: params[:user_id], item_id: item.id) %>
+      <%= link_to select_amount_path(user_id: params[:user_id], item_id: item.id) do %>
+        <span class="glyphicon glyphicon-chevron-right pull-right"></span>
+        <%= "#{item.code} - #{item.name}" %>
+      <% end %>
     </div>
   <% end %>
 </div>

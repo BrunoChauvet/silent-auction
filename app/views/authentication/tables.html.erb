@@ -11,6 +11,7 @@
     <div class="row">
       <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
         <%= link_to authenticate_select_user_path(table.id) do %>
+          <span class="glyphicon glyphicon-chevron-right pull-right"></span>
           <%= table.name %>
         <% end %>
       </div>

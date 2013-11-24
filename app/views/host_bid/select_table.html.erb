@@ -10,7 +10,10 @@
 <div id="tables" class="container list">
   <% @user_groups.each_with_index do |user_group, index| %>
   <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
-    <%= link_to user_group.name, select_user_path(table_id: user_group.id) %>
+    <%= link_to select_user_path(table_id: user_group.id) do %>
+    	<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <%= user_group.name %>
+    <% end %>
   </div>
   <% end %>
 </div>
