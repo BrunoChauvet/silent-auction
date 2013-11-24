@@ -555,6 +555,13 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   line-height: 40px;
 }
 
+#user-bid .current-price {
+  font-size: 1.4em;
+  color: #C8DD9D;
+  border: 1px solid #707070;
+  padding: 7px 12px;
+}
+
 #user-bid .sub-price {
   padding-top: 0px;
   margin-top: -10px;
@@ -567,6 +574,7 @@ a.user-bid-link:hover, a.user-bid-link:focus {
   font-weight: bold;
   font-size: 1.0em;
   line-height: 40px;
+  margin-top: 10px;
 }
 
 .admin-header {

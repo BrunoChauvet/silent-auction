@@ -35,7 +35,9 @@
     <div class="bid-amount">
       <div class="row">
         <div class="col-md-12">
-          <div class="bid-price">Bid price: {{biddingPrice | roundedCurrency}}</div>
+          <div class="bid-price">
+            <span class="name">Bid price: </span>
+            <span class="current-price">{{biddingPrice | roundedCurrency}}</span>
         </div>
         <div ng-show="status == 'start-price'" class="col-md-12 sub-price">
           <div class="bid-current-price">Start price: {{currentPrice | roundedCurrency}}</div>
