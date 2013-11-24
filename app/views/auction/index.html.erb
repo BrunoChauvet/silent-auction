@@ -17,20 +17,20 @@
 
   <div class="auction-items">
     <div ng-repeat="item in pageItems" class="item-container {{item.item.category_class}} col-md">
-    	<div class="item-image col-md">
-    		<img ng-src="{{item.item.image}}"/>
+
+      <div class="item-image col-md">
+    		<img ng-src="{{item.item.image}}" style="max-height: 100px;max-width: 160px;vertical-align: middle;"/>
     	</div>
       
     	<div class="item-content col-md">
-        <div class="item-detail col-md">
-    	  	<span class="item-code">{{item.item.code}}</span>
+        
+      <div class="item-detail col-md">
+          <span class="item-code">{{item.item.code}}</span>
           <span class="item-name">{{item.item.name}}</span>
-        </div>
+      </div>
+
   	  	<div class="item-bid col-md">
-          <div class="col-md item-category">
-            <span class="category-label"/>Category</span>
-            <span class="category-value"/>{{item.item.category}}</span>
-          </div>
+          
           <div ng-show="item.bid.price" class="col-md item-user">{{item.user.title}} {{item.user.first_name}} {{item.user.last_name}}</div>
           <div ng-hide="item.bid.price" class="col-md item-user">Start price</div>
   		  	<div class="col-md item-price">

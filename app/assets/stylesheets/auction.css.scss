@@ -84,14 +84,21 @@ a:hover, a:focus {
 
 #auction .item-container {
   padding: 5px !important;
-  width: 50%;
+  width: 48%;
   height: 160px;
+  margin: 0 1% 1% 1%;
   position: relative;
   float: left;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: #B86D6D;
+  
 }
 
 #auction .item-detail {
   line-height: 30px;
+  color:#A43030;
 }
 
 #auction .item-bid {
@@ -146,7 +153,6 @@ a:hover, a:focus {
 #auction .item-user {
   font-size: 1.2em;
   font-weight: bold;
-  width: 70%;
   float: left;
   text-align: right;
   color: #D07070;
@@ -156,18 +162,16 @@ a:hover, a:focus {
   font-weight: bold;
   font-size: 1.2em;
   display: inline-block;
-  min-width: 12%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-align: right;
 }
 
 #auction .item-name {
   font-weight: bold;
   font-size: 1.3em;
+  width: 90%;
   display: inline-block;
-  width: 85%;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -177,9 +181,16 @@ a:hover, a:focus {
 
 #auction .item-image {
   overflow: hidden;
-	padding: 0px !important;
-  height: 100%;
+  margin:5px 0 0 0;
+  text-align: center;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
   width: 30%;
+  height: 140px;
+  vertical-align: middle;
+  background-color: white;
   float: left;
 }
 
@@ -187,11 +198,10 @@ a:hover, a:focus {
   height: 100%;
   width: 70%;
   float: left;
-  padding: 0px !important;
+  padding:0 0 0 5px !important;
 }
 
 #auction .item-bid {
-  height: 70px;
   width: 100%;
   float: left;
   bottom: 0;

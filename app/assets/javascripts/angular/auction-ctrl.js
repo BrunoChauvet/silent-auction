@@ -9,7 +9,7 @@ auctionModule.factory('Items', ['$resource', function($resource) {
 auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items', function($scope, $timeout, $http, Items) {
 
   $scope.init = function() {
-    $scope.itemsPerPage = 10;
+    $scope.itemsPerPage = 8;
     $scope.pageNumber = 0;
     $scope.totalItems = 0;
     $scope.timeLeft = 3600;
@@ -31,7 +31,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
             }
           });
 
-          $timeout(refreshItems, 1000);
+    //      $timeout(refreshItems, 1000);
       });
     })();
 
@@ -41,7 +41,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
         $scope.amountRaised = data.amount_raised;
       });
 
-      $timeout(refreshAmountRaised, 1000);
+      //$timeout(refreshAmountRaised, 1000);
     })();
 
     (function refreshTimer() {
@@ -50,7 +50,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
         $scope.timeLeft = data.time_left;
       });
 
-      $timeout(refreshTimer, 60000);
+      //$timeout(refreshTimer, 60000);
     })();
 
     (function tickTimeLeft() {
@@ -59,7 +59,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
         duration = moment.duration($scope.timeLeft, 'seconds');
         $scope.timer = moment(duration.asMilliseconds()).utc().format('H:mm:ss');
 
-        $timeout(tickTimeLeft, 1000);
+        //$timeout(tickTimeLeft, 1000);
       } else {
         $scope.timer = 'Auction is now closed';
       }
@@ -67,7 +67,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
 
     (function nextPage() {
       $scope.loadNextPage();
-      $timeout(nextPage, 10000);
+      //$timeout(nextPage, 10000);
     })();
 
   };
