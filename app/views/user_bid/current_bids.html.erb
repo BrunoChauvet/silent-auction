@@ -13,10 +13,12 @@
     <div ng-repeat="item in items" class="row">
       <div class="col-md-12 bid-item {{item.status}}">
         <a class="user-bid-link" href="#" ng-click="createBid(item)">
-        	<span class="item-code">{{item.item.code}}</span>
-        	<span class="item-name">{{item.item.name}}</span>
-        	<span class="item-price">{{item.price | roundedCurrency}}</span>
-          <span class="item-status glyphicon {{icon(item)}}">&nbsp;</span>
+          <div>
+          	<div class="item-code">{{item.item.code}}</div>
+            <div class="item-status glyphicon {{icon(item)}}">&nbsp;</div>
+          	<div class="item-price">{{item.price | roundedCurrency}}</div>
+            <div class="item-name">{{item.item.name}}</div>
+          </div>
         </a>
       </div>
     </div>
