@@ -48,14 +48,14 @@ class ImportItems
           item.update_attributes!(name: name, description: description, start_price: start_price, bid_increment: bid_increment, by: by, category: category)
         end
 
-        if File.exist?("public/items/#{code}.jpg")
-          item.image = File.open("public/items/#{code}.jpg")
+        if File.exist?("#{Rails.root}/public/items/#{code}.jpg")
+          item.image = File.open("#{Rails.root}/public/items/#{code}.jpg")
           item.save
         end
 
         by.split(/\W+/).each do |word|
-          if File.exist?("public/sponsors/#{word}.jpg")
-            item.sponsor = File.open("public/sponsors/#{word}.jpg")
+          if File.exist?("#{Rails.root}/public/sponsors/#{word}.jpg")
+            item.sponsor = File.open("#{Rails.root}/public/sponsors/#{word}.jpg")
             item.save
             break
           end
