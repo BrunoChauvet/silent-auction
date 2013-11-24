@@ -1,9 +1,14 @@
 class GenerateReceipts
   def self.receipt_for(pdf, item)
-    pdf = Prawn::Document.new(:margin => [40,50,40,50]) unless pdf
-
     bid = Bid.where(item: item).order('timestamp desc').first
     return pdf unless bid
+
+    if pdf
+      pdf.start_new_page
+    else
+      pdf = Prawn::Document.new(:margin => [40,50,40,50])
+    end
+
     user = bid.user
 
     receipt_width = 510
@@ -15,10 +20,10 @@ class GenerateReceipts
       pdf.image "#{Rails.root}/app/assets/images/ufe_logo.png", :at => [5, pdf.cursor - 25], scale: 0.9
 
       pdf.formatted_text_box([text: "UFE CHARITY GALA 2013",
-                              size: 18, align: :center, color: "606060"],
-                              at: [100, pdf.cursor - 50], height: 60, width: content_width)
+                              size: 20, align: :center, color: "606060"],
+                              at: [120, pdf.cursor - 45], height: 60, width: content_width)
 
-      pdf.bounding_box([20, pdf.cursor - 100], width: content_width, height: 250) do
+      pdf.bounding_box([40, pdf.cursor - 80], width: content_width, height: 250) do
         pdf.formatted_text_box([text: "Silent Auction Receipt ",
                                 size: 14, align: :center, color: "606060"],
                                 at: [0, pdf.cursor - 10], height: 60, width: content_width)
@@ -43,7 +48,6 @@ class GenerateReceipts
       pdf.stroke_bounds
     end
 
-    pdf.start_new_page
     pdf
   end
 end
