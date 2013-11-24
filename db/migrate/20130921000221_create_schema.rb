@@ -38,6 +38,7 @@ class CreateSchema < ActiveRecord::Migration
       t.string :image
       t.string :sponsor
       t.decimal :start_price
+      t.decimal :bid_increment
     end
 
     add_index(:items, :code, :unique => true)

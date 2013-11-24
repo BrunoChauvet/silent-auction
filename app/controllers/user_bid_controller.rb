@@ -13,7 +13,7 @@ class UserBidController < MobileApplicationController
         items = Item.all(order: :code)
         items.each do |item|
           last_bid = Bid.where(item: item).order('timestamp desc').first
-          min_price = last_bid.present? ? last_bid.price + Bid::MINIMUM_INCREMENT : item.start_price
+          min_price = last_bid.present? ? last_bid.price + item.bid_increment : item.start_price
           bids << {
                     item: item,
                     price: last_bid.present? ? last_bid.price : item.start_price,

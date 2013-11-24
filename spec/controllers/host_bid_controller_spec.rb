@@ -11,9 +11,9 @@ describe HostBidController do
 
     experiences = Category.create(name: 'Experiences')
 
-    @item1 = Item.create(category: experiences, code: '101', name: 'Vespa 12CV', description: 'Brand new Vespa 12CV from our sponsors', start_price: 500)
-    @item2 = Item.create(category: experiences, code: '102', name: 'Coffee Machine', description: 'Breville coffee machine with 2 years waranty', start_price: 100)
-    @item3 = Item.create(category: experiences, code: '201', name: 'Tahiti Escape', description: 'Holiday all inclusive package to french polynesia', start_price: 700)
+    @item1 = FactoryGirl.create(:item, category: experiences, code: '101', name: 'Vespa 12CV', description: 'Brand new Vespa 12CV from our sponsors', start_price: 500)
+    @item2 = FactoryGirl.create(:item, category: experiences, code: '102', name: 'Coffee Machine', description: 'Breville coffee machine with 2 years waranty', start_price: 100)
+    @item3 = FactoryGirl.create(:item, category: experiences, code: '201', name: 'Tahiti Escape', description: 'Holiday all inclusive package to french polynesia', start_price: 700)
 
     @bid1 = Bid.create(user: @jsmith, item: @item1, price: 3500, timestamp: Time.now)
     @bid2 = Bid.create(user: @jsmith, item: @item2, price: 210, timestamp: Time.now - 1.minute)

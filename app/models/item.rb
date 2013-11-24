@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   def minimum_price
     previous_bid = Bid.where(item: self).order('timestamp desc').first
     if previous_bid.present?
-      return previous_bid.price + Bid::MINIMUM_INCREMENT
+      return previous_bid.price + bid_increment
     else
       return start_price
     end

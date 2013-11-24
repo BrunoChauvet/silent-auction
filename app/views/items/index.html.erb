@@ -18,6 +18,7 @@
       <th>Description</th>
       <th>Category</th>
       <th>Start price</th>
+      <th>Bid increment</th>
       <th></th>
     </tr>
   </thead>
@@ -30,6 +31,7 @@
         <td><%= item.description %></td>
         <td><%= item.category.name %></td>
         <td>$<%= item.start_price %></td>
+        <td>$<%= item.bid_increment %></td>
         <td><%= button_to 'Edit', edit_item_path(item), method: :get, :class => 'btn btn-primary' %></td>
       </tr>
     <% end %>

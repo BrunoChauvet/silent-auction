@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "image"
     t.string  "sponsor"
     t.decimal "start_price"
+    t.decimal "bid_increment"
   end
 
   add_index "items", ["code"], name: "index_items_on_code", unique: true

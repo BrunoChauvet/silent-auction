@@ -33,11 +33,13 @@ class ImportItems
         end
         description = book.cell(line, IDX_DESCRIPTION)
 
+        bid_increment = start_price >= 1000 ? 100 : start_price >= 500 ? 50 : 20
+
         item = Item.where(code: code).first
         if item.blank?
-          item = Item.create(code: code, name: name, description: description, start_price: start_price, by: by, category: category)
+          item = Item.create(code: code, name: name, description: description, start_price: start_price, bid_increment: bid_increment, by: by, category: category)
         else
-          item.update_attributes!(name: name, description: description, start_price: start_price, by: by, category: category)
+          item.update_attributes!(name: name, description: description, start_price: start_price, bid_increment: bid_increment, by: by, category: category)
         end
 
         if File.exist?("public/items/#{code}.jpg")

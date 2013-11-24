@@ -36,6 +36,7 @@ describe ImportItems do
       items[0].code.should eql('101')
       items[0].name.should eql('Madame Butterfly Handa Opera on Sydney Harbour')
       items[0].start_price.should eql(400)
+      items[0].bid_increment.should eql(20)
       items[0].category.name.should eql('EXPERIENCE')
       items[0].description.should include('For you and 3 friends: A reserve tickets')
       items[0].by.should eql('Manildra')

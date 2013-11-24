@@ -42,6 +42,8 @@ RSpec.configure do |config|
 
   config.include Devise::TestHelpers, :type => :controller
 
+  FactoryGirl.find_definitions
+
   config.after(:each) do
     if Rails.env.test? || Rails.env.cucumber?
       FileUtils.rm_rf(Dir["#{Rails.root}/tmp/spec"])
