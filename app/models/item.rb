@@ -32,7 +32,8 @@ class Item < ActiveRecord::Base
       category: category.name.split.map(&:capitalize).join(' '),
       category_class: category.name.tr('^A-Za-z0-9', '').downcase,
       image: image.thumb.url || 'images/ufe_logo.png',
-      start_price: start_price
+      start_price: start_price,
+      bid_increment: bid_increment
     }
   end
 end

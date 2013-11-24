@@ -48,8 +48,8 @@
           <button class="btn btn-default" type="submit" ng-click="refresh()">
             <span class="glyphicon glyphicon-refresh"></span><span class="btn-bid">Reset</span>
           </button>
-          <button class="btn btn-default" type="submit" ng-click="add(<%= @item.bid_increment %>)">
-            <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">$<%= @item.bid_increment %></span>
+          <button class="btn btn-default" type="submit" ng-click="add(bidIncrement)">
+            <span class="glyphicon glyphicon-plus"></span><span class="btn-bid">${{bidIncrement}}</span>
           </button>
         </div>
       </div>

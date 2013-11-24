@@ -23,6 +23,7 @@ auctionModule.controller('UserBidsCtrl', ['$scope', '$http', '$timeout', functio
     $scope.biddingPrice = item.min_price;
     $scope.defaultPrice = item.min_price;
     $scope.biddingItem = item.item;
+    $scope.bidIncrement = item.item.bid_increment;
     $scope.status = item.status;
   };
 
