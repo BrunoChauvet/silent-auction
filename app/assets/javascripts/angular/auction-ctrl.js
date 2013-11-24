@@ -9,7 +9,7 @@ auctionModule.factory('Items', ['$resource', function($resource) {
 auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items', function($scope, $timeout, $http, Items) {
 
   $scope.init = function() {
-    $scope.itemsPerPage = 8;
+    $scope.itemsPerPage = 10;
     $scope.pageNumber = 0;
     $scope.totalItems = 0;
     $scope.timeLeft = 3600;

@@ -23,14 +23,11 @@
     	</div>
       
     	<div class="item-content col-md">
-        
-      <div class="item-detail col-md">
-          <span class="item-code">{{item.item.code}}</span>
+        <div class="item-detail col-md">
           <span class="item-name">{{item.item.name}}</span>
-      </div>
+        </div>
 
   	  	<div class="item-bid col-md">
-          
           <div ng-show="item.bid.price" class="col-md item-user">{{item.user.title}} {{item.user.first_name}} {{item.user.last_name}}</div>
           <div ng-hide="item.bid.price" class="col-md item-user">Start price</div>
   		  	<div class="col-md item-price">
@@ -38,6 +35,8 @@
             <span ng-hide="item.bid.price">{{item.item.start_price | roundedCurrency}}</span>
           </div>
   		  </div>
+
+        <div class="item-code">{{item.item.code}}</div>
     	</div>
     </div>
   </div>

@@ -42,7 +42,7 @@ a:hover, a:focus {
   font-weight: bold;
   line-height: 50px;
   padding: 0px 5px;
-  color: #A43030;
+  color: #661111;
   width: 50%;
 }
 
@@ -66,14 +66,14 @@ a:hover, a:focus {
 #auction .auction-info .label {
   width: 45%;
   font-size: 1.0em;
-  color: #B86D6D;
+  color: #661111;
   text-align: right;
 }
 
 #auction .auction-info .value {
   width: 45%;
   font-size: 1.2em;
-  color: #F08080;
+  color: #D07070;
   text-align: left;
 }
 
@@ -85,14 +85,14 @@ a:hover, a:focus {
 #auction .item-container {
   padding: 5px !important;
   width: 48%;
-  height: 160px;
+  height: 125px;
   margin: 0 1% 1% 1%;
   position: relative;
   float: left;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
-  background-color: #482D2D;
+  background-color: #FFFFFF;
   
 }
 
@@ -103,6 +103,7 @@ a:hover, a:focus {
 
 #auction .item-bid {
   line-height: 20px;
+  margin-top: 20px;
 }
 
 #auction .item-category {
@@ -141,17 +142,17 @@ a:hover, a:focus {
 }
 
 #auction .item-price {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
   width: 30%;
   float: left;
   text-align: right;
   padding-right: 20px;
-  color: #F08080;
+  color: #D07070;
 }
 
 #auction .item-user {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
   float: left;
   text-align: right;
@@ -160,35 +161,31 @@ a:hover, a:focus {
 
 #auction .item-code {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.6em;
   display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  color: #661111;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 #auction .item-name {
   font-weight: bold;
   font-size: 1.3em;
-  width: 90%;
+  width: 100%;
   display: inline-block;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  vertical-align: top;
   text-align: left;
+  color: #661111;
 }
 
 #auction .item-image {
   overflow: hidden;
-  margin:5px 0 0 0;
-  text-align: center;
+  margin: 5px 0 0 0;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-
   width: 30%;
-  height: 140px;
   vertical-align: middle;
   background-color: white;
   float: left;
@@ -199,12 +196,6 @@ a:hover, a:focus {
   width: 70%;
   float: left;
   padding:0 0 0 5px !important;
-}
-
-#auction .item-bid {
-  width: 100%;
-  float: left;
-  bottom: 0;
 }
 
 #auction .bid-price {
