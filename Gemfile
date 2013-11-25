@@ -44,6 +44,7 @@ gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'newrelic_rpm'
+gem "rubyzip", "<1.0.0"
 
 group :test, :development do
   gem 'rspec'
