@@ -1,13 +1,13 @@
 body.mobile {
   background-image: image-url("background.jpg");
   background-position: top center;
-  color: #B86D6D;
+  color: #DABDBD;
 }
 
 body.auction {
   background-image: image-url("background.jpg");
   background-position: top center;
-  color: #B86D6D;
+  color: #DABDBD;
 }
 
 a {
@@ -23,6 +23,49 @@ a:hover, a:focus {
 
 #auction .full-size {
   width: 100%;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-header {
+  background-image: image-url("ufe_logo.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding-left: 75px;
+}
+
+.navbar-header .title {
+  float: left;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  line-height: 50px;
+  padding: 0px;
+  color: #A43030;
+}
+
+.navbar-nav .divider {
+  background-color: #E5E5E5;
+  height: 1px;
+  margin: 4px 0;
+  overflow: hidden;
+}
+
+.navbar-nav {
+  font-size: 1.2em;
+}
+
+.navbar-nav > li > span {
+    line-height: 30px;
+    padding-left: 15px;
+    color: #A43030;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #A43030;
+    font-weight: bold;
 }
 
 .navbar-header .title {
@@ -242,7 +285,6 @@ span.header-title {
   font-size: 1.6em;
   font-weight: bold;
   line-height: 60px;
-  padding-top: 5px;
   padding-bottom: 5px;
 }
 
@@ -320,45 +362,6 @@ span.header-title {
     background-color: #961E20;
     border-color: #303030;
     color: #F0C1C1;
-}
-
-.navbar-header {
-  background-image: image-url("ufe_logo.png");
-  background-position: left center;
-  background-repeat: no-repeat;
-  padding-left: 75px;
-}
-
-.navbar-header .title {
-  float: left;
-  text-align: center;
-  font-size: 1.3em;
-  font-weight: bold;
-  line-height: 50px;
-  padding: 0px;
-  color: #A43030;
-}
-
-.navbar-nav .divider {
-  background-color: #E5E5E5;
-  height: 1px;
-  margin: 4px 0;
-  overflow: hidden;
-}
-
-.navbar-nav {
-  font-size: 1.2em;
-}
-
-.navbar-nav > li > span {
-    line-height: 30px;
-    padding-left: 15px;
-    color: #A43030;
-}
-
-.navbar-default .navbar-nav > li > a {
-    color: #A43030;
-    font-weight: bold;
 }
 
 div.mobile-header {
@@ -476,7 +479,7 @@ div.alert-danger {
 
 a.user-bid-link div {
   line-height: 60px;
-  color: #B86D6D;
+  color: #DABDBD;
 }
 
 a.user-bid-link:hover, a.user-bid-link:focus {
