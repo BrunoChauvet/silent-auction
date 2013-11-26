@@ -31,7 +31,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
             }
           });
 
-         $timeout(refreshItems, 1000);
+         // $timeout(refreshItems, 1000);
       });
     })();
 
@@ -67,7 +67,7 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
 
     (function nextPage() {
       $scope.loadNextPage();
-      $timeout(nextPage, 10000);
+      // $timeout(nextPage, 10000);
     })();
 
   };

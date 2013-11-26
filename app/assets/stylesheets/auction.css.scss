@@ -121,15 +121,15 @@ a:hover, a:focus {
 }
 
 #auction .auction-items {
-  min-height: 960px;
+  margin-top: 5px;
   clear: both;
 }
 
 #auction .item-container {
-  padding: 5px !important;
-  width: 48%;
+  padding: 2px !important;
+  width: 49%;
   height: 125px;
-  margin: 0 1% 1% 1%;
+  margin: 0 0.5% 0.5% 0.5%;
   position: relative;
   float: left;
   border-radius: 10px;
@@ -224,14 +224,20 @@ a:hover, a:focus {
 
 #auction .item-image {
   overflow: hidden;
-  margin: 5px 0 0 0;
-  display: table-cell;
   text-align: center;
-  vertical-align: middle;
-  width: 30%;
+  width: 29%;
+  height: 115px;
   vertical-align: middle;
   background-color: white;
   float: left;
+  margin: 2px 0px 2px 4px;
+}
+
+#auction .item-image-cell {
+  display: table-cell;
+  height: 120px;
+  width: 190px;
+  vertical-align: middle;
 }
 
 #auction .item-content {
