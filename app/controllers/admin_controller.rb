@@ -29,7 +29,12 @@ class AdminController < ApplicationController
     items.each do |item|
       pdf = GenerateReceipts.receipt_for(pdf, item)
     end
-    send_data pdf.render, type: "application/pdf", disposition: "inline"
+    
+    if pdf
+      send_data pdf.render, type: "application/pdf", disposition: "inline"
+    else
+      send_data "", type: "application/pdf", disposition: "inline"
+    end
   end
 
   def import_items

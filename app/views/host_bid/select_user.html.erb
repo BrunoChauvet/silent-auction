@@ -1,11 +1,17 @@
 <%= render partial: 'common/host_header', locals: {back_link: select_table_path} %>
 
 <div id="users" class="container list">
+  <div class="row header-row">
+    <div class="col-md-12">
+      <h3>Place a bid - Select guest</h3>
+    </div>
+  </div>
+
   <% @users.each_with_index do |user, index| %>
     <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
       <%= link_to select_item_path(user_id: user.id) do %>
         <span class="glyphicon glyphicon-chevron-right pull-right"></span>
-        <%= "#{user.first_name} #{user.last_name}" %>
+        <%= "#{user.title} #{user.first_name} #{user.last_name}" %>
       <% end %>
     </div>
   <% end %>

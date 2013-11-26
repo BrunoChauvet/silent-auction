@@ -8,6 +8,12 @@
 <% end %>
 
 <div id="tables" class="container list">
+  <div class="row header-row">
+    <div class="col-md-12">
+      <h3>Place a bid - Select table</h3>
+    </div>
+  </div>
+
   <% @user_groups.each_with_index do |user_group, index| %>
   <div class="col-md-12 list-item mask<%= index%8 + 1 %>">
     <%= link_to select_user_path(table_id: user_group.id) do %>
