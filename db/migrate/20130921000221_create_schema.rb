@@ -9,6 +9,7 @@ class CreateSchema < ActiveRecord::Migration
 
     create_table :user_groups do |t|
       t.string :name
+      t.string :full_name
       t.integer :sort_order
     end
 
@@ -54,8 +55,7 @@ class CreateSchema < ActiveRecord::Migration
 
     add_foreign_key(:bids, :users)
     add_foreign_key(:bids, :items)
-    add_index(:bids, :user_id)
-    add_index(:bids, :item_id)
-    add_index(:bids, :timestamp)
+    add_index(:bids, [:user_id, :item_id, :timestamp])
+    add_index(:bids, [:item_id, :timestamp])
   end
 end
