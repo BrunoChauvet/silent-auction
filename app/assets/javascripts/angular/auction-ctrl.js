@@ -6,7 +6,7 @@ auctionModule.factory('Items', ['$resource', function($resource) {
   });
 }]);
 
-auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items', function($scope, $timeout, $http, Items) {
+auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', '$document', 'Items', function($scope, $timeout, $http, $document, Items) {
 
   $scope.init = function() {
     $scope.itemsPerPage = 10;
@@ -69,7 +69,13 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
       $scope.loadNextPage();
       $timeout(nextPage, 10000);
     })();
+  };
 
+  $scope.loadPreviousPage = function() {
+    $scope.pageNumber = $scope.pageNumber - 1;
+    if($scope.pageNumber < 0) {
+      $scope.pageNumber = ($scope.totalItems / $scope.itemsPerPage);
+    }
   };
 
   $scope.loadNextPage = function() {
@@ -78,5 +84,29 @@ auctionModule.controller('AuctionCtrl', ['$scope', '$timeout', '$http', 'Items',
       $scope.pageNumber = 0;
     }
   };
+
+  $document.bind('keyup', function(event) {
+    if(event.which === 37) {
+      $scope.loadPreviousPage();
+    } else if(event.which === 39) {
+      $scope.loadNextPage();
+    } else {
+      return;
+    }
+
+    Items.query({}, function(items) {
+      $scope.totalItems = items.length;
+      $scope.allItems = items;
+      $scope.pageItems = [];
+
+      var firstItemIndex = $scope.pageNumber * $scope.itemsPerPage;
+      var lastItemIndex = firstItemIndex + $scope.itemsPerPage;
+      angular.forEach($scope.allItems, function(item, index) {
+        if(index >= firstItemIndex && index < lastItemIndex) {
+          $scope.pageItems.push(item);
+        }
+      });
+    });
+  });
 
 }]);

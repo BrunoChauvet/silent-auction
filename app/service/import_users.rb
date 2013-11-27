@@ -18,17 +18,19 @@ class ImportUsers
       sort_order = book.cell(line, IDX_TABLE).to_i
       table_name = "Table #{sort_order}"
 
-      table = UserGroup.where(name: table_name).first
-      if table.blank?
-        table = UserGroup.create(name: table_name, sort_order: sort_order)
-      end
+      unless sort_order == 0
+        table = UserGroup.where(name: table_name).first
+        if table.blank?
+          table = UserGroup.create(name: table_name, sort_order: sort_order)
+        end
 
-      user = User.where(first_name: first_name, last_name: last_name).first
-      if user.blank?
-        pin = 1000 + rand(8999)
-        User.create(title: title, first_name: first_name, last_name: last_name, user_group: table, pin: pin)
-      else
-        user.update_attributes!(title: title, first_name: first_name, last_name: last_name, user_group: table)
+        user = User.where(first_name: first_name, last_name: last_name).first
+        if user.blank?
+          pin = 1000 + rand(8999)
+          User.create(title: title, first_name: first_name, last_name: last_name, user_group: table, pin: pin)
+        else
+          user.update_attributes!(title: title, first_name: first_name, last_name: last_name, user_group: table)
+        end
       end
     end
 
