@@ -2,12 +2,15 @@ require 'csv'
 
 class ExportUsers
 
-  CARD_GAP = 15
+  PAGE_MARGINS = [60,45,60,45]
+  CARD_GAP_TOP = 1
+  CARD_GAP_SIDE = 1
   CARD_WIDTH = 252
   IMG_WIDTH = 60
   DETAIL_WIDTH = CARD_WIDTH - IMG_WIDTH
   CARD_HEIGHT = 144
   LINE_WEIGHT = 20
+  CARD_PER_PAGE = 10
 
   def self.export_highest_bids
     auction = []
@@ -33,15 +36,15 @@ class ExportUsers
   end
 
   def self.export_user_cards_pdf(users)
-    pdf = Prawn::Document.new(:margin => [20,40,20,40])
+    pdf = Prawn::Document.new(:page_size => 'A4', :margin => PAGE_MARGINS)
     
     users.each_with_index do |user, index|
       gap = 0
       if index % 2 == 1
-        gap = CARD_WIDTH + CARD_GAP
-        pdf.move_cursor_to( pdf.cursor + CARD_HEIGHT)
+        gap = CARD_WIDTH + CARD_GAP_SIDE
+        pdf.move_cursor_to(pdf.cursor + CARD_HEIGHT) - CARD_GAP_TOP
       else
-        pdf.move_cursor_to(pdf.cursor - CARD_GAP)
+        pdf.move_cursor_to(pdf.cursor - CARD_GAP_SIDE)
       end
 
       pdf.bounding_box([gap, pdf.cursor], width: CARD_WIDTH, height: CARD_HEIGHT) do
@@ -80,7 +83,7 @@ class ExportUsers
         pdf.stroke_bounds
       end
 
-      if index % 8 == 7
+      if index % CARD_PER_PAGE == (CARD_PER_PAGE - 1)
         pdf.start_new_page
         print_card_back(pdf)
       end
@@ -90,13 +93,13 @@ class ExportUsers
   end
 
   def self.print_card_back(pdf)
-    (0..7).each do |index|
+    (0..CARD_PER_PAGE+1).each do |index|
       gap = 0
       if index % 2 == 1
-        gap = CARD_WIDTH + CARD_GAP
-        pdf.move_cursor_to( pdf.cursor + CARD_HEIGHT)
+        gap = CARD_WIDTH + CARD_GAP_SIDE
+        pdf.move_cursor_to(pdf.cursor + CARD_HEIGHT) - CARD_GAP_TOP
       else
-        pdf.move_cursor_to(pdf.cursor - CARD_GAP)
+        pdf.move_cursor_to(pdf.cursor - CARD_GAP_SIDE)
       end
 
       pdf.bounding_box([gap, pdf.cursor], width: CARD_WIDTH, height: CARD_HEIGHT) do
