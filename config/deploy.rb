@@ -59,9 +59,9 @@ namespace :deploy do
 end
 
 after :deploy, :importdata do
-  # on "#{fetch(:user, 'user')}@localhost" do |host|
-  #   within "#{fetch(:deploy_to)}/current" do
-  #     execute :rake, "import_data RAILS_ENV=#{fetch(:rails_env)}"
-  #   end
-  # end
+  on "#{fetch(:user, 'user')}@localhost" do |host|
+    within "#{fetch(:deploy_to)}/current" do
+      execute :rake, "import_data RAILS_ENV=#{fetch(:rails_env)}"
+    end
+  end
 end

@@ -35,6 +35,7 @@ class ImportItems
           by.gsub!(':', '')
           by.gsub!('.', '')
           by.gsub!('-', '')
+          by.gsub!('\'', '')
           by.lstrip!
         end
         description = book.cell(line, IDX_DESCRIPTION)
