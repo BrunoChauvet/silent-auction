@@ -21,7 +21,9 @@
           </div>
         </div>
         <div class="item-sponsor-logo">
-          <img src="<%= item.sponsor.thumb.url %>"/>
+          <% if item.sponsor.thumb.url %>
+            <img src="<%= item.sponsor.thumb.url %>"/>
+          <% end %>
         </div>
       </div>
     </div>
