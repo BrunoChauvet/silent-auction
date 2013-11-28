@@ -18,7 +18,7 @@ class UserBidController < MobileApplicationController
                     item: item,
                     price: last_bid.present? ? last_bid.price : item.start_price,
                     min_price: min_price,
-                    status: bid_status(item)}
+                    status: bid_status(item, last_bid)}
         end
 
         render json: bids
@@ -38,22 +38,22 @@ class UserBidController < MobileApplicationController
 
 private
 
-  def bid_status(item)
-    bids = Bid.where(item: item).order('timestamp desc')
-    if bids.empty?
+  def bid_status(item, last_bid)
+    item_bids_count = Bid.where(item: item).count
+    if item_bids_count == 0
       return 'start-price'
-    else
-      if bids.first.user == current_user
-        return 'owner'
-      else
-        bids[1..-1].each do |bid|
-          if bid.user == current_user
-            return 'outbidded'
-          end
-        end
-        return 'none'
-      end
     end
+    
+    if last_bid.user == current_user
+      return 'owner'
+    end
+
+    user_item_bids_count = Bid.where(item: item, user: current_user).count
+    if user_item_bids_count > 0
+      return 'outbidded'
+    end
+
+    return 'none'
   end
 
 end
