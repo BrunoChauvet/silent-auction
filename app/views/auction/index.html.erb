@@ -9,7 +9,10 @@
           </div>
           <div>
             <span class="label">Time left</span>
-            <span class="value">{{timer}}</span>
+            <span class="value">
+              <span ng-hide="timeLeft <= 0">{{timer}}</span>
+              <a ng-show="timeLeft <= 0" href="<%= results_path(1) %>">{{timer}}</a>
+            </span>
           </div>
         </div>
     </div>

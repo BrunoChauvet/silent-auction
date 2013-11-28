@@ -11,26 +11,28 @@
     </div>
   </nav>
 
-  <h1>Auction results</h1>
+  <h1>Silent Auction Results</h1>
 
-  <table class="table">
-    <tbody>
+  <div class="container results">
+    <div class="row">
       <% @auction.each do |item| %>
-        <tr>
-          <td><%= item[:item][:code] %></td>
-          <td><%= item[:item][:name] %></td>
-          <td>
-            <% if item[:bid] %>
-              $<%= item[:bid][:price] %>
-            <% end %>
-          </td>
-          <td>
-            <% if item[:user] %>
-              <%= item[:user][:title] %> <%= item[:user][:first_name] %> <%= item[:user][:last_name] %>
-            <% end %>
-            </td>
-        </tr>
+        <div class="col-md-6">
+          <div class="row result-row">
+            <div class="col-md-1 result-cell bold"><%= item[:item][:code] %></div>
+            <div class="col-md-6 result-cell"><%= item[:item][:name] %></div>
+            <div class="col-md-1 result-cell bold">
+              <% if item[:bid] %>
+                $<%= item[:bid][:price] %>
+              <% end %>
+            </div>
+            <div class="col-md-4 result-cell bold">
+              <% if item[:user] %>
+                <%= item[:user][:title] %> <%= item[:user][:first_name] %> <%= item[:user][:last_name] %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
 </div>

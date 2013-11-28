@@ -3,8 +3,8 @@ SilentAuction::Application.routes.draw do
   root 'application#index'
 
   # Auction screen
-  get 'auction', to: 'auction#index'
-  get 'results', to: 'auction#results'
+  get 'auction', to: 'auction#index', as: 'auction'
+  get 'results/:page', to: 'auction#results', as: 'results'
   get 'amount_raised', to: 'auction#amount_raised'
   get 'time_left', to: 'auction#time_left'
 

@@ -1,5 +1,7 @@
 class AuctionController < ApplicationController
   layout 'auction', only: [:index, :results]
+
+  PAGE_SIZE = 18
   
   def index
     respond_to do |format|
@@ -11,7 +13,8 @@ class AuctionController < ApplicationController
   end
 
   def results
-    @auction = auction_summary
+    start = (params[:page].to_i - 1) * PAGE_SIZE
+    @auction = auction_summary.slice(start, PAGE_SIZE) || []
     @amount_raised = calculate_amount_raised
   end
 

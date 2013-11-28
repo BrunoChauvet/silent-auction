@@ -19,6 +19,10 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 /* Auction interface */
 
 #auction .full-size {
@@ -249,6 +253,23 @@ a:hover, a:focus {
 
 #auction .bid-price {
   text-align: center;
+}
+
+.results {
+  max-width: 1280px;
+  font-size: 1.2em;
+}
+
+.results .result-row {
+  border-top: 1px solid #707070;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.results .result-cell {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0px;
 }
 
 /* iPad interface */
