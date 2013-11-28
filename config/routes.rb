@@ -4,6 +4,7 @@ SilentAuction::Application.routes.draw do
 
   # Auction screen
   get 'auction', to: 'auction#index'
+  get 'results', to: 'auction#results'
   get 'amount_raised', to: 'auction#amount_raised'
   get 'time_left', to: 'auction#time_left'
 

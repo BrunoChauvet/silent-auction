@@ -1,0 +1,36 @@
+<div id="auction" class="auction">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header full-size">
+      <div class="auction-title">UFE Charity Gala 2013</div>
+      <div class="auction-info">
+          <div>
+            <span class="label">Amount raised</span>
+            <span class="value">$<%= number_with_precision(@amount_raised, precision: 0, delimiter: ',') %></span>
+          </div>
+        </div>
+    </div>
+  </nav>
+
+  <h1>Auction results</h1>
+
+  <table class="table">
+    <tbody>
+      <% @auction.each do |item| %>
+        <tr>
+          <td><%= item[:item][:code] %></td>
+          <td><%= item[:item][:name] %></td>
+          <td>
+            <% if item[:bid] %>
+              $<%= item[:bid][:price] %>
+            <% end %>
+          </td>
+          <td>
+            <% if item[:user] %>
+              <%= item[:user][:title] %> <%= item[:user][:first_name] %> <%= item[:user][:last_name] %>
+            <% end %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
