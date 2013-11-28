@@ -277,10 +277,6 @@ div#bidding-header div {
   font-style: italic;
 }
 
-#navbar-collapse .back-item {
-  width: 200px;
-}
-
 span.header-title {
   display: block;
   text-align: center;
@@ -306,6 +302,16 @@ span.header-title {
 
 #bid {
   text-align: center;
+}
+
+#bid .bid-title {
+  text-align: left;
+  border-bottom: 1px solid #707070;
+  font-size: 1.6em;
+  font-weight: bold;
+  line-height: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #bid .bid-user {

@@ -1,10 +1,15 @@
-<%= render partial: 'common/host_header', locals: {back_link: select_item_path(user_id: @user.id)} %>
+<%= render partial: 'common/host_header' %>
 
 <div id="bid" class="container" ng-controller="HostBidsCtrl" ng-init="init(<%= @user.id =%>, <%= @item.id =%>, <%= @item.current_price =%>, <%= @item.minimum_price =%>)">
 
   <div class="row">
-    <div class="col-md-12 bid-user">
-      <h1>Place Bid</h1>
+    <div class="col-md-12 bid-title">
+      <h1>
+        <%= link_to select_item_path(user_id: @user.id), html_options = {class: "btn btn-primary btn-lg"} do %>
+          <i class="glyphicon glyphicon-chevron-left">Back</i>
+        <% end %>
+        Place Bid
+      </h1>
     </div>
   </div>
 

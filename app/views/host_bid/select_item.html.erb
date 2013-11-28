@@ -1,9 +1,14 @@
-<%= render partial: 'common/host_header', locals: {back_link: select_user_path(table_id: @user.user_group.id)} %>
+<%= render partial: 'common/host_header' %>
 
 <div id="items" class="container list">
   <div class="row header-row">
     <div class="col-md-12">
-      <h3>Place a bid - Select prize</h3>
+      <h3>
+        <%= link_to select_user_path(table_id: @user.user_group.id), html_options = {class: "btn btn-primary btn-lg"} do %>
+          <i class="glyphicon glyphicon-chevron-left">Back</i>
+        <% end %>
+        Place a bid - Select prize
+      </h3>
     </div>
   </div>
 
