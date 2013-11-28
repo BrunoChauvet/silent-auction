@@ -37,6 +37,7 @@ gem 'roo'
 gem 'spreadsheet'
 gem 'google_drive'
 gem 'prawn'
+gem 'oj'
 
 gem 'puma'
 gem 'capistrano'
