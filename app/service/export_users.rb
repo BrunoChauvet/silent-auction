@@ -39,12 +39,42 @@ class ExportUsers
     pdf = Prawn::Document.new(:page_size => 'A4', :margin => PAGE_MARGINS)
     
     users.each_with_index do |user, index|
+
+      if index % CARD_PER_PAGE == 0
+        pdf.stroke do
+          pdf.vertical_line -20, -10, :at => 0
+          pdf.vertical_line -20, -10, :at => CARD_WIDTH
+          pdf.vertical_line -20, -10, :at => 2*CARD_WIDTH
+
+          pdf.vertical_line (5*CARD_HEIGHT+20), (5*CARD_HEIGHT+10), :at => 0
+          pdf.vertical_line (5*CARD_HEIGHT+20), (5*CARD_HEIGHT+10), :at => CARD_WIDTH
+          pdf.vertical_line (5*CARD_HEIGHT+20), (5*CARD_HEIGHT+10), :at => 2*CARD_WIDTH
+
+          pdf.vertical_line CARD_HEIGHT-2, CARD_HEIGHT+2, :at => CARD_WIDTH
+          pdf.horizontal_line CARD_WIDTH-2, CARD_WIDTH+2, :at => CARD_HEIGHT
+
+          pdf.vertical_line 2*CARD_HEIGHT-2, 2*CARD_HEIGHT+2, :at => CARD_WIDTH
+          pdf.horizontal_line CARD_WIDTH-2, CARD_WIDTH+2, :at => 2*CARD_HEIGHT
+
+          pdf.vertical_line 3*CARD_HEIGHT-2, 3*CARD_HEIGHT+2, :at => CARD_WIDTH
+          pdf.horizontal_line CARD_WIDTH-2, CARD_WIDTH+2, :at => 3*CARD_HEIGHT
+
+          pdf.vertical_line 4*CARD_HEIGHT-2, 4*CARD_HEIGHT+2, :at => CARD_WIDTH
+          pdf.horizontal_line CARD_WIDTH-2, CARD_WIDTH+2, :at => 4*CARD_HEIGHT
+        end
+      end
+
       gap = 0
       if index % 2 == 1
         gap = CARD_WIDTH + CARD_GAP_SIDE
         pdf.move_cursor_to(pdf.cursor + CARD_HEIGHT) - CARD_GAP_TOP
       else
         pdf.move_cursor_to(pdf.cursor - CARD_GAP_SIDE)
+      end
+
+      pdf.stroke do
+        pdf.horizontal_line -20, -10, :at => pdf.cursor
+        pdf.horizontal_line (CARD_WIDTH * 2 + 10), (CARD_WIDTH * 2 + 20), :at => pdf.cursor
       end
 
       pdf.bounding_box([gap, pdf.cursor], width: CARD_WIDTH, height: CARD_HEIGHT) do
@@ -76,11 +106,12 @@ class ExportUsers
             pdf.formatted_text_box([text: "Charity Gala UFE 2013", size: 10, align: :center, color: "8080A0"],
               at: [20, -15], height: LINE_WEIGHT, width: DETAIL_WIDTH)
           end
-
         end
+      end
 
-        pdf.stroke_color '000000'
-        pdf.stroke_bounds
+      pdf.stroke do
+        pdf.horizontal_line -20, -10, :at => pdf.cursor
+        pdf.horizontal_line (CARD_WIDTH * 2 + 10), (CARD_WIDTH * 2 + 20), :at => pdf.cursor
       end
 
       if index % CARD_PER_PAGE == (CARD_PER_PAGE - 1)
@@ -106,8 +137,8 @@ class ExportUsers
         pdf.image "#{Rails.root}/app/assets/images/etihad-logo.jpg",
           :at => [10, pdf.cursor - 25], scale: 0.7
 
-        pdf.stroke_color '000000'
-        pdf.stroke_bounds
+        # pdf.stroke_color '000000'
+        # pdf.stroke_bounds
       end
 
     end
