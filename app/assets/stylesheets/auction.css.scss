@@ -256,14 +256,15 @@ a:hover, a:focus {
 }
 
 .results {
+  margin-top: 80px;
   max-width: 1280px;
   font-size: 1.2em;
 }
 
 .results .result-row {
   border-top: 1px solid #707070;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .results .result-cell {
