@@ -10,8 +10,8 @@ describe ImportUsers do
       ImportUsers.import file_path
 
       user_groups = UserGroup.order('sort_order')
-      user_groups.length.should eql(31)
-      user_groups[0].name.should eql('Table 0')
+      user_groups.length.should eql(30)
+      user_groups[0].name.should eql('Table 1')
     end
 
     it "should not recreate an existing table" do
@@ -23,15 +23,15 @@ describe ImportUsers do
       user_groups.each do |user_group|
       end
 
-      user_groups.length.should eql(31)
-      user_groups[1].name.should eql('Table 1')
+      user_groups.length.should eql(30)
+      user_groups[0].name.should eql('Table 1')
     end
 
     it "should extract the users" do
       ImportUsers.import file_path
 
       users = User.all
-      users.length.should eql(128)
+      users.length.should eql(127)
       
       user = User.where(first_name: 'Emmanuel', last_name: 'About').first
       user.title.should eql('Mr')

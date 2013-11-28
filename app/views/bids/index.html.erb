@@ -11,6 +11,7 @@
       <th>Item</th>
       <th>User</th>
       <th>Time</th>
+      <th>Placed by</th>
       <th></th>
       <th></th>
     </tr>
@@ -23,6 +24,7 @@
         <td><%= bid.item.name %></td>
         <td><%= bid.user.title %> <%= bid.user.first_name %> <%= bid.user.last_name %></td>
         <td><%= bid.timestamp.in_time_zone('Australia/Sydney') %></td>
+        <td><%= "#{bid.placed_by.try(:title)} #{bid.placed_by.try(:first_name)} #{bid.placed_by.try(:last_name)}" %></td>
         <td><%= button_to 'Edit', edit_bid_path(bid), method: :get, :class => 'btn btn-primary' %></td>
         <td><%= button_to 'Delete', bid, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>

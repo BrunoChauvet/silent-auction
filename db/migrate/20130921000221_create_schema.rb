@@ -47,6 +47,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :bids do |t|
       t.belongs_to :user
       t.belongs_to :item
+      t.belongs_to :placed_by, class_name: "User", :foreign_key => "placed_by_id"
       t.decimal :price
       t.datetime :timestamp
 
@@ -55,6 +56,7 @@ class CreateSchema < ActiveRecord::Migration
 
     add_foreign_key(:bids, :users)
     add_foreign_key(:bids, :items)
+    add_foreign_key(:bids, :users, column: 'placed_by_id')
     add_index(:bids, [:user_id, :item_id, :timestamp])
     add_index(:bids, [:item_id, :timestamp])
   end

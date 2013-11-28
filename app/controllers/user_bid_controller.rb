@@ -29,7 +29,7 @@ class UserBidController < MobileApplicationController
   def place_bid
     begin
       item = Item.find(params[:item][:id])
-      bid = Bid.place(item, current_user, params[:price].to_d)
+      bid = Bid.place(item, current_user, params[:price].to_d, current_user)
       render json: {success: true, item: item, user: current_user, bid: bid}
     rescue Exception => e
       render json: {success: false, message: e.message, minimum_price: item.minimum_price, current_price: item.current_price}
