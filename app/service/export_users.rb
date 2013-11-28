@@ -93,7 +93,7 @@ class ExportUsers
   end
 
   def self.print_card_back(pdf)
-    (0..CARD_PER_PAGE+1).each do |index|
+    (0..CARD_PER_PAGE-1).each do |index|
       gap = 0
       if index % 2 == 1
         gap = CARD_WIDTH + CARD_GAP_SIDE

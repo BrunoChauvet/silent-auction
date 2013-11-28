@@ -7,7 +7,7 @@ class AdminController < ApplicationController
   end
 
   def user_cards
-    @users = User.all.joins(:user_group).order('user_groups.sort_order ASC, last_name asc, first_name ASC')  
+    @users = User.all.joins(:user_group).order('last_name ASC, first_name ASC')  
     respond_to do |format|
       format.html
       format.pdf {
