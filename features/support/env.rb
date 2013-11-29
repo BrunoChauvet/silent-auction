@@ -57,7 +57,7 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Before do
-  Preference.create(name: 'END_TIME', value: '2013-11-30 22:00:00+0900')
+  Preference.create(name: 'END_TIME', value: '2013-11-30 22:10:00+1100')
 end
 
 AfterStep('@pause') do
