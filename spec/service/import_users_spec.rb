@@ -10,7 +10,7 @@ describe ImportUsers do
       ImportUsers.import file_path
 
       user_groups = UserGroup.order('sort_order')
-      user_groups.length.should eql(30)
+      user_groups.length.should eql(26)
       user_groups[0].name.should eql('Table 1')
     end
 
@@ -23,7 +23,7 @@ describe ImportUsers do
       user_groups.each do |user_group|
       end
 
-      user_groups.length.should eql(30)
+      user_groups.length.should eql(26)
       user_groups[0].name.should eql('Table 1')
     end
 
@@ -31,26 +31,27 @@ describe ImportUsers do
       ImportUsers.import file_path
 
       users = User.all
-      users.length.should eql(127)
+      users.length.should eql(246)
       
-      user = User.where(first_name: 'Emmanuel', last_name: 'About').first
-      user.title.should eql('Mr')
-      user.first_name.should eql('Emmanuel')
-      user.last_name.should eql('About')
-      user.user_group.name.should eql('Table 15')
+      user = User.where(first_name: 'Lea', last_name: 'Seguier').first
+      user.title.should eql('Mrs')
+      user.first_name.should eql('Lea')
+      user.last_name.should eql('Seguier')
+      user.user_group.name.should eql('Table 9')
     end
 
     it "should update an existing user" do
       table = UserGroup.create!(name: 'Table 2', sort_order: 2)
-      User.create(title: 'Mr', first_name: 'Emmanuel', last_name: 'About', user_group: table)
+      User.create(title: 'Mrs', first_name: 'Lea', last_name: 'Seguier', user_group: table, pin: 1122)
 
       ImportUsers.import file_path
 
-      user = User.where(first_name: 'Emmanuel', last_name: 'About').first
-      user.title.should eql('Mr')
-      user.first_name.should eql('Emmanuel')
-      user.last_name.should eql('About')
-      user.user_group.name.should eql('Table 15')
+      user = User.where(first_name: 'Lea', last_name: 'Seguier').first
+      user.title.should eql('Mrs')
+      user.first_name.should eql('Lea')
+      user.last_name.should eql('Seguier')
+      user.user_group.name.should eql('Table 9')
+      user.pin.should eql("1122")
     end
 
   end

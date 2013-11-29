@@ -7,7 +7,7 @@ class ImportUsers
 
 	def self.import(file_path)
 		book = Roo::Excelx.new(file_path)
-		book.default_sheet = 'Guests'
+		book.default_sheet = 'Gala Charite 30 Nov13'
 
     for line in 7..book.last_row do
       break if book.cell(line, IDX_FIRST_NAME).nil? && book.cell(line, IDX_LAST_NAME).nil?
