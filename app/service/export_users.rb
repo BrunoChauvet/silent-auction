@@ -39,7 +39,7 @@ class ExportUsers
     pdf = Prawn::Document.new(:page_size => 'A4', :margin => PAGE_MARGINS)
     
     users.each_with_index do |user, index|
-
+puts "USER: #{user.first_name} #{user.last_name}"
       if index % CARD_PER_PAGE == 0
         pdf.stroke do
           pdf.vertical_line -20, -10, :at => 0

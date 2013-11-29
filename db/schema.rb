@@ -17,20 +17,21 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.integer  "user_id"
     t.integer  "item_id"
     t.integer  "placed_by_id"
-    t.decimal  "price"
+    t.decimal  "price",        precision: 10, scale: 0
     t.datetime "timestamp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "bids", ["item_id", "timestamp"], name: "index_bids_on_item_id_and_timestamp"
-  add_index "bids", ["user_id", "item_id", "timestamp"], name: "index_bids_on_user_id_and_item_id_and_timestamp"
+  add_index "bids", ["item_id", "timestamp"], name: "index_bids_on_item_id_and_timestamp", using: :btree
+  add_index "bids", ["placed_by_id"], name: "bids_placed_by_id_fk", using: :btree
+  add_index "bids", ["user_id", "item_id", "timestamp"], name: "index_bids_on_user_id_and_item_id_and_timestamp", using: :btree
 
   create_table "categories", force: true do |t|
     t.string "name"
   end
 
-  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
 
   create_table "items", force: true do |t|
     t.integer "category_id"
@@ -40,18 +41,18 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "code"
     t.string  "image"
     t.string  "sponsor"
-    t.decimal "start_price"
-    t.decimal "bid_increment"
+    t.decimal "start_price",   precision: 10, scale: 0
+    t.decimal "bid_increment", precision: 10, scale: 0
   end
 
-  add_index "items", ["code"], name: "index_items_on_code", unique: true
+  add_index "items", ["code"], name: "index_items_on_code", unique: true, using: :btree
 
   create_table "preferences", force: true do |t|
     t.string "name"
     t.string "value"
   end
 
-  add_index "preferences", ["name"], name: "index_preferences_on_name", unique: true
+  add_index "preferences", ["name"], name: "index_preferences_on_name", unique: true, using: :btree
 
   create_table "user_groups", force: true do |t|
     t.string  "name"
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.integer "sort_order"
   end
 
-  add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true
+  add_index "user_groups", ["name"], name: "index_user_groups_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.integer "user_group_id"
@@ -69,5 +70,9 @@ ActiveRecord::Schema.define(version: 20130921000221) do
     t.string  "pin"
     t.boolean "admin",         default: false
   end
+
+  add_foreign_key "bids", "items", name: "bids_item_id_fk"
+  add_foreign_key "bids", "users", name: "bids_placed_by_id_fk", column: "placed_by_id"
+  add_foreign_key "bids", "users", name: "bids_user_id_fk"
 
 end
