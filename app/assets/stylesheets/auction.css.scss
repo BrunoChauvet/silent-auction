@@ -126,7 +126,7 @@ h3 {
 #auction .item-container {
   padding: 2px !important;
   width: 49%;
-  height: 125px;
+  height: 123px;
   margin: 0 0.5% 0.5% 0.5%;
   position: relative;
   float: left;
@@ -134,6 +134,7 @@ h3 {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   background-color: #FFFFFF;
+  overflow: hidden;
   
 }
 
