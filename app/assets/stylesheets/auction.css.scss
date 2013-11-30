@@ -19,6 +19,10 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
+h3 {
+  font-size: 0.9em;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -43,7 +47,7 @@ a:hover, a:focus {
 .navbar-header .title {
   float: left;
   text-align: center;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   line-height: 50px;
   padding: 0px;
@@ -70,16 +74,6 @@ a:hover, a:focus {
 .navbar-default .navbar-nav > li > a {
     color: #A43030;
     font-weight: bold;
-}
-
-.navbar-header .title {
-  float: left;
-  text-align: center;
-  font-size: 1.4em;
-  font-weight: bold;
-  line-height: 50px;
-  padding: 0px 5px;
-  color: #A43030;
 }
 
 .navbar-header .auction-title {
@@ -314,7 +308,7 @@ span.header-title {
 
 #authenticate .username {
   font-weight: bold;
-  font-size: 1.8em;
+  font-size: 1.6em;
   text-align: center;
 }
 
@@ -403,22 +397,6 @@ div.mobile-header {
   border-bottom: 1px solid #A0A0A0;
 }
 
-div.public-header-title {
-  background-image: image-url("ufe_logo.png");
-  background-position: right top;
-  background-repeat: no-repeat;
-  font-size: 1.6em;
-  font-weight: bold;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.public-header-title .title {
-  margin-left: 5px;
-  margin-right: 60px;
-  text-align: center;
-}
-
 .mobile-header a.back {
   margin-top: 10px;
 }
@@ -442,7 +420,7 @@ div.back-button {
   padding-top: 10px;
   line-height: 45px;
   color: #DABDBD;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;
