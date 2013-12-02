@@ -31,7 +31,7 @@ describe ImportUsers do
       ImportUsers.import file_path
 
       users = User.all
-      users.length.should eql(246)
+      users.length.should eql(245)
       
       user = User.where(first_name: 'Lea', last_name: 'Seguier').first
       user.title.should eql('Mrs')

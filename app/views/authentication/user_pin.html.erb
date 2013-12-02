@@ -18,7 +18,7 @@
   </div>
 
   <% if flash[:error] %>
-    <div class="alert alert-danger"><%= flash[:error] %></div>
+    <div id="error" class="alert alert-danger"><%= flash[:error] %></div>
   <% end %>
 
   <div class="row">
@@ -34,7 +34,7 @@
         <div class="form-group">
           <label for="pin" class="col-xs-2 control-label">&nbsp;</label>
           <div class="col-xs-6">
-            <button type="submit" class="btn btn-primary btn-lg">
+            <button id="validate" type="submit" class="btn btn-primary btn-lg">
               <i class="glyphicon glyphicon-user"></i> Validate
             </button>
           </div>
