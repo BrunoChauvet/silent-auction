@@ -6,7 +6,7 @@ class AuthenticationController < MobileApplicationController
       return
     end
 
-    @tables = UserGroup.find(:all, order: :sort_order)
+    @tables = UserGroup.all.order(:sort_order)
   end
 
   def users

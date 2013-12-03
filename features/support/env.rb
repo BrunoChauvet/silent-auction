@@ -56,8 +56,17 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+require 'capybara/poltergeist'
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, {timeout: 60})
+end
+
+Capybara.javascript_driver = :poltergeist
+Capybara.default_wait_time = 10
+
 Before do
-  Preference.create(name: 'END_TIME', value: '2013-11-30 22:10:00+1100')
+  Preference.create(name: 'END_TIME', value: (Time.now + 1.to_i.hours).strftime("%Y-%m-%d %H:%M:%S%z"))
 end
 
 AfterStep('@pause') do

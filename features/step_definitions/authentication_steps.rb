@@ -15,8 +15,17 @@ When(/^I enter the pin "(.*?)"$/) do |pin|
   click_button('validate')
 end
 
-Then(/^I should see the error message "(.*?)"$/) do |message|
-  find('#error').text.should eql(message)
+Given(/^I am authenticated$/) do
+  FactoryGirl.create :user
+  steps %Q{
+    Given the following users exist
+      | Title | First name     | Last name   | Table   | Pin  |
+      | Mr    | John           | Smith       | Table 1 | 1234 |
+  }
+  step %{I go to the authentication page}
+  step %{I select the table "Table 1"}
+  step %{I select the user "Mr John Smith"}
+  step %{I enter the pin "1234"}
 end
 
 

@@ -6,7 +6,7 @@
     <div class="row" ng-show="message != ''">
       <div class="col-md-12 alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        {{message}}
+        <span id="success">{{message}}</span>
       </div>
     </div>
 
@@ -60,17 +60,17 @@
     </div>
 
     <div class="row" ng-show="error != ''">
-      <div class="col-md-12 alert alert-danger">{{error}}</div>
+      <div id="error" class="col-md-12 alert alert-danger">{{error}}</div>
     </div>
 
     <div class="row"><div class="col-md-12">&nbsp;</div></div>
 
     <div class="row">
       <div class="col-md-12 bid-actions">
-        <button class="btn btn-primary btn-lg btn-warning" type="submit" ng-click="cancelBid()">
+        <button id="cancel-bid" class="btn btn-primary btn-lg btn-warning" type="submit" ng-click="cancelBid()">
           <span class="glyphicon glyphicon-remove"></span>Cancel
         </button>
-        <button class="btn btn-primary btn-lg btn-success" type="submit" ng-click="placeBid()">
+        <button id="submit-bid" class="btn btn-primary btn-lg btn-success" type="submit" ng-click="placeBid()">
           <span class="glyphicon glyphicon-usd"></span>Place Bid
         </button>
       </div>

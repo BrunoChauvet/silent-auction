@@ -1,4 +1,4 @@
-@javascript @wip
+@javascript
 Feature: Display the auction screen
 
   Scenario: Display the first 6 items

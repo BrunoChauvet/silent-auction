@@ -55,6 +55,7 @@ group :test, :development do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner', :require => false
   gem 'selenium-webdriver'
+  gem "poltergeist", "~> 1.4.1"
 end
 
 gem 'rails_12factor', group: :production

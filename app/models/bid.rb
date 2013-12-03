@@ -9,7 +9,7 @@ class Bid < ActiveRecord::Base
     if item.start_price > price
       raise 'Price cannot be lower than start price'
     elsif previous_bid.present? && previous_bid.price >= price
-      raise 'Asked price is to low'
+      raise 'Asked price is too low'
     elsif Time.now > Preference.end_time
       raise 'Auction has ended'
     else

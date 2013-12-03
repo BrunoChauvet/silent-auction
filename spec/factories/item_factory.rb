@@ -6,7 +6,7 @@ FactoryGirl.define do
   	code '101'
     name 'iPad 4G'
     start_price 300
-    bid_increment 10
+    bid_increment 20
     category
   end
 end
