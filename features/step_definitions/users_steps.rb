@@ -6,6 +6,7 @@ Given(/^the following users exist$/) do |table|
                         first_name: row['First name'],
                         last_name: row['Last name'],
                         pin: row['Pin'],
+                        admin: row['Admin'] || false,
                         user_group: user_table)
   end
 end

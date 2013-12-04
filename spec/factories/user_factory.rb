@@ -7,6 +7,7 @@ FactoryGirl.define do
     first_name 'John'
     last_name 'Smith'
     pin 1234
+    admin false
     user_group
   end
 end

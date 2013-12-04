@@ -14,7 +14,7 @@ Background:
 
   Scenario: Place a bid at start price
     Given I am authenticated
-    When select the item "101 Item 1"
+    When I select the item "101 Item 1"
     Then I should see a bid price of "$100"
     When I submit the bid
     Then I should see the success message "Bid has been placed"
@@ -29,7 +29,7 @@ Background:
       | 101    | 100    | Mrs Amanda Smith |
       | 102    | 200    | Mrs Amanda Smith |
     And I am authenticated
-    When select the item "101 Item 1"
+    When I select the item "101 Item 1"
     Then I should see a bid price of "$120"
     When I submit the bid
     Then I should see the success message "Bid has been placed"
@@ -37,7 +37,7 @@ Background:
       | Item             | Price       |
       | 101 Item 1       | $120        |
       | 102 Item 2       | $200        |
-    When select the item "102 Item 2"
+    When I select the item "102 Item 2"
     Then I should see a bid price of "$250"
     When I submit the bid
     Then I should see the success message "Bid has been placed"
@@ -48,7 +48,7 @@ Background:
 
   Scenario: Bid is rejected when asked price is too low
     Given I am authenticated
-    When select the item "101 Item 1"
+    When I select the item "101 Item 1"
     Then I should see a bid price of "$100"
     Given the following bids exist
       | Item   | Price  | User             |
@@ -63,7 +63,7 @@ Background:
 
   Scenario: Bid is rejected after auction has ended
     Given I am authenticated
-    When select the item "101 Item 1"
+    When I select the item "101 Item 1"
     Then I should see a bid price of "$100"
     Given the auction has ended
     When I submit the bid

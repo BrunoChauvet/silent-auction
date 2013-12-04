@@ -16,7 +16,6 @@ When(/^I enter the pin "(.*?)"$/) do |pin|
 end
 
 Given(/^I am authenticated$/) do
-  FactoryGirl.create :user
   steps %Q{
     Given the following users exist
       | Title | First name     | Last name   | Table   | Pin  |
@@ -28,6 +27,17 @@ Given(/^I am authenticated$/) do
   step %{I enter the pin "1234"}
 end
 
+Given(/^I am authenticated as an admin$/) do
+  steps %Q{
+    Given the following users exist
+      | Title | First name     | Last name   | Table   | Pin  | Admin |
+      | Mr    | John           | Smith       | Table 1 | 1234 | true  |
+  }
+  step %{I go to the authentication page}
+  step %{I select the table "Table 1"}
+  step %{I select the user "Mr John Smith"}
+  step %{I enter the pin "1234"}
+end
 
 def click_item(selector, item_name)
   item = nil
@@ -37,6 +47,6 @@ def click_item(selector, item_name)
       item = table_row
     end
   end
-  rase "#{item_name} not found" unless item
+  raise "#{item_name} not found" unless item
   item.find("a").click
 end

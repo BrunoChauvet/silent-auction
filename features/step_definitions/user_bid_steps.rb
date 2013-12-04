@@ -2,7 +2,7 @@ Then(/^I should see my bids page$/) do
   find("#user-bid")
 end
 
-When(/^select the item "(.*?)"$/) do |item_name|
+When(/^I select the item "(.*?)"$/) do |item_name|
   eventually {
   	bid_items = all('#user-bid .bid-item')
     found = false

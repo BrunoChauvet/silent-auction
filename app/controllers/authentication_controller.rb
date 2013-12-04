@@ -41,13 +41,7 @@ private
 
   def redirect_user(user)
     if user.admin? 
-      if browser.tablet?
-        redirect_to select_table_path
-      elsif browser.mobile?
-        redirect_to current_bids_path
-      else
-        redirect_to admin_path
-      end
+      redirect_to select_table_path
     else
       redirect_to current_bids_path
     end
