@@ -1,3 +1,10 @@
 language: ruby
 rvm:
- - 2.0.0
+- 2.0.0
+deploy:
+  provider: heroku
+  api_key:
+    secure: LeXBnwGb7cWN4lCz9ce0VFSdeCFiKNdw3F8profgVW6zbY+T9D2R0upDuFCO4QiFWuhytG0wBiQKmKn6NdELIH1yt6CKwdvKVLNKhp7WjWLvSuO1rPZ4TIO+EB/8aqItSiqOa6pFGFd/sOQR2pgZvy3eiX+BCVDyxofmMokjWzk=
+  app: silent-auction
+  on:
+    repo: BrunoChauvet/silent-auction
